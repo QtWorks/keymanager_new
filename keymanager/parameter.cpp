@@ -95,7 +95,7 @@ Parameter *Parameter::createParameter(Block *pParentBlock, const QString &sParam
 //-------------------------------------------------------------------------------------------------
 
 Parameter::Parameter(Block *pParentBlock, const CXMLNode &xParameterNode, QObject *pParent) : QObject(pParent),
-    m_pParentBlock(pParentBlock), m_sDefaultValue(VALUE_DEFAULT_VALUE)
+    m_pParentBlock(pParentBlock)
 {
     // Set attributes
     m_hAttributes = xParameterNode.attributes();

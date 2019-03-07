@@ -20,10 +20,24 @@
 //-------------------------------------------------------------------------------------------------
 
 GenericParameterTableModel::GenericParameterTableModel(KeyManager *pKeyManager, Block *pParentBlock, const QStringList &lColumnLabels, const QStringList &lColumnVariables, const QString &sDefaultValue, const QString &sTargetRow,
-    int nRows, const QString &sTargetVariable, const QString &sVariableMethod, const QString &sActionSetNumberOfRows, QObject *parent) : QAbstractItemModel(parent),
+    int nRows, const QString &sTargetVariable, const QString &sVariableMethod, const QString &sActionSetNumberOfRows, const QString &sUnsetValue, QObject *parent) : QAbstractItemModel(parent),
     m_pKeyManager(pKeyManager), m_pParentBlock(pParentBlock)
 {
+    // Check unset values
+    QStringList lUnsetValues;
     int nColumns = qMin(lColumnLabels.size(), lColumnVariables.size());
+    if (sUnsetValue.isEmpty())
+    {
+        for (int i=0; i<nColumns; i++)
+            lUnsetValues << ERASE_VALUE;
+    }
+    else
+    {
+        lUnsetValues = sUnsetValue.split(",");
+        if (lUnsetValues.size() < nColumns)
+            for (int i=lUnsetValues.size(); i<nColumns; i++)
+                lUnsetValues << ERASE_VALUE;
+    }
 
     // Check we have the right number of default values:
     QStringList lDefaultValues;
@@ -73,6 +87,7 @@ GenericParameterTableModel::GenericParameterTableModel(KeyManager *pKeyManager, 
                     if (pParameter != nullptr)
                     {
                         pParameter->setAttributeValue(PROPERTY_TYPE, PROPERTY_DOUBLE);
+                        pParameter->setUnsetValue(lUnsetValues[j]);
                         m_vParameters << pParameter;
                         pParentBlock->addParameter(pParameter);
                         KeyParser::addParameter(pParentBlock->getParentKey(), pParameter);
@@ -630,11 +645,10 @@ GenericParameterTable::GenericParameterTable(KeyManager *pKeyManager, Parameter 
 
     // Set model
     QStringList lColumnVariables = sColumnVariables.split(",");
-    m_pModel = new GenericParameterTableModel(m_pKeyManager, pParentBlock, lColumnLabels, lColumnVariables, defaultValue(), sTargetRow, nRows, sTargetVariable, sVariableMethod, sActionSetNumberOfPins, this);
+    m_pModel = new GenericParameterTableModel(m_pKeyManager, pParentBlock, lColumnLabels, lColumnVariables, defaultValue(), sTargetRow, nRows, sTargetVariable, sVariableMethod, sActionSetNumberOfPins, sUnsetValue, this);
     m_pUI->tableView->setModel(m_pModel);
     m_pUI->tableView->onRowCountChanged();
     connect(m_pModel, &GenericParameterTableModel::rowCountChanged, m_pUI->tableView, &CustomTableView::onRowCountChanged);
-    //connect(m_pModel, &GenericParameterTableModel::parameterValueChanged, this, &GenericParameterTable::parameterValueChanged, Qt::UniqueConnection);
 
     // Populate button area
     connect(pHeaderView, &CustomHeaderView::clearClicked, this, &GenericParameterTable::onClearColumn, Qt::UniqueConnection);

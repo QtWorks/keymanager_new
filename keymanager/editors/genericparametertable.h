@@ -26,7 +26,7 @@ public:
 
     //! Constructor
     GenericParameterTableModel(KeyManager *pKeyManager, Block *pParentBlock, const QStringList &lColumnLabels, const QStringList &lColumnVariables, const QString &sDefaultValue, const QString &sTargetRow,
-        int nRows, const QString &sTargetVariable, const QString &sVariableMethod, const QString &sActionSetNumberOfPins, QObject *parent=nullptr);
+        int nRows, const QString &sTargetVariable, const QString &sVariableMethod, const QString &sActionSetNumberOfPins, const QString &sUnsetValue, QObject *parent=nullptr);
 
     //! Destructor
     virtual ~GenericParameterTableModel();

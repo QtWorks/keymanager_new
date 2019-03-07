@@ -83,7 +83,7 @@ private:
     
     //! Value
     QString m_sValue="";
-    
+
     //! Default value
     QString m_sDefaultValue="";
 
