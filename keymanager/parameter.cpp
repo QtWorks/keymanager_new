@@ -18,6 +18,7 @@ Parameter *Parameter::createParameter(Block *pParentBlock, const CXMLNode &xPara
         // Parameter node
         if (xParameterNode.attributes().contains(PROPERTY_VARIABLE))
         {
+            // Retrieve parameter variable
             QString sParameterVariable = xParameterNode.attributes()[PROPERTY_VARIABLE];
 
             // Check parameter variable
@@ -169,6 +170,20 @@ void Parameter::setValue(const QString &sValue)
         m_sValue = sValue;
         emit parameterValueChanged(sVariable, sValue);
     }
+}
+
+//-------------------------------------------------------------------------------------------------
+
+const QString &Parameter::getUnsetValue() const
+{
+    return m_sUnsetValue;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+void Parameter::setUnsetValue(const QString &sUnsetValue)
+{
+    m_sUnsetValue = sUnsetValue;
 }
 
 //-------------------------------------------------------------------------------------------------

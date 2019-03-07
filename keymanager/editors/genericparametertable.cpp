@@ -606,6 +606,7 @@ GenericParameterTable::GenericParameterTable(KeyManager *pKeyManager, Parameter 
     QString sColumnLabels = m_pParameter->getAttributeValue(PROPERTY_COLUMN_LABELS);
     QString sColumnVariables = m_pParameter->getAttributeValue(PROPERTY_COLUMN_VARIABLES);
     QString sActionSetNumberOfPins = m_pParameter->getAttributeValue(ACTION_SET_NUMBER_OF_ROWS);
+    QString sUnsetValue = m_pParameter->getAttributeValue(PROPERTY_UNSET);
 
     // Setup UI
     m_pUI->setupUi(this);

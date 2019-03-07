@@ -28,6 +28,7 @@ Block::Block(Block *pParentBlock, const CXMLNode &xBlockNode, QObject *pParent) 
             if (pParameter != nullptr)
             {
                 pParameter->setValue(getAttributeValue(PROPERTY_VALUE));
+                addParameter(pParameter);
                 KeyParser::addParameter(getParentKey(), pParameter);
             }
             else
@@ -37,7 +38,7 @@ Block::Block(Block *pParentBlock, const CXMLNode &xBlockNode, QObject *pParent) 
             }
         }
         else
-        // _use_qt type of variable
+        // _use_qt_
         if (sSetVariable.contains(USE_QT))
         {
             Parameter *pParameter = Parameter::createParameter(this, sSetVariable);
@@ -45,6 +46,7 @@ Block::Block(Block *pParentBlock, const CXMLNode &xBlockNode, QObject *pParent) 
             {
                 pParameter->setAttributeValue(PROPERTY_TYPE, PROPERTY_BOOLEAN);
                 pParameter->setValue(VALUE_NO);
+                addParameter(pParameter);
                 KeyParser::addParameter(getParentKey(), pParameter);
             }
             else

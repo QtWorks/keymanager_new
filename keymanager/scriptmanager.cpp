@@ -38,7 +38,7 @@ void ScriptManager::shutdown()
 }
 
 //-------------------------------------------------------------------------------------------------
-
+#include <QDebug>
 bool ScriptManager::generateScriptForKey(Key *pTargetKey)
 {
     if (pTargetKey != nullptr)
@@ -66,7 +66,9 @@ bool ScriptManager::generateScriptForKey(Key *pTargetKey)
             replaceVariablesInScriptForKey(pTargetKey, sScriptText);
 
             // Process other keys
-            const QVector<Key *> &vKeys = m_pKeyManager->keyParser().getKeys();
+            QVector<Key *> vKeys = m_pKeyManager->keyParser().getKeys();
+            vKeys.removeAll(pSettingsKey);
+            vKeys.removeAll(pTargetKey);
 
             foreach (Key *pCurrentKey, vKeys)
             {
@@ -127,7 +129,7 @@ void ScriptManager::replaceVariablesInScriptForKey(Key *pTargetKey, QString &sSc
                 // Check parameter value
                 if (sParameterValue.isEmpty())
                 {
-                    QString sUnsetValue = pParameter->getAttributeValue(PROPERTY_UNSET);
+                    QString sUnsetValue = pParameter->getUnsetValue();
                     sParameterValue = !sUnsetValue.isEmpty() ? sUnsetValue : pParameter->getAttributeValue(PROPERTY_DEFAULT);
                 }
 
@@ -164,5 +166,10 @@ void ScriptManager::replaceVariablesInScriptForKey(Key *pTargetKey, QString &sSc
                 }
             }
         }
+
+        // Recurse
+        foreach (Key *pChildKey, pTargetKey->getChildKeys())
+            if (pChildKey != nullptr)
+                replaceVariablesInScriptForKey(pChildKey, sScriptText, bErase);
     }
 }

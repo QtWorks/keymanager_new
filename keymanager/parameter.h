@@ -44,6 +44,12 @@ public:
     //! Set value
     void setValue(const QString &sValue);
    
+    //! Return unset value
+    const QString &getUnsetValue() const;
+
+    //! Set unset value
+    void setUnsetValue(const QString &sUnsetValue);
+
     //-------------------------------------------------------------------------------------------------
     // Getters & setters
     //-------------------------------------------------------------------------------------------------
@@ -80,6 +86,9 @@ private:
     
     //! Default value
     QString m_sDefaultValue="";
+
+    //! Unset value
+    QString m_sUnsetValue="";
 
 signals:
     //-------------------------------------------------------------------------------------------------
