@@ -1,0 +1,1120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<key name="ABLOY DISKLOCK PRO">
+   <block name="ABLOY DISKLOCK PRO BLANK (LEVEL 1)" set_variable="qt_type_of_key_qt" level="1" keypreviewimage=":/images/menu1_abloy_disklock.png" value="abloy_disklock" />
+   <block name="EXTRA MATERIAL ON BLANK (LEVEL 1)" level="1">
+      <block name="SHAPE 01" set_variable="qt_extra_material_level1_shape01_use_qt">
+         <parameter variable="qt_extra_material_level1_shape_01_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level1_shape_01_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_01_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level1_shape_01_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_01_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_01_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level1_shape_01_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_01_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_01_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level1_shape_01_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_01_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_01_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_01_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level1_shape_01_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_01_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_01_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_01_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level1_shape_01_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level1_shape_01_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_01_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_01_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 02" set_variable="qt_extra_material_level1_shape02_use_qt">
+         <parameter variable="qt_extra_material_level1_shape_02_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level1_shape_02_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_02_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level1_shape_02_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_02_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_02_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level1_shape_02_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_02_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_02_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level1_shape_02_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_02_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_02_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_02_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level1_shape_02_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_02_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_02_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_02_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level1_shape_02_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level1_shape_02_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_02_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_02_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 03" set_variable="qt_extra_material_level1_shape03_use_qt">
+         <parameter variable="qt_extra_material_level1_shape_03_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level1_shape_03_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_03_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level1_shape_03_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_03_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_03_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level1_shape_03_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_03_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_03_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level1_shape_03_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_03_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_03_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_03_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level1_shape_03_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_03_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_03_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_03_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level1_shape_03_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level1_shape_03_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_03_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_03_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 04" set_variable="qt_extra_material_level1_shape04_use_qt">
+         <parameter variable="qt_extra_material_level1_shape_04_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level1_shape_04_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_04_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level1_shape_04_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_04_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_04_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level1_shape_04_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_04_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_04_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level1_shape_04_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_04_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_04_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_04_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level1_shape_04_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_04_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_04_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_04_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level1_shape_04_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level1_shape_04_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_04_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_04_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 05" set_variable="qt_extra_material_level1_shape05_use_qt">
+         <parameter variable="qt_extra_material_level1_shape_05_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level1_shape_05_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_05_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level1_shape_05_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_05_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_05_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level1_shape_05_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_05_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_05_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level1_shape_05_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_05_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_05_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_05_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level1_shape_05_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_05_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_05_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_05_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level1_shape_05_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level1_shape_05_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_05_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_05_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 06" set_variable="qt_extra_material_level1_shape06_use_qt">
+         <parameter variable="qt_extra_material_level1_shape_06_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level1_shape_06_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_06_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level1_shape_06_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_06_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_06_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level1_shape_06_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_06_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_06_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level1_shape_06_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_06_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_06_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_06_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level1_shape_06_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_06_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_06_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_06_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level1_shape_06_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level1_shape_06_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_06_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_06_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 07" set_variable="qt_extra_material_level1_shape07_use_qt">
+         <parameter variable="qt_extra_material_level1_shape_07_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level1_shape_07_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_07_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level1_shape_07_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_07_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_07_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level1_shape_07_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_07_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_07_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level1_shape_07_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_07_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_07_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_07_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level1_shape_07_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_07_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_07_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_07_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level1_shape_07_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level1_shape_07_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_07_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_07_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 08" set_variable="qt_extra_material_level1_shape08_use_qt">
+         <parameter variable="qt_extra_material_level1_shape_08_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level1_shape_08_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_08_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level1_shape_08_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_08_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_08_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level1_shape_08_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_08_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_08_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level1_shape_08_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_08_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_08_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_08_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level1_shape_08_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_08_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_08_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_08_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level1_shape_08_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level1_shape_08_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_08_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_08_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 09" set_variable="qt_extra_material_level1_shape09_use_qt">
+         <parameter variable="qt_extra_material_level1_shape_09_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level1_shape_09_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_09_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level1_shape_09_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_09_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_09_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level1_shape_09_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_09_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_09_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level1_shape_09_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_09_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_09_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_09_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level1_shape_09_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_09_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_09_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_09_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level1_shape_09_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level1_shape_09_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_09_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_09_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 10" set_variable="qt_extra_material_level1_shape10_use_qt">
+         <parameter variable="qt_extra_material_level1_shape_10_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level1_shape_10_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_10_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level1_shape_10_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_10_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_10_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level1_shape_10_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_10_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_10_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level1_shape_10_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_10_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_10_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_10_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level1_shape_10_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_10_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_10_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_10_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level1_shape_10_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level1_shape_10_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_10_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_10_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+   </block>
+   <block name="ABLOY DISKLOCK PRO CUTS (LEVEL 2)" set_variable="qt_abloy_disklock_cut_use_qt" level="2" enabled="(qt_type_of_key_qt==&quot;abloy_disklock&quot;) || (qt_type_of_key_qt == &quot;expert_stl&quot;)">
+      <parameter variable="qt_abloy_disklock_cut_use_qt" type="boolean" default="NO" />
+      <parameter name="BLADE LENGTH" type="double" variable="qt_abloy_disklock_length_qt" default="34" ui="lineedit" />
+      <parameter name="NUMBER OF DISCS" type="int" default="20" minvalue="1" maxvalue="20" variable="qt_abloy_disklock_number_of_discs_qt" ui="lineeditvalidateonreturn" />
+      <parameter name="SPACES" type="double" variable="qt_abloy_disklock_spaces_qt" default="1.6" ui="lineedit" />
+      <parameter name="MILL THICKNESS" type="double" variable="qt_abloy_disklock_mill_thickness_qt" default="2" ui="lineedit" />
+      <parameter name="DISTANCE FROM TIP" type="double" variable="qt_abloy_disklock_distance_from_tip_qt" default="2.5" ui="lineedit" />
+      <parameter name="GROOVE AT THE TIP" type="string" variable="qt_abloy_disklock_groove_at_the_tip_qt" default="NO" ui="yesno" />
+      <parameter setnumberofrows="qt_abloy_disklock_number_of_discs_qt" columnlabels="DEPTH" type="table" columnvariables="depth" nrows="20" targetvariable="qt_abloy_disklock_cut%1_qt" variablemethod="method2" default="0" ui="genericparametertable" />
+   </block>
+   <block name="EXTRA CUTS ON BLANK (LEVEL 2)" level="2">
+      <block name="SHAPE 01" set_variable="qt_extra_cut_level2_shape01_use_qt">
+         <parameter variable="qt_extra_cut_level2_shape_01_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level2_shape_01_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_01_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level2_shape_01_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_01_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_01_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level2_shape_01_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_01_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_01_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level2_shape_01_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_01_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_01_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_01_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level2_shape_01_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_01_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_01_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_01_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level2_shape_01_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level2_shape_01_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_01_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_01_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 02" set_variable="qt_extra_cut_level2_shape02_use_qt">
+         <parameter variable="qt_extra_cut_level2_shape_02_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level2_shape_02_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_02_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level2_shape_02_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_02_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_02_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level2_shape_02_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_02_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_02_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level2_shape_02_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_02_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_02_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_02_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level2_shape_02_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_02_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_02_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_02_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level2_shape_02_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level2_shape_02_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_02_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_02_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 03" set_variable="qt_extra_cut_level2_shape03_use_qt">
+         <parameter variable="qt_extra_cut_level2_shape_03_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level2_shape_03_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_03_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level2_shape_03_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_03_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_03_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level2_shape_03_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_03_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_03_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level2_shape_03_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_03_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_03_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_03_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level2_shape_03_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_03_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_03_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_03_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level2_shape_03_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level2_shape_03_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_03_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_03_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 04" set_variable="qt_extra_cut_level2_shape04_use_qt">
+         <parameter variable="qt_extra_cut_level2_shape_04_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level2_shape_04_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_04_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level2_shape_04_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_04_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_04_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level2_shape_04_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_04_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_04_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level2_shape_04_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_04_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_04_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_04_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level2_shape_04_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_04_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_04_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_04_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level2_shape_04_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level2_shape_04_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_04_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_04_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 05" set_variable="qt_extra_cut_level2_shape05_use_qt">
+         <parameter variable="qt_extra_cut_level2_shape_05_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level2_shape_05_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_05_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level2_shape_05_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_05_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_05_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level2_shape_05_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_05_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_05_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level2_shape_05_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_05_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_05_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_05_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level2_shape_05_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_05_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_05_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_05_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level2_shape_05_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level2_shape_05_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_05_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_05_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 06" set_variable="qt_extra_cut_level2_shape06_use_qt">
+         <parameter variable="qt_extra_cut_level2_shape_06_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level2_shape_06_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_06_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level2_shape_06_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_06_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_06_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level2_shape_06_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_06_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_06_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level2_shape_06_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_06_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_06_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_06_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level2_shape_06_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_06_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_06_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_06_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level2_shape_06_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level2_shape_06_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_06_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_06_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 07" set_variable="qt_extra_cut_level2_shape07_use_qt">
+         <parameter variable="qt_extra_cut_level2_shape_07_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level2_shape_07_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_07_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level2_shape_07_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_07_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_07_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level2_shape_07_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_07_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_07_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level2_shape_07_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_07_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_07_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_07_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level2_shape_07_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_07_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_07_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_07_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level2_shape_07_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level2_shape_07_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_07_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_07_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 08" set_variable="qt_extra_cut_level2_shape08_use_qt">
+         <parameter variable="qt_extra_cut_level2_shape_08_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level2_shape_08_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_08_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level2_shape_08_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_08_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_08_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level2_shape_08_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_08_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_08_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level2_shape_08_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_08_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_08_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_08_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level2_shape_08_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_08_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_08_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_08_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level2_shape_08_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level2_shape_08_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_08_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_08_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 09" set_variable="qt_extra_cut_level2_shape09_use_qt">
+         <parameter variable="qt_extra_cut_level2_shape_09_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level2_shape_09_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_09_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level2_shape_09_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_09_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_09_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level2_shape_09_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_09_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_09_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level2_shape_09_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_09_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_09_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_09_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level2_shape_09_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_09_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_09_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_09_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level2_shape_09_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level2_shape_09_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_09_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_09_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 10" set_variable="qt_extra_cut_level2_shape10_use_qt">
+         <parameter variable="qt_extra_cut_level2_shape_10_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level2_shape_10_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_10_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level2_shape_10_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_10_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_10_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level2_shape_10_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level2_shape_10_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_10_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level2_shape_10_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_10_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_10_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_10_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level2_shape_10_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level2_shape_10_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level2_shape_10_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_10_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level2_shape_10_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level2_shape_10_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_10_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_10_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+   </block>
+   <block name="AUTOMATIC KEY HEAD AND SHOULDER (LEVEL 3)" level="3" alwaysopened="true" canclear="false">
+      <parameter name="AUTOMATIC KEY HEAD AND SHOULDER (DOES NOT APPLY TO STL BLANKS)" type="string" variable="qt_automatic_key_head_and_shoulder_qt" default="NO" ui="yesno" />
+      <parameter name="TEXT LINE 1" type="string" variable="qt_key_head_text_line1_qt" />
+      <parameter name="TEXT LINE 2" type="string" variable="qt_key_head_text_line2_qt" />
+      <parameter name="TEXT LINE 3" type="string" variable="qt_key_head_text_line3_qt" />
+      <parameter name="TEXT LINE 4" type="string" variable="qt_key_head_text_line4_qt" />
+   </block>
+   <block name="EXTRA MATERIAL ON CUT KEY (LEVEL 3)(NOT CUT BY LEVEL 2)" level="3" set_variable="qt_extra_material_level3_use_qt" exclusive="false">
+      <parameter variable="qt_extra_material_level3_use_qt" type="boolean" default="NO" />
+      <parameter variable="qt_extra_material_level3_shape01_use_qt" type="boolean" default="NO" />
+      <parameter variable="qt_extra_material_level3_shape02_use_qt" type="boolean" default="NO" />
+      <parameter variable="qt_extra_material_level3_shape03_use_qt" type="boolean" default="NO" />
+      <parameter variable="qt_extra_material_level3_shape04_use_qt" type="boolean" default="NO" />
+      <parameter variable="qt_extra_material_level3_shape05_use_qt" type="boolean" default="NO" />
+      <parameter variable="qt_extra_material_level3_shape06_use_qt" type="boolean" default="NO" />
+      <parameter variable="qt_extra_material_level3_shape07_use_qt" type="boolean" default="NO" />
+      <parameter variable="qt_extra_material_level3_shape08_use_qt" type="boolean" default="NO" />
+      <parameter variable="qt_extra_material_level3_shape09_use_qt" type="boolean" default="NO" />
+      <parameter variable="qt_extra_material_level3_shape10_use_qt" type="boolean" default="NO" />
+      <block name="SHAPE 01" set_variable="qt_extra_material_level3_shape01_use_qt">
+         <parameter variable="qt_extra_material_level3_shape_01_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level3_shape_01_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_01_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level3_shape_01_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_01_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_01_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level3_shape_01_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_01_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_01_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level3_shape_01_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_01_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_01_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_01_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level3_shape_01_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_01_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_01_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_01_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level3_shape_01_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level3_shape_01_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_01_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_01_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 02" set_variable="qt_extra_material_level3_shape02_use_qt">
+         <parameter variable="qt_extra_material_level3_shape_02_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level3_shape_02_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_02_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level3_shape_02_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_02_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_02_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level3_shape_02_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_02_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_02_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level3_shape_02_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_02_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_02_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_02_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level3_shape_02_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_02_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_02_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_02_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level3_shape_02_model_qt" value="FOR STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level3_shape_02_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_02_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_02_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 03" set_variable="qt_extra_material_level3_shape03_use_qt">
+         <parameter variable="qt_extra_material_level3_shape_03_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level3_shape_03_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_03_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level3_shape_03_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_03_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_03_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level3_shape_03_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_03_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_03_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level3_shape_03_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_03_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_03_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_03_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level3_shape_03_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_03_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_03_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_03_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level3_shape_03_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level3_shape_03_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_03_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_03_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 04" set_variable="qt_extra_material_level3_shape04_use_qt">
+         <parameter variable="qt_extra_material_level3_shape_04_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level3_shape_04_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_04_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level3_shape_04_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_04_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_04_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level3_shape_04_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_04_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_04_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level3_shape_04_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_04_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_04_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_04_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level3_shape_04_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_04_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_04_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_04_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level3_shape_04_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level3_shape_04_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_04_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_04_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 05" set_variable="qt_extra_material_level3_shape05_use_qt">
+         <parameter variable="qt_extra_material_level3_shape_05_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level3_shape_05_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_05_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level3_shape_05_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_05_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_05_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level3_shape_05_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_05_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_05_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level3_shape_05_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_05_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_05_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_05_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level3_shape_05_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_05_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_05_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_05_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level3_shape_05_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level3_shape_05_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_05_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_05_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 06" set_variable="qt_extra_material_level3_shape06_use_qt">
+         <parameter variable="qt_extra_material_level3_shape_06_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level3_shape_06_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_06_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level3_shape_06_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_06_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_06_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level3_shape_06_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_06_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_06_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level3_shape_06_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_06_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_06_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_06_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level3_shape_06_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_06_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_06_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_06_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level3_shape_06_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level3_shape_06_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_06_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_06_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 07" set_variable="qt_extra_material_level3_shape07_use_qt">
+         <parameter variable="qt_extra_material_level3_shape_07_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level3_shape_07_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_07_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level3_shape_07_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_07_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_07_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level3_shape_07_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_07_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_07_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level3_shape_07_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_07_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_07_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_07_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level3_shape_07_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_07_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_07_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_07_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level3_shape_07_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level3_shape_07_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_07_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_07_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 08" set_variable="qt_extra_material_level3_shape08_use_qt">
+         <parameter variable="qt_extra_material_level3_shape_08_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level3_shape_08_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_08_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level3_shape_08_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_08_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_08_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level3_shape_08_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_08_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_08_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level3_shape_08_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_08_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_08_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_08_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level3_shape_08_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_08_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_08_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_08_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level3_shape_08_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level3_shape_08_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_08_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_08_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 09" set_variable="qt_extra_material_level3_shape09_use_qt">
+         <parameter variable="qt_extra_material_level3_shape_09_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_material_level3_shape_09_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_09_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level3_shape_09_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_09_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_09_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_material_level3_shape_09_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_09_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_09_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level3_shape_09_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_09_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_09_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_09_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_material_level3_shape_09_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_09_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_09_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_09_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level3_shape_09_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level3_shape_09_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_09_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_09_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 10" set_variable="qt_extra_material_level3_shape10_use_qt">
+         <parameter variable="qt_extra_material_level3_shape_10_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" variable="qt_extra_material_level3_shape_10_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_10_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_material_level3_shape_10_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_10_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_10_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" variable="qt_extra_material_level3_shape_10_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_material_level3_shape_10_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_10_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level3_shape_10_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_10_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_10_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_10_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" variable="qt_extra_material_level3_shape_10_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_material_level3_shape_10_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level3_shape_10_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_10_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_material_level3_shape_10_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_material_level3_shape_10_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_10_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level3_shape_10_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+   </block>
+   <block name="EXTRA CUTS ON FULL KEY (LEVEL 4)" level="4">
+      <block name="SHAPE 01" set_variable="qt_extra_cut_level4_shape01_use_qt">
+         <parameter variable="qt_extra_cut_level4_shape_01_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level4_shape_01_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_01_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level4_shape_01_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_01_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_01_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level4_shape_01_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_01_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_01_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level4_shape_01_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_01_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_01_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_01_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level4_shape_01_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_01_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_01_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_01_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level4_shape_01_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level4_shape_01_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_01_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_01_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 02" set_variable="qt_extra_cut_level4_shape02_use_qt">
+         <parameter variable="qt_extra_cut_level4_shape_02_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level4_shape_02_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_02_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level4_shape_02_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_02_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_02_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level4_shape_02_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_02_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_02_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level4_shape_02_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_02_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_02_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_02_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level4_shape_02_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_02_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_02_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_02_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level4_shape_02_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level4_shape_02_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_02_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_02_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 03" set_variable="qt_extra_cut_level4_shape03_use_qt">
+         <parameter variable="qt_extra_cut_level4_shape_03_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level4_shape_03_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_03_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level4_shape_03_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_03_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_03_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level4_shape_03_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_03_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_03_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level4_shape_03_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_03_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_03_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_03_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level4_shape_03_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_03_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_03_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_03_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level4_shape_03_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level4_shape_03_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_03_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_03_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 04" set_variable="qt_extra_cut_level4_shape04_use_qt">
+         <parameter variable="qt_extra_cut_level4_shape_04_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level4_shape_04_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_04_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level4_shape_04_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_04_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_04_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level4_shape_04_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_04_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_04_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level4_shape_04_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_04_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_04_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_04_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level4_shape_04_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_04_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_04_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_04_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level4_shape_04_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level4_shape_04_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_04_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_04_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 05" set_variable="qt_extra_cut_level4_shape05_use_qt">
+         <parameter variable="qt_extra_cut_level4_shape_05_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level4_shape_05_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_05_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level4_shape_05_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_05_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_05_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level4_shape_05_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_05_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_05_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level4_shape_05_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_05_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_05_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_05_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level4_shape_05_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_05_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_05_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_05_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level4_shape_05_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level4_shape_05_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_05_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_05_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 06" set_variable="qt_extra_cut_level4_shape06_use_qt">
+         <parameter variable="qt_extra_cut_level4_shape_06_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level4_shape_06_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_06_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level4_shape_06_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_06_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_06_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level4_shape_06_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_06_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_06_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level4_shape_06_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_06_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_06_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_06_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level4_shape_06_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_06_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_06_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_06_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level4_shape_06_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level4_shape_06_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_06_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_06_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 07" set_variable="qt_extra_cut_level4_shape07_use_qt">
+         <parameter variable="qt_extra_cut_level4_shape_07_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level4_shape_07_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_07_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level4_shape_07_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_07_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_07_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level4_shape_07_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_07_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_07_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level4_shape_07_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_07_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_07_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_07_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level4_shape_07_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_07_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_07_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_07_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level4_shape_07_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level4_shape_07_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_07_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_07_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 08" set_variable="qt_extra_cut_level4_shape08_use_qt">
+         <parameter variable="qt_extra_cut_level4_shape_08_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level4_shape_08_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_08_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level4_shape_08_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_08_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_08_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level4_shape_08_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_08_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_08_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level4_shape_08_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_08_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_08_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_08_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level4_shape_08_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_08_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_08_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_08_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level4_shape_08_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level4_shape_08_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_08_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_08_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 09" set_variable="qt_extra_cut_level4_shape09_use_qt">
+         <parameter variable="qt_extra_cut_level4_shape_09_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level4_shape_09_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_09_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level4_shape_09_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_09_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_09_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level4_shape_09_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_09_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_09_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level4_shape_09_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_09_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_09_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_09_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level4_shape_09_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_09_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_09_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_09_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level4_shape_09_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level4_shape_09_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_09_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_09_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+      <block name="SHAPE 10" set_variable="qt_extra_cut_level4_shape10_use_qt">
+         <parameter variable="qt_extra_cut_level4_shape_10_model_qt" type="string" default="CUBE" />
+         <block name="CUBE" set_variable="qt_extra_cut_level4_shape_10_model_qt" value="CUBE">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_10_cube_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIMENSIONS (XYZ)" type="double" variable="qt_extra_cut_level4_shape_10_cube_dimensions_qt" ui="double_triplet" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_10_cube_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_10_cube_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="CYLINDER" set_variable="qt_extra_cut_level4_shape_10_model_qt" value="CYLINDER">
+            <parameter name="CENTER" type="string" variable="qt_extra_cut_level4_shape_10_cylinder_centered_qt" default="NO" ui="yesno" />
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_10_cylinder_diameter_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_extra_cut_level4_shape_10_cylinder_height_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_10_cylinder_number_of_faces_qt" ui="lineedit" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_10_cylinder_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_10_cylinder_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="SPHERE" set_variable="qt_extra_cut_level4_shape_10_model_qt" value="SPHERE">
+            <parameter name="DIAMETER" type="double" variable="qt_extra_cut_level4_shape_10_sphere_diameter_qt" ui="lineedit" />
+            <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_cut_level4_shape_10_sphere_number_of_faces_qt" ui="lineedit" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_10_sphere_translate_qt" ui="double_triplet" />
+         </block>
+         <block name="STL" set_variable="qt_extra_cut_level4_shape_10_model_qt" value="STL">
+            <parameter name="BROWSE FOR A STL" type="string" variable="qt_extra_cut_level4_shape_10_stl_name_qt" ui="filepicker" extension="*.stl" />
+            <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_10_stl_rotation_qt" ui="double_triplet" />
+            <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_10_stl_translate_qt" ui="double_triplet" />
+         </block>
+      </block>
+   </block>
+</key>

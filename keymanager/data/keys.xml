@@ -1,0 +1,23 @@
+<keys>
+<key reference=":/data/regularkey.xml" order="1"/>
+<key reference=":/data/dimplekey.xml" order="2"/>
+<key name="LEVER" order="3">
+        <key reference=":/data/leversimplekey.xml" order="1"/>
+        <key reference=":/data/leverdoublekey.xml" order="2"/>
+</key>
+<key reference=":/data/tubularkey.xml" order="4"/>
+<key name="DISK" order="5">
+        <key reference=":/data/abloyclassickey.xml" order="1"/>
+        <key reference=":/data/abloydisklockprokey.xml" order="2"/>
+        <key reference=":/data/abloyproteckey.xml" order="3"/>
+        <key reference=":/data/abuspluskey.xml" order="4"/>
+        <key reference=":/data/abusxpluskey.xml" order="5"/>
+        <key reference=":/data/universaldiskkey.xml" order="6"/>
+</key>
+<key name="SPECIAL KEYS" order="6">
+        <key reference=":/data/fichet787key.xml" order="1"/>
+        <!--<key reference=":/data/expertstlkey.xml" order="2"/>-->
+</key>
+<key reference=":/data/pinboxkey.xml" order="7"/>
+<key reference=":/data/settings.xml" order="8"/>
+</keys>

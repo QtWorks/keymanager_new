@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block name="PIN BOX">
+        <block name="MAKING A PIN BOX WITH SLIDER" set_variable="qt_type_of_key_qt" level="1" keypreviewimage=":/images/pin_box.png" value="pin_box">
+                <parameter name="NUMBER OF MASTER WAFER LINES" type="double" variable="qt_pin_box_number_of_wafers_qt" ui="lineedit" />
+                <parameter name="PIN HOLE WIDTH" type="double" variable="qt_pin_box_hole_width_qt" ui="lineedit" />
+                <parameter name="PIN HOLE LENGTH" type="double" variable="qt_pin_box_pin_length_qt" ui="lineedit" />
+                <parameter name="MASTER WAFERS HOLE LENGTH" type="double" variable="qt_pin_box_wafer_length_qt" ui="lineedit" />
+                <parameter name="DRIVER PINS HOLE LENGTH" type="double" variable="qt_pin_box_driver_length_qt" ui="lineedit" />
+                <parameter name="SPRINGS HOLE LENGTH" type="double" variable="qt_pin_box_spring_length_qt" ui="lineedit" />
+                <parameter name="HOLES DEPTH" type="double" variable="qt_pin_box_groove_depth_qt" ui="lineedit" />
+                <parameter name="MAKE BOX" type="string" variable="qt_pin_box_final_qt" default="YES" ui="yesno" />
+                <parameter name="MAKE SLIDER" type="string" variable="qt_pin_box_slider_final_qt" default="YES" ui="yesno" />
+                <parameter name="SLIDER TOLERANCE" type="double" variable="qt_tolerance2_qt" ui="lineedit" />
+	  </block>
+</block>	
+	   
+
+

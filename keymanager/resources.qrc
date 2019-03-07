@@ -1,0 +1,44 @@
+<RCC>
+    <qresource prefix="/">
+        <file>css/main.css</file>
+        <file>data/keys.xml</file>
+        <file>data/regularkey.xml</file>
+        <file>icons/ico-build.png</file>
+        <file>icons/ico-clear.png</file>
+        <file>icons/ico-close.png</file>
+        <file>icons/ico-key.ico</file>
+        <file>icons/ico-key.png</file>
+        <file>icons/ico-open.png</file>
+        <file>icons/ico-progress-inidcator.gif</file>
+        <file>icons/ico-save.png</file>
+        <file>images/marque-3000-px.jpg</file>
+        <file>images/marque-3001-px.jpg</file>
+        <file>images/menu1_abloy_classic.png</file>
+        <file>images/menu1_abloy_disklock.png</file>
+        <file>images/menu1_abloy_protec.png</file>
+        <file>images/menu1_abus_plus.png</file>
+        <file>images/menu1_axi_home.png</file>
+        <file>images/menu1_browse_for_a_stl.png</file>
+        <file>images/menu1_dimple_laser.png</file>
+        <file>images/menu1_fichet_787.png</file>
+        <file>images/menu1_lever_double.png</file>
+        <file>images/menu1_lever_simple.png</file>
+        <file>images/menu1_regular.png</file>
+        <file>images/menu1_round_pump.png</file>
+        <file>data/abloyclassickey.xml</file>
+        <file>data/abloydisklockprokey.xml</file>
+        <file>data/abloyproteckey.xml</file>
+        <file>data/abuspluskey.xml</file>
+        <file>data/abusxpluskey.xml</file>
+        <file>data/dimplekey.xml</file>
+        <file>data/fichet787key.xml</file>
+        <file>data/leverdoublekey.xml</file>
+        <file>data/leversimplekey.xml</file>
+        <file>data/pinboxkey.xml</file>
+        <file>data/tubularkey.xml</file>
+        <file>data/universaldiskkey.xml</file>
+        <file>data/about.xml</file>
+        <file>data/SCAD_SCRIPT/newscript.scad</file>
+        <file>data/settings.xml</file>
+    </qresource>
+</RCC>

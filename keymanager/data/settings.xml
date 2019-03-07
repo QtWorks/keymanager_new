@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<block name="ROOT_SETTINGS">
+   <block name="SETTINGS" alwaysopened="true">
+      <parameter name="PRECISION" type="double" variable="qt_fn_qt" default="20" ui="lineedit" />
+      <parameter name="EPSILON" type="double" variable="qt_epsilon_qt" default="0.1" ui="lineedit" />
+      <parameter name="TOLERANCE" type="double" variable="qt_tolerance_qt" default="0.1" ui="lineedit" />
+      <parameter name="SHOW CUTS" type="string" variable="qt_show_chosen_cuts_qt" default="NO" ui="yesno" />
+   </block>
+</block>
