@@ -380,6 +380,20 @@ QString Helper::evaluateAutoScript(Block *pParentBlock, const QString &sAutoScri
 
 //-------------------------------------------------------------------------------------------------
 
+bool Helper::allVariablesReplaced(const QString &sFileName, QVector<QString> &vUnReplacedVariables)
+{
+    vUnReplacedVariables.clear();
+    QString sFileContents("");
+    if (loadFile(sFileName, sFileContents))
+    {
+        vUnReplacedVariables = extractVariableNames(sFileContents);
+        return vUnReplacedVariables.isEmpty();
+    }
+    return true;
+}
+
+//-------------------------------------------------------------------------------------------------
+
 void Helper::info(const QString &sInfo)
 {
 #ifdef DEBUG_INFO

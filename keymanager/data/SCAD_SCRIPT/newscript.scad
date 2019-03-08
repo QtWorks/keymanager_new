@@ -141,13 +141,7 @@ abus_plus_cut =                               qt_abus_plus_cut_qt;
 abus_x_plus_cut =                             qt_abus_x_plus_cut_qt;
 universal_disk_use =                          qt_universal_disk_use_qt;
 fichet_787_cut_use =                          qt_fichet_787_cut_use_qt;
-diamant_cut_use =                             qt_diamant_cut_use_qt;
-verso_cut_use =                               qt_verso_cut_use_qt;
-lagard_2200_2270_cut_use =                    qt_lagard_2200_2270_cut_use_qt;
-m2b_cut_use =                                 qt_m2b_cut_use_qt;
-m3b_cut_use =                                 qt_m3b_cut_use_qt;
-mxb_cut_use =                                 qt_mxb_cut_use_qt;
-monopole_cut_use =                            qt_monopole_cut_use_qt;
+
 
 
     extra_cut_level2_shape01_use =                qt_extra_cut_level2_shape01_use_qt;
@@ -291,24 +285,6 @@ universal_disk_blank_length = qt_universal_disk_blank_length_qt;
 universal_disk_dxf_name = qt_universal_disk_dxf_name_qt;
 
 
-//PARAMETERS OF VERSO
-verso_length =        qt_verso_length_qt;
-
-
-//PARAMETERS OF LAGARD 2200 2270
-lagard_2200_2270_length =        qt_lagard_2200_2270_length_qt;
-
-//PARAMETERS OF M2B
-m2b_length =        qt_m2b_length_qt;
-
-//PARAMETERS OF M3B
-m3b_length =        qt_m3b_length_qt;
-
-//PARAMETERS OF MXB
-mxb_length =        qt_mxb_length_qt;
-
-//PARAMETERS OF MONOPOLE
-monopole_length =        qt_monopole_length_qt;
 
 
 //PARAMETERS OF FICHET 787
@@ -332,6 +308,7 @@ fichet_787_dist_cut_8 = fichet_787_dist_cut_7 - fichet_787_dist_cut ;
 fichet_787_dist_cut_9 = fichet_787_dist_cut_8 - fichet_787_dist_cut ;
 fichet_787_dist_cut_10 = fichet_787_dist_cut_9 - fichet_787_dist_cut ;
 
+/*
 //PARAMETERS OF EXPERT STL
 expert_stl_name =           qt_expert_stl_name_qt;
 expert_stl_set_dimensions = qt_expert_stl_set_dimensions_qt;
@@ -344,6 +321,7 @@ expert_stl_rz =             qt_expert_stl_rz_qt;
 expert_stl_tx =             qt_expert_stl_tx_qt;
 expert_stl_ty =             qt_expert_stl_ty_qt;
 expert_stl_tz =             qt_expert_stl_tz_qt;
+*/
 
 
 //END OF BLANKS VARIABLES LEVEL 1

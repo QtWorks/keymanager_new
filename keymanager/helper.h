@@ -80,6 +80,9 @@ public:
     //! Evaluate auto script
     static QString evaluateAutoScript(Block *pParentBlock, const QString &sAutoScript, bool &bSuccess);
 
+    //! Check if all variables replaced
+    static bool allVariablesReplaced(const QString &sFileName, QVector<QString> &vUnReplacedVariables);
+
     //! Display info
     static void info(const QString &sInfo);
 

@@ -1,3 +1,6 @@
+// Qt
+#include <QDebug>
+
 // Application
 #include "keymanager.h"
 #include "scriptmanager.h"
@@ -38,7 +41,7 @@ void ScriptManager::shutdown()
 }
 
 //-------------------------------------------------------------------------------------------------
-#include <QDebug>
+
 bool ScriptManager::generateScriptForKey(Key *pTargetKey)
 {
     if (pTargetKey != nullptr)
@@ -86,6 +89,15 @@ bool ScriptManager::generateScriptForKey(Key *pTargetKey)
             // Save file
             if (Helper::saveFile(sScriptText, sOutputScriptFile))
             {
+                QVector<QString> vUnreplacedVariables;
+                if (!Helper::allVariablesReplaced(sOutputScriptFile, vUnreplacedVariables))
+                {
+                    QString sMsg = QString("ScriptManager::generateScriptForKey ALL VARIABLES COULD NOT BE REPLACED IN: %1").arg(sOutputScriptFile);
+                    Helper::info(sMsg);
+                    int count = 0;
+                    foreach (QString sUnreplacedVariable, vUnreplacedVariables)
+                        qDebug() << ++count << "UNREPLACED VARIABLE : " << sUnreplacedVariable;
+                }
                 QString sMsg = QString("ScriptManager::generateScriptForKey SCAD SCRIPT SUCCESSFULLY EXPORTED IN: %1").arg(sOutputScriptFile);
                 Helper::info(sMsg);
                 return true;
