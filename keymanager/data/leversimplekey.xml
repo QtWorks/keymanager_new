@@ -289,7 +289,7 @@
          <parameter name="SPACES" type="double" variable="qt_lever_simple_lock_row1_spaces_qt" auto="qt_lever_simple_lock_row1_blade_length_qt/qt_lever_simple_lock_row1_number_of_levers_qt" ui="lineedit" />
          <parameter name="THICKNESS OF THE CUT" type="double" variable="qt_lever_simple_lock_row1_thickness_qt" auto="qt_lever_simple_lock_row1_spaces_qt*1.25" ui="lineedit" />
          <parameter name="ANGLE OF CUTTING [ ] (ON Y AXIS)" type="double" variable="qt_lever_simple_lock_row1_angle_on_y_qt" ui="lineedit" />
-         <parameter auto="distance=qt_lever_simple_lock_row1_spaces_qt/2+currentrow*qt_lever_simple_lock_row1_spaces_qt;thickness=1.25*qt_lever_simple_lock_row1_spaces_qt" setnumberofrows="qt_lever_simple_lock_row1_number_of_levers_qt" columnlabels="DEPTH,DISTANCE,THICKNESS" type="table" targetrow="row1" columnvariables="depth,distance,thickness" nrows="20" targetvariable="qt_lever_double_lock_%1_cut%2_%3_qt" variablemethod="method1" default="0,0,0" ifunsetuse="100,0,0" ui="genericparametertable" />
+         <parameter auto="distance=qt_lever_simple_lock_row1_spaces_qt/2+currentrow*qt_lever_simple_lock_row1_spaces_qt;thickness=1.25*qt_lever_simple_lock_row1_spaces_qt" setnumberofrows="qt_lever_simple_lock_row1_number_of_levers_qt" columnlabels="DEPTH,DISTANCE,THICKNESS" type="table" targetrow="row1" columnvariables="depth,distance,thickness" nrows="20" targetvariable="qt_lever_simple_lock_%1_cut%2_%3_qt" variablemethod="method1" default="0,0,0" ifunsetuse="100,0,0" ui="genericparametertable" />
       </block>
         <block name="EXTRA CUTS ON BLANK (LEVEL 2)" level="2">
            <block name="SHAPE 01" set_variable="qt_extra_cut_level2_shape01_use_qt">
