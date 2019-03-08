@@ -278,10 +278,8 @@
          </block>
       </block>
    </block>
-   <block name="ABLOY CLASSIC CUTS (LEVEL 2)" set_variable="qt_abloy_classic_cut_use_qt" level="2" enabled="(qt_type_of_key_qt==&quot;abloy_classic&quot;) || (qt_type_of_key_qt == &quot;expert_stl&quot;)">
-      <parameter variable="qt_abloy_classic_cut_use_qt" type="boolean" default="NO" />
-      <parameter name="NUMBER OF DISCS" type="int" default="20" minvalue="1" maxvalue="20" variable="qt_abloy_classic_number_of_discs_qt" ui="lineeditvalidateonreturn" />
-      <parameter name="SPACES" type="double" variable="qt_universal_disk_dist_pin_qt" default="2" ui="lineedit" />
+   <Block name="UNIVERSAL DISK KEY CUTS (LEVEL 2)" set_variable="qt_universal_disk_use_use_qt" level="2" enabled="(qt_type_of_key_qt==&quot;universal_disk&quot;) || (qt_type_of_key_qt == &quot;expert_stl&quot;)">
+      <Parameter variable="qt_universal_disk_use_use_qt" type="boolean" default="NO"/>      <parameter name="SPACES" type="double" variable="qt_universal_disk_dist_pin_qt" default="2" ui="lineedit" />
       <parameter name="MILL THICKNESS" type="double" variable="qt_universal_disk_mill_width_qt" default="2.5" ui="lineedit" />
       <parameter name="DISTANCE OF CUTTING FROM CENTER" type="double" variable="qt_universal_disk_move_x_qt" default="qt_universal_disk_key_width_qt/2" ui="lineedit" />
       <parameter name="ANGLE STEP" type="double" variable="qt_universal_disk_angle_step_qt" default="18" ui="lineedit" />

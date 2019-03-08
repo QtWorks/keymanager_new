@@ -40,5 +40,6 @@
         <file>data/about.xml</file>
         <file>data/SCAD_SCRIPT/newscript.scad</file>
         <file>data/settings.xml</file>
+        <file>data/dxf/Letters.dxf</file>
     </qresource>
 </RCC>

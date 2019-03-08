@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <block name="PIN BOX">
         <block name="MAKING A PIN BOX WITH SLIDER" set_variable="qt_type_of_key_qt" level="1" keypreviewimage=":/images/pin_box.png" value="pin_box">
+                <parameter name="NUMBER OF PINS" type="double" variable="qt_pin_box_number_of_pins_qt" ui="lineedit" />
                 <parameter name="NUMBER OF MASTER WAFER LINES" type="double" variable="qt_pin_box_number_of_wafers_qt" ui="lineedit" />
                 <parameter name="PIN HOLE WIDTH" type="double" variable="qt_pin_box_hole_width_qt" ui="lineedit" />
                 <parameter name="PIN HOLE LENGTH" type="double" variable="qt_pin_box_pin_length_qt" ui="lineedit" />
