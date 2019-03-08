@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<block name="LEVER DOUBLE">
+<key name="LEVER DOUBLE">
         <block name="LEVER LOCK DOUBLE BLANK (LEVEL 1)" level="1" set_variable="qt_type_of_key_qt" keypreviewimage=":/images/menu1_lever_double.png" value="lever_double">
       <parameter name="BODY LENGTH" type="double" variable="qt_lever_double_body_length_qt" ui="lineedit" />
       <parameter name="BODY DIAMETER" type="double" variable="qt_lever_double_body_diameter_qt" ui="lineedit" />
       <parameter name="BLADE LENGTH" type="double" variable="qt_lever_double_blade_length_qt" ui="lineedit" />
-      <Parameter name="BLADE HEIGHT FROM THE BACK" type="double" variable="qt_lever_double_blade_height_qt" ui="lineedit" />
-      <Parameter name="BLADE OFFSET" type="double" variable="qt_lever_double_blade_offset_qt" ui="lineedit" />
+      <parameter name="BLADE HEIGHT FROM THE BACK" type="double" variable="qt_lever_double_blade_height_qt" ui="lineedit" />
+      <parameter name="BLADE OFFSET" type="double" variable="qt_lever_double_blade_offset_qt" ui="lineedit" />
       <parameter name="BLADE THICKNESS" type="double" variable="qt_lever_double_blade_thickness_qt" ui="lineedit" />
       <parameter name="TIP LENGTH" type="double" variable="qt_lever_double_tip_length_qt" ui="lineedit" />
       <parameter name="TIP HOLE DIAMETER" type="double" variable="qt_lever_double_tip_hole_diameter_qt" ui="lineedit" />
@@ -282,7 +282,7 @@
             <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_10_stl_translate_qt" ui="double_triplet" />
          </block>
        </block>
-	</block>
+        </block>
         <block name="LEVER LOCK DOUBLE BITTED CUTS (LEVEL 2)" level="2" set_variable="qt_lever_double_lock_cut_use_qt" exclusive="false">
       <parameter variable="qt_lever_double_lock_cut_use_qt" type="boolean" default="NO"/>
       <block name="ROW1" set_variable="qt_lever_double_lock_row1_cut_use_qt">
@@ -575,7 +575,7 @@
             <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level2_shape_10_stl_translate_qt" ui="double_triplet" />
          </block>
        </block>
-	</block>
+        </block>
         <block name="AUTOMATIC KEY HEAD AND SHOULDER (LEVEL 3)" level="3" alwaysopened="true" canclear="false">
       <parameter name="AUTOMATIC KEY HEAD AND SHOULDER (DOES NOT APPLY TO STL BLANKS)" type="string" variable="qt_automatic_key_head_and_shoulder_qt" default="NO" ui="yesno" />
           <parameter name="TEXT LINE 1" type="string" variable="qt_key_head_text_line1_qt" />
@@ -1137,8 +1137,8 @@
             <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_cut_level4_shape_10_stl_translate_qt" ui="double_triplet" />
          </block>
        </block>
-	</block>
-</block>
+        </block>
+</key>
 
 
 

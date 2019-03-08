@@ -2,6 +2,7 @@
 <key name="UNIVERSAL DISK KEY">
    <block name="UNIVERSAL DISK KEY BLANK" set_variable="qt_type_of_key_qt" level="1" keypreviewimage=":/images/menu1_universal_disk.png" value="universal_disk">
       <parameter name="LENGTH" type="double" variable="qt_universal_disk_blank_length_qt" default="30" ui="lineedit" />
+      <parameter name="WIDTH" type="double" variable="qt_universal_disk_key_width_qt" default="6" ui="lineedit" />
       <parameter name="HEIGHT" type="double" variable="qt_universal_disk_key_height_qt" default="6" ui="lineedit" />
       <parameter name="BROWSE FOR A DXF" type="string" variable="qt_universal_disk_dxf_name_qt" ui="filepicker" extension="*.dxf"/>
       <parameter name="BROWSE FOR A STL" type="string" variable="qt_universal_disk_stl_name_qt" ui="filepicker" extension="*.stl"/>

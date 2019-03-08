@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<block name="LEVER SIMPLE">
+<key name="LEVER SIMPLE">
         <block name="LEVER LOCK SIMPLE BLANK (LEVEL 1)" level="1" set_variable="qt_type_of_key_qt" keypreviewimage=":/images/menu1_lever_simple.png" value="lever_simple">
       <parameter name="BODY LENGTH" type="double" variable="qt_lever_simple_body_length_qt" ui="lineedit" />
       <parameter name="BODY DIAMETER" type="double" variable="qt_lever_simple_body_diameter_qt" ui="lineedit" />
@@ -1125,7 +1125,7 @@
          </block>
        </block>
         </block>
-</block>
+</key>
 
 
 
