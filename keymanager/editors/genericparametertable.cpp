@@ -81,6 +81,12 @@ GenericParameterTableModel::GenericParameterTableModel(KeyManager *pKeyManager, 
             {
                 // Build formatted variable name
                 QString sFormattedVariableName = getFormattedVariableName(m_sVariableMethod, sTargetVariable, m_lColumnVariables, m_sTargetRow, j, i);
+
+                if (sFormattedVariableName == "qt_regular_row1_cut01_depth_qt")
+                {
+                    qDebug() << "toto";
+                }
+
                 if (!sFormattedVariableName.isEmpty())
                 {
                     Parameter *pParameter = Parameter::createParameter(m_pParentBlock, sFormattedVariableName);
@@ -101,15 +107,6 @@ GenericParameterTableModel::GenericParameterTableModel(KeyManager *pKeyManager, 
             }
         }
         m_iParameterSize = m_vParameters.size();
-
-        // Write first row using default values
-        for (int i=0; i<m_lDefaultValues.size(); i++)
-            if (i < m_vParameters.size())
-            {
-                Parameter *pParameter = m_vParameters[i];
-                if (pParameter != nullptr)
-                    pParameter->setValue(m_lDefaultValues[i]);
-            }
         connect(this, &GenericParameterTableModel::updateAll, this, &GenericParameterTableModel::onUpdateAll, Qt::UniqueConnection);
     }
     else Helper::error("CANNOT CREATE A TABLE WITH 0 COLUMN");
