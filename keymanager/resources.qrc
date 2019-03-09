@@ -41,5 +41,6 @@
         <file>data/SCAD_SCRIPT/newscript.scad</file>
         <file>data/settings.xml</file>
         <file>data/dxf/Letters.dxf</file>
+        <file>images/splashscreen.jpg</file>
     </qresource>
 </RCC>

@@ -3,6 +3,7 @@
 
 // Application
 #include "keymanager.h"
+#include "splashscreen.h"
 
 int main(int argc, char *argv[])
 {
@@ -13,6 +14,9 @@ int main(int argc, char *argv[])
 
     // Startup
     pKeyMgr->startup();
+
+    SplashScreen sc;
+    sc.show();
 
     // Event loop
     int res = app.exec();

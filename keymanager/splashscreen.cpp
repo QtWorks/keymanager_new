@@ -13,6 +13,8 @@ SplashScreen::SplashScreen(QWidget *pParent) : QDialog(pParent),
     m_pUI(new Ui::SplashScreen)
 {
     m_pUI->setupUi(this);
+    setWindowFlags(Qt::FramelessWindowHint|Qt::WindowStaysOnTopHint);
+    load(":/images/splashscreen.jpg");
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -24,13 +26,9 @@ SplashScreen::~SplashScreen()
 
 //-------------------------------------------------------------------------------------------------
 
-void SplashScreen::setImage(const QString &sImagePath)
+void SplashScreen::load(const QString &sSplashImage)
 {
-    QImage image(sImagePath);
-    if (!image.isNull())
-    {
-
-    }
+    m_pUI->imageWidget->load(sSplashImage);
 }
 
 //-------------------------------------------------------------------------------------------------

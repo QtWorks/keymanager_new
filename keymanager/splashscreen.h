@@ -28,7 +28,7 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Set image
-    void setImage(const QString &sImagePath);
+    void load(const QString &sSplashImage);
 
     //! Set status text
     void setStatusText(const QString &sStatusText);
