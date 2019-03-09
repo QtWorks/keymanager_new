@@ -14,6 +14,8 @@
 *.Release
 *.qmake
 *.stash
+*.qm
+*.scad
 
 # Qt-es
 

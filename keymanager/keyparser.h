@@ -57,11 +57,18 @@ public:
     // Control methods
     //-------------------------------------------------------------------------------------------------
 
+    //! Return key count
+    void keyCount(const QString &sKeySpecFilePath, int &iKeyCount) const;
+
     //! Load keys
     bool loadKeys(const QString &sKeySpecFilePath);
 
     //! Add parameter
     static void addParameter(Key *pKey, Parameter *pParameter);
+
+private:
+    //! Return key count
+    void keyCount(const CXMLNode &xRootNode, int &iKeyCount) const;
 
 private:
     //! Key manager

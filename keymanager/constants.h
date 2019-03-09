@@ -47,6 +47,7 @@
 #define USE_QT "_use_qt"
 #define SETTINGS_KEY "ROOT_SETTINGS"
 #define ERASE_VALUE "0"
+#define TEXT_LINE "TEXT LINE"
 
 // Tags
 #define TAG_ROOT "ROOT"

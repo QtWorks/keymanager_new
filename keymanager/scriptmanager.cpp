@@ -84,7 +84,8 @@ bool ScriptManager::generateScriptForKey(Key *pTargetKey)
             }
 
             // Output script file
-            QString sOutputScriptFile = Helper::outputDir().absoluteFilePath(SCAD_OUTPUT_FILE);
+            //QString sOutputScriptFile = Helper::outputDir().absoluteFilePath(SCAD_OUTPUT_FILE);
+            QString sOutputScriptFile = SCAD_OUTPUT_FILE;
 
             // Save file
             if (Helper::saveFile(sScriptText, sOutputScriptFile))
@@ -129,6 +130,10 @@ void ScriptManager::replaceVariablesInScriptForKey(Key *pTargetKey, QString &sSc
             Parameter *pParameter = it.value();
             if (pParameter != nullptr)
             {
+                // Retrieve parameter name
+                QString sParameterName = pParameter->getAttributeValue(PROPERTY_NAME);
+                bool bIsKeyLabel = sParameterName.contains(TEXT_LINE);
+
                 // Retrieve parameter variable
                 QString sParameterVariable = it.key();
 
@@ -147,7 +152,7 @@ void ScriptManager::replaceVariablesInScriptForKey(Key *pTargetKey, QString &sSc
 
                 if (bErase)
                 {
-                    sScriptText.replace(sParameterVariable, ERASE_VALUE);
+                    sScriptText.replace(sParameterVariable, bIsKeyLabel ? QString("") : ERASE_VALUE);
                     if (sScriptText.indexOf(sParameterVariable) != -1)
                     {
                         QString sError = QString("ScriptManager::replaceVariablesInScriptForKey COULD NOT REPLACE VARIABLE %1 WITH ERASE VALUE 0 FOR KEY %2").arg(sParameterVariable).arg(pTargetKey->getAttributeValue(PROPERTY_NAME));

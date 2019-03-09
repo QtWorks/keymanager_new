@@ -18,6 +18,11 @@ Parameter *Parameter::createParameter(Block *pParentBlock, const CXMLNode &xPara
         // Parameter node
         if (xParameterNode.attributes().contains(PROPERTY_VARIABLE))
         {
+            QString sParameterName =  xParameterNode.attributes()[PROPERTY_NAME];
+            if (sParameterName.contains("TEXT LINE"))
+            {
+                qDebug() << "toto";
+            }
             // Retrieve parameter variable
             QString sParameterVariable = xParameterNode.attributes()[PROPERTY_VARIABLE];
 
@@ -105,6 +110,12 @@ Parameter::Parameter(Block *pParentBlock, const CXMLNode &xParameterNode, QObjec
         m_sDefaultValue = getAttributeValue(PROPERTY_DEFAULT);
     if (m_sDefaultValue.isEmpty())
         m_sDefaultValue = VALUE_DEFAULT_VALUE;
+
+    // Special case
+    QString sParameterName = m_hAttributes[PROPERTY_NAME];
+    bool bIsKeyLabel = sParameterName.contains(TEXT_LINE);
+    if (bIsKeyLabel)
+        m_sDefaultValue = "";
 
     // Check type
     if (getAttributeValue(PROPERTY_TYPE) == PROPERTY_BOOLEAN)

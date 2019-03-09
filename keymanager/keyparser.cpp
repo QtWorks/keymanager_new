@@ -30,6 +30,9 @@ KeyParser::~KeyParser()
 
 bool KeyParser::startup(const QString &sArgs)
 {
+    int iKeyCount = 0;
+    keyCount(":/data/keys.xml", iKeyCount);
+
     // Load keys
     if (!loadKeys(":/data/keys.xml"))
         return false;
@@ -98,11 +101,11 @@ bool KeyParser::loadKeys(const QString &sKeySpecFilePath)
     if (Helper::fileExists(sKeySpecFilePath))
     {
         // Load key list
-        CXMLNode rootNode = CXMLNode::loadXMLFromFile(sKeySpecFilePath);
-        if (!rootNode.isEmpty())
+        CXMLNode xRootNode = CXMLNode::loadXMLFromFile(sKeySpecFilePath);
+        if (!xRootNode.isEmpty())
         {
             // Retrieve key groups
-            QVector<CXMLNode> vKeys = rootNode.getNodesByTagName(TAG_KEY);
+            QVector<CXMLNode> vKeys = xRootNode.getNodesByTagName(TAG_KEY);
             foreach (CXMLNode xKey, vKeys)
             {
                 // Retrieve reference file
@@ -128,6 +131,29 @@ bool KeyParser::loadKeys(const QString &sKeySpecFilePath)
         Helper::error(sError);
         return false;
     }
+}
+
+//-------------------------------------------------------------------------------------------------
+
+void KeyParser::keyCount(const QString &sKeySpecFilePath, int &iKeyCount) const
+{
+    if (Helper::fileExists(sKeySpecFilePath))
+    {
+        // Load key list
+        CXMLNode xRootNode = CXMLNode::loadXMLFromFile(sKeySpecFilePath);
+        keyCount(xRootNode, iKeyCount);
+    }
+}
+
+//-------------------------------------------------------------------------------------------------
+
+void KeyParser::keyCount(const CXMLNode &xRootNode, int &iKeyCount) const
+{
+    // Retrieve key groups
+    QVector<CXMLNode> vKeys = xRootNode.getNodesByTagName(TAG_KEY);
+    iKeyCount += vKeys.size();
+    foreach (CXMLNode xChildKeyNode, vKeys)
+        keyCount(xChildKeyNode, iKeyCount);
 }
 
 //-------------------------------------------------------------------------------------------------
