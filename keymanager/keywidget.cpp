@@ -16,6 +16,9 @@ KeyWidget::KeyWidget(KeyManager *pKeyManager, Key *pKey, QWidget *pParent) : QWi
 {
     m_pUI->setupUi(this);
     m_pUI->layoutMgr->setKeyManager(pKeyManager);
+    connect(m_pUI->openAllButton, &QPushButton::clicked, m_pUI->layoutMgr, &LayoutMgr::onOpenAll);
+    connect(m_pUI->closeAllButton, &QPushButton::clicked, m_pUI->layoutMgr, &LayoutMgr::onCloseAll);
+    connect(m_pUI->clearAllButton, &QPushButton::clicked, m_pUI->layoutMgr, &LayoutMgr::onClearAll);
     connect(m_pUI->saveKeyParametersButton, &QPushButton::clicked, this, &KeyWidget::onGenerateSTL);
 }
 

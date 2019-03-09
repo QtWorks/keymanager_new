@@ -26,9 +26,9 @@ HomeTab::~HomeTab()
 
 //-------------------------------------------------------------------------------------------------
 
-void HomeTab::paintEvent(QPaintEvent *event)
+void HomeTab::paintEvent(QPaintEvent *pEvent)
 {
-    DescriptionTaggedWidget::paintEvent(event);
+    DescriptionTaggedWidget::paintEvent(pEvent);
     QPainter painter(this);
     QPixmap pixmap(":/images/marque-3001-px.jpg");
     int iSrcWidth = pixmap.width();

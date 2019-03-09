@@ -27,10 +27,10 @@ public:
 
 private:
     //! UI
-    Ui::HeaderObject *ui;
+    Ui::HeaderObject *m_pUI=nullptr;
 
     //! Column index
-    int m_iColumnIndex;
+    int m_iColumnIndex=-1;
 
 public slots:
     //-------------------------------------------------------------------------------------------------

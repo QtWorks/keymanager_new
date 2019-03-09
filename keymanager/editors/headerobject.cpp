@@ -1,29 +1,30 @@
+// Application
 #include "headerobject.h"
 #include "ui_headerobject.h"
 
 //-------------------------------------------------------------------------------------------------
 
 HeaderObject::HeaderObject(QWidget *parent) : QWidget(parent),
-    ui(new Ui::HeaderObject), m_iColumnIndex(-1)
+    m_pUI(new Ui::HeaderObject)
 {
-    ui->setupUi(this);
+    m_pUI->setupUi(this);
 }
 
 //-------------------------------------------------------------------------------------------------
 
 HeaderObject::HeaderObject(int iColumnIndex, const QString &sLabel, QWidget *parent) : QWidget(parent),
-    ui(new Ui::HeaderObject), m_iColumnIndex(iColumnIndex)
+    m_pUI(new Ui::HeaderObject), m_iColumnIndex(iColumnIndex)
 {
-    ui->setupUi(this);
-    ui->label->setText(sLabel);
-    connect(ui->pushButton, &QPushButton::clicked, this, &HeaderObject::onButtonClicked, Qt::UniqueConnection);
+    m_pUI->setupUi(this);
+    m_pUI->label->setText(sLabel);
+    connect(m_pUI->pushButton, &QPushButton::clicked, this, &HeaderObject::onButtonClicked, Qt::UniqueConnection);
 }
 
 //-------------------------------------------------------------------------------------------------
 
 HeaderObject::~HeaderObject()
 {
-    delete ui;
+    delete m_pUI;
 }
 
 //-------------------------------------------------------------------------------------------------

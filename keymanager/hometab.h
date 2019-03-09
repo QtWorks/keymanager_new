@@ -23,14 +23,14 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Constructor
-    explicit HomeTab(QWidget *parent=nullptr);
+    explicit HomeTab(QWidget *pParent=nullptr);
 
     //! Destructor
     ~HomeTab();
 
 protected:
     //! Paint event
-    virtual void paintEvent(QPaintEvent *event);
+    virtual void paintEvent(QPaintEvent *pEvent);
 
 private:
     //! UI

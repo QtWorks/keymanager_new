@@ -11,19 +11,18 @@
 //-------------------------------------------------------------------------------------------------
 
 CaptionLabel::CaptionLabel(QWidget *parent) : QWidget(parent),
-    ui(new Ui::CaptionLabel),  m_bIsEnabled(true), m_bExpandable(true),
-    m_bIsCurrent(false), m_bBlockAlwaysOpened(false), m_bCanClearBlock(true)
+    m_pUI(new Ui::CaptionLabel)
 {
-    ui->setupUi(this);
-    connect(ui->openCloseButton, &QPushButton::clicked, this, &CaptionLabel::onOpenOrClose, Qt::UniqueConnection);
-    connect(ui->clearAllButton, &QPushButton::clicked, this, &CaptionLabel::onClearAll, Qt::UniqueConnection);
+    m_pUI->setupUi(this);
+    connect(m_pUI->openCloseButton, &QPushButton::clicked, this, &CaptionLabel::onOpenOrClose, Qt::UniqueConnection);
+    connect(m_pUI->clearAllButton, &QPushButton::clicked, this, &CaptionLabel::onClearAll, Qt::UniqueConnection);
 }
 
 //-------------------------------------------------------------------------------------------------
 
 CaptionLabel::~CaptionLabel()
 {
-    delete ui;
+    delete m_pUI;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -38,14 +37,14 @@ void CaptionLabel::setCurrent(bool bCurrent)
 
 void CaptionLabel::setCaption(const QString &sCaption)
 {
-    ui->label->setText(sCaption);
+    m_pUI->label->setText(sCaption);
 }
 
 //-------------------------------------------------------------------------------------------------
 
 void CaptionLabel::setButtonLabel(const QString &sButtonLabel)
 {
-    ui->openCloseButton->setText(sButtonLabel);
+    m_pUI->openCloseButton->setText(sButtonLabel);
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -53,8 +52,8 @@ void CaptionLabel::setButtonLabel(const QString &sButtonLabel)
 void CaptionLabel::setExpandable(bool bExpandable)
 {
     m_bExpandable = bExpandable;
-    ui->openCloseButton->setVisible(!m_bBlockAlwaysOpened && bExpandable);
-    ui->clearAllButton->setVisible(m_bCanClearBlock && bExpandable);
+    m_pUI->openCloseButton->setVisible(!m_bBlockAlwaysOpened && bExpandable);
+    m_pUI->clearAllButton->setVisible(m_bCanClearBlock && bExpandable);
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -62,8 +61,8 @@ void CaptionLabel::setExpandable(bool bExpandable)
 void CaptionLabel::updateEnabledState(bool bEnabled)
 {
     m_bIsEnabled = bEnabled;
-    ui->openCloseButton->setVisible(!m_bBlockAlwaysOpened && m_bExpandable && bEnabled);
-    ui->clearAllButton->setVisible(m_bCanClearBlock && m_bExpandable && bEnabled);
+    m_pUI->openCloseButton->setVisible(!m_bBlockAlwaysOpened && m_bExpandable && bEnabled);
+    m_pUI->clearAllButton->setVisible(m_bCanClearBlock && m_bExpandable && bEnabled);
     update();
 }
 
@@ -83,9 +82,9 @@ void CaptionLabel::setCanClearBlock(bool bCanClearBlock)
 
 //-------------------------------------------------------------------------------------------------
 
-void CaptionLabel::paintEvent(QPaintEvent *e)
+void CaptionLabel::paintEvent(QPaintEvent *pEvent)
 {
-    QWidget::paintEvent(e);
+    QWidget::paintEvent(pEvent);
     QPainter p(this);
     QColor paintColor("#EEEEEE");
     if (m_bIsEnabled)
@@ -99,15 +98,22 @@ void CaptionLabel::paintEvent(QPaintEvent *e)
     {
         paintColor.setNamedColor("#B1B1B1");
     }
-    p.fillRect(e->rect(), paintColor);
+    p.fillRect(pEvent->rect(), paintColor);
 }
 
 //-------------------------------------------------------------------------------------------------
 
-void CaptionLabel::mousePressEvent(QMouseEvent *event)
+void CaptionLabel::mousePressEvent(QMouseEvent *pEvent)
 {
-    QWidget::mousePressEvent(event);
+    QWidget::mousePressEvent(pEvent);
     emit selectMe();
+}
+
+//-------------------------------------------------------------------------------------------------
+
+void CaptionLabel::mouseDoubleClickEvent(QMouseEvent *pEvent)
+{
+    emit openOrClose();
 }
 
 //-------------------------------------------------------------------------------------------------

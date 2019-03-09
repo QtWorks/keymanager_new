@@ -51,29 +51,32 @@ public:
 
 protected:
     //! Paint event
-    void paintEvent(QPaintEvent *e);
+    void paintEvent(QPaintEvent *pEvent);
 
     //! Mouse press event
-    virtual void mousePressEvent(QMouseEvent *event);
+    virtual void mousePressEvent(QMouseEvent *pEvent);
+
+    //! Mouse double click event
+    virtual void mouseDoubleClickEvent(QMouseEvent *pEvent);
 
 private:
     //! UI
-    Ui::CaptionLabel *ui;
+    Ui::CaptionLabel *m_pUI=nullptr;
 
     //! Enabled?
-    bool m_bIsEnabled;
+    bool m_bIsEnabled=true;
 
     //! Expandable?
-    bool m_bExpandable;
+    bool m_bExpandable=true;
 
     //! Is current?
-    bool m_bIsCurrent;
+    bool m_bIsCurrent=false;
 
     //! Block always opened?
-    bool m_bBlockAlwaysOpened;
+    bool m_bBlockAlwaysOpened=false;
 
     //! Can clear block?
-    bool m_bCanClearBlock;
+    bool m_bCanClearBlock=true;
 
 public slots:
     //-------------------------------------------------------------------------------------------------
