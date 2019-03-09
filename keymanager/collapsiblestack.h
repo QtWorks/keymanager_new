@@ -20,7 +20,7 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Constructor
-    explicit CollapsibleStack(QWidget *parent=nullptr);
+    explicit CollapsibleStack(QWidget *pParent=nullptr);
 
     //! Destructor
     ~CollapsibleStack();

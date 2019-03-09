@@ -14,7 +14,7 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Constructor
-    CustomTableView(QWidget *parent=nullptr);
+    CustomTableView(QWidget *pParent=nullptr);
 
     //! Destructor
     ~CustomTableView();

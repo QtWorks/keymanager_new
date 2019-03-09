@@ -26,7 +26,7 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Constructor
-    TextEditor(QWidget *parent=nullptr);
+    TextEditor(QWidget *pParent=nullptr);
 
     //! Destructor
     ~TextEditor();

@@ -9,8 +9,8 @@
 
 //-------------------------------------------------------------------------------------------------
 
-ExclusiveChoiceWidget::ExclusiveChoiceWidget(Parameter *pParameter, QWidget *parent) :
-    BaseWidget(pParameter, parent), m_pUI(new Ui::ExclusiveChoiceWidget)
+ExclusiveChoiceWidget::ExclusiveChoiceWidget(Parameter *pParameter, QWidget *pParent) :
+    BaseWidget(pParameter, pParent), m_pUI(new Ui::ExclusiveChoiceWidget)
 {
     m_pUI->setupUi(this);
 

@@ -21,7 +21,7 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Constructor
-    explicit XYZMirrorWidget(Parameter *pParameter, QWidget *parent=nullptr);
+    explicit XYZMirrorWidget(Parameter *pParameter, QWidget *pParent=nullptr);
 
     //! Destructor
     ~XYZMirrorWidget();

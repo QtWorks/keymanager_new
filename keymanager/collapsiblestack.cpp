@@ -11,7 +11,7 @@
 
 //-------------------------------------------------------------------------------------------------
 
-CollapsibleStack::CollapsibleStack(QWidget *parent) : QWidget(parent)
+CollapsibleStack::CollapsibleStack(QWidget *pParent) : QWidget(pParent)
 {
     setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     m_pLayout = new QVBoxLayout(this);

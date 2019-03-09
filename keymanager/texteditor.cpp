@@ -6,7 +6,7 @@
 
 //-------------------------------------------------------------------------------------------------
 
-TextEditor::TextEditor(QWidget *parent) : QPlainTextEdit(parent)
+TextEditor::TextEditor(QWidget *pParent) : QPlainTextEdit(pParent)
 {
     QFont font;
     font.setPixelSize(18);

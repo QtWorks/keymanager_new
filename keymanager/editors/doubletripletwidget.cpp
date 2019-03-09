@@ -7,8 +7,8 @@
 
 //-------------------------------------------------------------------------------------------------
 
-DoubleTripletWidget::DoubleTripletWidget(Parameter *pParameter, QWidget *parent) :
-    BaseWidget(pParameter, parent), m_pUI(new Ui::DoubleTripletWidget)
+DoubleTripletWidget::DoubleTripletWidget(Parameter *pParameter, QWidget *pParent) :
+    BaseWidget(pParameter, pParent), m_pUI(new Ui::DoubleTripletWidget)
 {
     // Setup UI
     m_pUI->setupUi(this);

@@ -6,7 +6,7 @@
 
 //-------------------------------------------------------------------------------------------------
 
-CustomTreeView::CustomTreeView(QWidget *parent) : QTreeView(parent)
+CustomTreeView::CustomTreeView(QWidget *pParent) : QTreeView(pParent)
 {
 
 }

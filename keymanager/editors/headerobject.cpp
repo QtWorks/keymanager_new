@@ -4,7 +4,7 @@
 
 //-------------------------------------------------------------------------------------------------
 
-HeaderObject::HeaderObject(QWidget *parent) : QWidget(parent),
+HeaderObject::HeaderObject(QWidget *pParent) : QWidget(pParent),
     m_pUI(new Ui::HeaderObject)
 {
     m_pUI->setupUi(this);

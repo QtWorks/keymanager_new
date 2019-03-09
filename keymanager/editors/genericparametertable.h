@@ -166,7 +166,7 @@ public:
     ~ItemDelegate();
 
     //! Create editor
-    QWidget *createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
+    QWidget *createEditor(QWidget *pParent, const QStyleOptionViewItem &option, const QModelIndex &index) const;
 
     //! Set editor data
     void setEditorData(QWidget *pEditor, const QModelIndex &index) const;

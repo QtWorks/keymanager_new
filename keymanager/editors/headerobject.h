@@ -17,10 +17,10 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Constructor
-    explicit HeaderObject(QWidget *parent=nullptr);
+    explicit HeaderObject(QWidget *pParent=nullptr);
 
     //! Constructor
-    HeaderObject(int iColumnIndex, const QString &sLabel, QWidget *parent=nullptr);
+    HeaderObject(int iColumnIndex, const QString &sLabel, QWidget *pParent=nullptr);
 
     //! Destructor
     ~HeaderObject();

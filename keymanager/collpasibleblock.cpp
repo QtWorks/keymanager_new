@@ -18,7 +18,7 @@ static int iBlockCount = 0;
 
 //-------------------------------------------------------------------------------------------------
 
-CollapsibleBlock::CollapsibleBlock(KeyManager *pKeyManager, LayoutMgr *pLayoutManager, Block *pBlock, QWidget *parent) : QWidget(parent),
+CollapsibleBlock::CollapsibleBlock(KeyManager *pKeyManager, LayoutMgr *pLayoutManager, Block *pBlock, QWidget *pParent) : QWidget(pParent),
     m_pKeyManager(pKeyManager), m_pLayoutManager(pLayoutManager), m_pBlock(pBlock), m_sUID(QString::number(++iBlockCount))
 {
     // Set size policy

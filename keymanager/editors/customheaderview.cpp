@@ -7,7 +7,7 @@
 
 //-------------------------------------------------------------------------------------------------
 
-CustomHeaderView::CustomHeaderView(const QVector<QString> &vColumnLabels, QWidget *parent) : QHeaderView(Qt::Horizontal, parent)
+CustomHeaderView::CustomHeaderView(const QVector<QString> &vColumnLabels, QWidget *pParent) : QHeaderView(Qt::Horizontal, pParent)
 {
     int iColumnCount = vColumnLabels.size();
     for (int i=0; i<iColumnCount; i++)

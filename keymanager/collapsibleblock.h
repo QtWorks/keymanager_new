@@ -25,7 +25,7 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Constructor
-    explicit CollapsibleBlock(KeyManager *pKeyManager, LayoutMgr *pLayoutMgr, Block *pBlock, QWidget *parent=nullptr);
+    explicit CollapsibleBlock(KeyManager *pKeyManager, LayoutMgr *pLayoutMgr, Block *pBlock, QWidget *pParent=nullptr);
 
     //! Destructor
     ~CollapsibleBlock();

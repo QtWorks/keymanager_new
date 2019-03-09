@@ -8,8 +8,8 @@
 #include "glmesh.h"
 #include "mesh.h"
 
-Canvas::Canvas(const QGLFormat& format, QWidget *parent)
-    : QGLWidget(format, parent), mesh(NULL),
+Canvas::Canvas(const QGLFormat& format, QWidget *pParent)
+    : QGLWidget(format, pParent), mesh(NULL),
       scale(1), zoom(1), tilt(90), yaw(0),
       perspective(0.25), anim(this, "perspective"), status(" ")
 {

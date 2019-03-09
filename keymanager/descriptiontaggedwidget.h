@@ -20,7 +20,7 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Constructor
-    explicit DescriptionTaggedWidget(QWidget *parent=nullptr);
+    explicit DescriptionTaggedWidget(QWidget *pParent=nullptr);
 
     //! Destructor
     virtual ~DescriptionTaggedWidget();

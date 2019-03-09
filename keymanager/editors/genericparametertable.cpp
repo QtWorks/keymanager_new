@@ -556,11 +556,11 @@ ItemDelegate::~ItemDelegate()
 
 //-------------------------------------------------------------------------------------------------
 
-QWidget *ItemDelegate::createEditor(QWidget *parent, const QStyleOptionViewItem &option, const QModelIndex &index) const
+QWidget *ItemDelegate::createEditor(QWidget *pParent, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
     Q_UNUSED(option);
     Q_UNUSED(index);
-    QLineEdit *pEditor = new QLineEdit(parent);
+    QLineEdit *pEditor = new QLineEdit(pParent);
     pEditor->setValidator(new DoubleValidator(-1000., 1000., 3));
     return pEditor;
 }

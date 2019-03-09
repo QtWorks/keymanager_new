@@ -20,7 +20,7 @@
 
 //-------------------------------------------------------------------------------------------------
 
-ParameterBlock::ParameterBlock(KeyManager *pKeyManager, LayoutMgr *pLayoutManager, Block *pBlock, CollapsibleBlock *pOwner, bool bIsClosed, QWidget *parent) : QWidget(parent),
+ParameterBlock::ParameterBlock(KeyManager *pKeyManager, LayoutMgr *pLayoutManager, Block *pBlock, CollapsibleBlock *pOwner, bool bIsClosed, QWidget *pParent) : QWidget(pParent),
     m_pUI(new Ui::ParameterBlock),
     m_pKeyManager(pKeyManager),
     m_pLayoutManager(pLayoutManager),

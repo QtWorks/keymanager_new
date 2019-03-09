@@ -5,8 +5,8 @@
 #include "canvas.h"
 #include "loader.h"
 
-STLWindow::STLWindow(QWidget *parent) :
-    QMainWindow(parent),
+STLWindow::STLWindow(QWidget *pParent) :
+    QMainWindow(pParent),
     open_action(new QAction("Open...", this)),
     saveas_action(new QAction("Save As...", this)),
     perspective_action(new QAction("Perspective", this)),

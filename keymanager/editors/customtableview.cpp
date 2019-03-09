@@ -6,7 +6,7 @@
 
 //-------------------------------------------------------------------------------------------------
 
-CustomTableView::CustomTableView(QWidget *parent) : QTableView(parent)
+CustomTableView::CustomTableView(QWidget *pParent) : QTableView(pParent)
 {
     setSelectionMode(QAbstractItemView::SingleSelection);
     setSelectionBehavior(QAbstractItemView::SelectRows);

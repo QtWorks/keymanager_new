@@ -10,7 +10,7 @@
 
 //-------------------------------------------------------------------------------------------------
 
-CaptionLabel::CaptionLabel(QWidget *parent) : QWidget(parent),
+CaptionLabel::CaptionLabel(QWidget *pParent) : QWidget(pParent),
     m_pUI(new Ui::CaptionLabel)
 {
     m_pUI->setupUi(this);

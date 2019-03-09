@@ -17,7 +17,7 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Constructor
-    CustomHeaderView(const QVector<QString> &vColumnLabels, QWidget *parent=nullptr);
+    CustomHeaderView(const QVector<QString> &vColumnLabels, QWidget *pParent=nullptr);
 
     //! Destructor
     ~CustomHeaderView();

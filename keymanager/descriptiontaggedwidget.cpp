@@ -8,7 +8,7 @@
 
 //-------------------------------------------------------------------------------------------------
 
-DescriptionTaggedWidget::DescriptionTaggedWidget(QWidget *parent) : QWidget(parent)
+DescriptionTaggedWidget::DescriptionTaggedWidget(QWidget *pParent) : QWidget(pParent)
 {
     m_font.setFamily("Segoe UI");
     m_font.setPixelSize(16);
