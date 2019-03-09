@@ -7,6 +7,7 @@
 // Application
 class KeyManager;
 class Key;
+class STLWindow;
 namespace Ui {
 class KeyWidget;
 }
@@ -42,6 +43,9 @@ private:
 
     //! Own key
     Key *m_pKey=nullptr;
+
+    //! STL window
+    STLWindow *m_pSTLWindow=nullptr;
 
 public slots:
     //! Save key parameters

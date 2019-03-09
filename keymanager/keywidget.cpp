@@ -8,13 +8,15 @@
 #include "key.h"
 #include "constants.h"
 #include "scriptmanager.h"
+#include <src/stlwindow.h>
 
 //-------------------------------------------------------------------------------------------------
 
 KeyWidget::KeyWidget(KeyManager *pKeyManager, Key *pKey, QWidget *pParent) : QWidget(pParent),
-    m_pUI(new Ui::KeyWidget), m_pKeyManager(pKeyManager), m_pKey(pKey)
+    m_pUI(new Ui::KeyWidget), m_pKeyManager(pKeyManager), m_pKey(pKey), m_pSTLWindow(new STLWindow)
 {
     m_pUI->setupUi(this);
+    m_pUI->tabWidget->addTab(m_pSTLWindow, tr("STL Viewer"));
     m_pUI->layoutMgr->setKeyManager(pKeyManager);
     connect(m_pUI->openAllButton, &QPushButton::clicked, m_pUI->layoutMgr, &LayoutMgr::onOpenAll);
     connect(m_pUI->closeAllButton, &QPushButton::clicked, m_pUI->layoutMgr, &LayoutMgr::onCloseAll);
