@@ -99,7 +99,8 @@ SOURCES += main.cpp \
     blockmodel.cpp \
     scriptmanager.cpp \
     splashscreen.cpp \
-    imagewidget.cpp
+    imagewidget.cpp \
+    openscadwrapper.cpp
 		
 HEADERS  += \
     mainwindow.h \
@@ -144,7 +145,8 @@ HEADERS  += \
     blockmodel.h \
     scriptmanager.h \
     splashscreen.h \
-    imagewidget.h
+    imagewidget.h \
+    openscadwrapper.h
 
 FORMS    += mainwindow.ui \
     keywidget.ui \
