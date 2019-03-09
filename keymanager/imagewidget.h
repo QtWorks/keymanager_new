@@ -1,14 +1,11 @@
-#ifndef SPLASHSCREEN_H
-#define SPLASHSCREEN_H
+#ifndef IMAGEWIDGET_H
+#define IMAGEWIDGET_H
 
 // Qt
-#include <QDialog>
+#include <QWidget>
+#include <QImage>
 
-namespace Ui {
-class SplashScreen;
-}
-
-class SplashScreen : public QDialog
+class ImageWidget : public QWidget
 {
     Q_OBJECT
 
@@ -18,27 +15,28 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Constructor
-    explicit SplashScreen(QWidget *pParent=nullptr);
+    explicit ImageWidget(QWidget *pParent=nullptr);
 
     //! Destructor
-    ~SplashScreen();
+    virtual ~ImageWidget();
 
     //-------------------------------------------------------------------------------------------------
     // Control methods
     //-------------------------------------------------------------------------------------------------
 
-    //! Set image
-    void setImage(const QString &sImagePath);
+    //! Load
+    virtual void load(const QString &sImagePath);
 
-    //! Set status text
-    void setStatusText(const QString &sStatusText);
+protected:
+    //! Handle paint event
+    virtual void paintEvent(QPaintEvent *event);
 
-    //! Set progress
-    void setProgress(int iProgress);
+    //! Compute scale factor
+    double computeScaleFactor(const QRect &srcRect, const QRect &dstRect);
 
-private:
-    //! User interface
-    Ui::SplashScreen *m_pUI=nullptr;
+protected:
+    //! Image
+    QImage m_image;
 };
 
-#endif // SPLASHSCREEN_H
+#endif // IMAGEWIDGET_H

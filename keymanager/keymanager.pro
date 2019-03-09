@@ -98,7 +98,8 @@ SOURCES += main.cpp \
     selectionmgr.cpp \
     blockmodel.cpp \
     scriptmanager.cpp \
-    splashscreen.cpp
+    splashscreen.cpp \
+    imagewidget.cpp
 		
 HEADERS  += \
     mainwindow.h \
@@ -142,7 +143,8 @@ HEADERS  += \
     selectionmgr.h \
     blockmodel.h \
     scriptmanager.h \
-    splashscreen.h
+    splashscreen.h \
+    imagewidget.h
 
 FORMS    += mainwindow.ui \
     keywidget.ui \
