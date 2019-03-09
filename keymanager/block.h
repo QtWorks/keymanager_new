@@ -59,7 +59,7 @@ protected:
     
     //! Parse child blocks
     void parseBlocks(const CXMLNode &xBlockNode);
-    
+
 protected:
     //! Attributes
     QHash<QString, QString> m_hAttributes;

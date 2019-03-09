@@ -97,7 +97,8 @@ SOURCES += main.cpp \
     keypreviewwidget.cpp \
     selectionmgr.cpp \
     blockmodel.cpp \
-    scriptmanager.cpp
+    scriptmanager.cpp \
+    splashscreen.cpp
 		
 HEADERS  += \
     mainwindow.h \
@@ -140,7 +141,8 @@ HEADERS  += \
     keypreviewwidget.h \
     selectionmgr.h \
     blockmodel.h \
-    scriptmanager.h
+    scriptmanager.h \
+    splashscreen.h
 
 FORMS    += mainwindow.ui \
     keywidget.ui \
@@ -157,7 +159,8 @@ FORMS    += mainwindow.ui \
     parameterblock.ui \
     captionlabel.ui \
     editors/headerobject.ui \
-    layoutmgr.ui
+    layoutmgr.ui \
+    splashscreen.ui
 
 DISTFILES +=
 
