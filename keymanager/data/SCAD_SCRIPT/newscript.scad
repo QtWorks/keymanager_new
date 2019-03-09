@@ -1,4 +1,4 @@
-include <newdata.txt>
+//include <newdata.txt>
 
 /////////////////WRITE
 //Write

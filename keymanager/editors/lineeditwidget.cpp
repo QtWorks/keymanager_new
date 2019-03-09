@@ -1,12 +1,13 @@
 // Qt
 #include "lineeditwidget.h"
 #include "ui_lineeditwidget.h"
-#include "helper.h"
+#include <QDebug>
 
 // Application
 #include "parameter.h"
 #include "constants.h"
 #include "key.h"
+#include "helper.h"
 
 //-------------------------------------------------------------------------------------------------
 

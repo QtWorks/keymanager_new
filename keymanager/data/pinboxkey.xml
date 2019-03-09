@@ -12,7 +12,11 @@
                 <parameter name="MAKE BOX" type="string" variable="qt_pin_box_final_qt" default="YES" ui="yesno" />
                 <parameter name="MAKE SLIDER" type="string" variable="qt_pin_box_slider_final_qt" default="YES" ui="yesno" />
                 <parameter name="SLIDER TOLERANCE" type="double" variable="qt_tolerance2_qt" ui="lineedit" />
-	  </block>
+                <parameter name="TEXT LINE 1" type="string" variable="qt_key_head_text_line1_qt"/>
+                <parameter name="TEXT LINE 2" type="string" variable="qt_key_head_text_line2_qt"/>
+                <parameter name="TEXT LINE 3" type="string" variable="qt_key_head_text_line3_qt"/>
+                <parameter name="TEXT LINE 4" type="string" variable="qt_key_head_text_line4_qt"/>
+          </block>
 </key>
 	   
 

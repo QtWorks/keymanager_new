@@ -29,7 +29,21 @@ const QString &BaseWidget::defaultValue() const
 
 void BaseWidget::setDefaultValue(const QString &sDefaultValue)
 {
-    m_sDefaultValue = sDefaultValue.isEmpty() ? VALUE_DEFAULT_VALUE : sDefaultValue;
+    // Special cases
+
+    // Retrieve name
+    QString sParameterName = m_pParameter->getAttributeValue(PROPERTY_NAME);
+    bool bIsKeyLabel = sParameterName.contains(TEXT_LINE);
+
+    // Retrieve widget type
+    QString sWidgetType = m_pParameter->getAttributeValue(PROPERTY_UI);
+    bool bIsFilePicker = sWidgetType == WIDGET_FILE_PICKER;
+
+    // Key label?
+    if (bIsKeyLabel || bIsFilePicker)
+        m_sDefaultValue = "";
+    else
+        m_sDefaultValue = sDefaultValue.isEmpty() ? VALUE_DEFAULT_VALUE : sDefaultValue;
 }
 
 //-------------------------------------------------------------------------------------------------

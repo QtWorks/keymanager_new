@@ -18,11 +18,6 @@ Parameter *Parameter::createParameter(Block *pParentBlock, const CXMLNode &xPara
         // Parameter node
         if (xParameterNode.attributes().contains(PROPERTY_VARIABLE))
         {
-            QString sParameterName =  xParameterNode.attributes()[PROPERTY_NAME];
-            if (sParameterName.contains("TEXT LINE"))
-            {
-                qDebug() << "toto";
-            }
             // Retrieve parameter variable
             QString sParameterVariable = xParameterNode.attributes()[PROPERTY_VARIABLE];
 
@@ -105,22 +100,35 @@ Parameter::Parameter(Block *pParentBlock, const CXMLNode &xParameterNode, QObjec
     // Set attributes
     m_hAttributes = xParameterNode.attributes();
 
-    // Set default value
-    if (m_hAttributes.contains(PROPERTY_DEFAULT))
-        m_sDefaultValue = getAttributeValue(PROPERTY_DEFAULT);
-    if (m_sDefaultValue.isEmpty())
-        m_sDefaultValue = VALUE_DEFAULT_VALUE;
-
-    // Special case
+    // Retrieve parameter name
     QString sParameterName = m_hAttributes[PROPERTY_NAME];
     bool bIsKeyLabel = sParameterName.contains(TEXT_LINE);
-    if (bIsKeyLabel)
-        m_sDefaultValue = "";
 
-    // Check type
-    if (getAttributeValue(PROPERTY_TYPE) == PROPERTY_BOOLEAN)
-        if ((m_sDefaultValue != VALUE_YES) && (m_sDefaultValue != VALUE_NO))
-            m_sDefaultValue = VALUE_NO;
+    // Retrieve widget type
+    QString sWidgetType = m_hAttributes[PROPERTY_UI];
+    bool bIsFilePicker = sWidgetType == WIDGET_FILE_PICKER;
+
+    // Set default value
+    if (m_hAttributes.contains(PROPERTY_DEFAULT))
+    {
+        m_sDefaultValue = getAttributeValue(PROPERTY_DEFAULT);
+        if (m_sDefaultValue.isEmpty())
+            m_sDefaultValue = VALUE_DEFAULT_VALUE;
+    }
+    else
+    // Key label of file picker
+    if (bIsKeyLabel || bIsFilePicker)
+        m_sDefaultValue = "";
+    // Other cases
+    else
+    {
+        // Check type
+        if (getAttributeValue(PROPERTY_TYPE) == PROPERTY_BOOLEAN)
+            if ((m_sDefaultValue != VALUE_YES) && (m_sDefaultValue != VALUE_NO))
+                m_sDefaultValue = VALUE_NO;
+    }
+
+    // Set value as default value
     m_sValue = m_sDefaultValue;
 
     QString sInfo = QString("Parameter::Parameter CREATED PARAMETER %1").arg(getAttributeValue(PROPERTY_NAME));

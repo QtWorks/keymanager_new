@@ -578,10 +578,10 @@
         </block>
         <block name="AUTOMATIC KEY HEAD AND SHOULDER (LEVEL 3)" level="3" alwaysopened="true" canclear="false">
       <parameter name="AUTOMATIC KEY HEAD AND SHOULDER (DOES NOT APPLY TO STL BLANKS)" type="string" variable="qt_automatic_key_head_and_shoulder_qt" default="NO" ui="yesno" />
-          <parameter name="TEXT LINE 1" type="string" variable="qt_key_head_text_line1_qt" />
-          <parameter name="TEXT LINE 2" type="string" variable="qt_key_head_text_line2_qt" />
-          <parameter name="TEXT LINE 3" type="string" variable="qt_key_head_text_line3_qt" />
-          <parameter name="TEXT LINE 4" type="string" variable="qt_key_head_text_line4_qt" />
+          <parameter name="TEXT LINE 1" type="string" variable="qt_key_head_text_line1_qt" ui="lineedit"/>
+          <parameter name="TEXT LINE 2" type="string" variable="qt_key_head_text_line2_qt" ui="lineedit"/>
+          <parameter name="TEXT LINE 3" type="string" variable="qt_key_head_text_line3_qt" ui="lineedit"/>
+          <parameter name="TEXT LINE 4" type="string" variable="qt_key_head_text_line4_qt" ui="lineedit"/>
    </block>
     <block name="EXTRA MATERIAL ON CUT KEY (LEVEL 3)(NOT CUT BY LEVEL 2)" level="3" set_variable="qt_extra_material_level3_use_qt" exclusive="false">
       <parameter variable="qt_extra_material_level3_use_qt" type="boolean" default="NO" />

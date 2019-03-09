@@ -81,12 +81,6 @@ GenericParameterTableModel::GenericParameterTableModel(KeyManager *pKeyManager, 
             {
                 // Build formatted variable name
                 QString sFormattedVariableName = getFormattedVariableName(m_sVariableMethod, sTargetVariable, m_lColumnVariables, m_sTargetRow, j, i);
-
-                if (sFormattedVariableName == "qt_regular_row1_cut01_depth_qt")
-                {
-                    qDebug() << "toto";
-                }
-
                 if (!sFormattedVariableName.isEmpty())
                 {
                     Parameter *pParameter = Parameter::createParameter(m_pParentBlock, sFormattedVariableName);
