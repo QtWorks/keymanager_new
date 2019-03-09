@@ -61,7 +61,7 @@ bool ScriptManager::generateScriptForKey(Key *pTargetKey)
         if (Helper::loadFile(sInputScriptFile, sScriptText))
         {
             // Get settings key
-            Key *pSettingsKey = m_pKeyManager->keyParser().getKey("ROOT_SETTINGS");
+            Key *pSettingsKey = m_pKeyManager->keyParser().getKey(SETTINGS_KEY);
             if (pSettingsKey != nullptr)
                 replaceVariablesInScriptForKey(pSettingsKey, sScriptText);
 

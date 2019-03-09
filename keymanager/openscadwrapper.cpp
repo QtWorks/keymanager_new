@@ -12,9 +12,8 @@
 
 //-------------------------------------------------------------------------------------------------
 
-OpenSCADWrapper::OpenSCADWrapper(const QString &sOpenSCADPath, QObject *parent) : QObject(parent),
-    m_sOpenSCADPath(sOpenSCADPath), m_pProcess(new QProcess(this)),
-    m_sNextOutputSTLFile("")
+OpenSCADWrapper::OpenSCADWrapper(const QString &sOpenSCADPath, QObject *pParent) : QObject(pParent),
+    m_sOpenSCADPath(sOpenSCADPath), m_pProcess(new QProcess(this))
 {
     connect(m_pProcess, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(onOpenSCADProcessComplete(int, QProcess::ExitStatus)), Qt::UniqueConnection);
     connect(m_pProcess, &QProcess::readyReadStandardOutput, this, &OpenSCADWrapper::onOpenSCADreadyReadStandardOutput, Qt::UniqueConnection);

@@ -15,7 +15,7 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Constructor
-    OpenSCADWrapper(const QString &sOpenSCADPath, QObject *parent=nullptr);
+    OpenSCADWrapper(const QString &sOpenSCADPath, QObject *pParent=nullptr);
 
     //! Destructor
     ~OpenSCADWrapper();
@@ -31,19 +31,19 @@ public:
 
 private:
     //! OpenSCAD path
-    QString m_sOpenSCADPath;
+    QString m_sOpenSCADPath="";
 
     //! Own process
-    QProcess *m_pProcess;
+    QProcess *m_pProcess=nullptr;
 
     //! Next output STL file
-    QString m_sNextOutputSTLFile;
+    QString m_sNextOutputSTLFile="";
 
     //! OpenSCAD exit code
-    int m_iOpenSCADExitCode = 0;
+    int m_iOpenSCADExitCode=0;
 
     //! OpenSCAD exit status
-    int m_eExitStatus = QProcess::NormalExit;
+    int m_eExitStatus=QProcess::NormalExit;
 
 public slots:
     //-------------------------------------------------------------------------------------------------

@@ -280,7 +280,7 @@
          </block>
       </block>
    </block>
-   <block name="REGULAR KEY BITTINGS (LEVEL 2)" set_variable="qt_dimple_cut_use_qt" exclusive="false">
+   <block name="DIMPLE KEY BITTINGS (LEVEL 2)" set_variable="qt_dimple_cut_use_qt" exclusive="false">
       <parameter variable="qt_dimple_cut_use_qt" type="boolean" default="NO" />
       <block name="ROW1" exclusive="false" set_variable="qt_dimple_row1_cut_use_qt">
          <parameter variable="qt_dimple_row1_cut_use_qt" type="boolean" default="NO" />
@@ -294,7 +294,7 @@
          <block name="CHOOSE MILL SHAPE">
             <parameter variable="qt_dimple_row1_cut_to_use_qt" type="string" default="prism_cut" />
             <block name="STANDARD (PRISM SHAPE)" set_variable="qt_dimple_row1_cut_to_use_qt" value="prism_cut">
-               <parameter name="ROOT WIDTH" type="double" default="3" variable="qt_dimple_row1_prism_root_x_qt" ui="lineedit" />
+               <parameter name="ROOT WIDTH" type="double" default="1" variable="qt_dimple_row1_prism_root_x_qt" ui="lineedit" />
                <parameter name="ROOT LENGTH" type="double" default="1" variable="qt_dimple_row1_prism_root_y_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on X AXIS" type="double" default="90" variable="qt_dimple_row1_prism_angle_x_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on Y AXIS" type="double" default="90" variable="qt_dimple_row1_prism_angle_y_qt" ui="lineedit" />
@@ -332,7 +332,7 @@
          <block name="CHOOSE MILL SHAPE">
             <parameter variable="qt_dimple_row2_cut_to_use_qt" type="string" default="prism_cut" />
             <block name="STANDARD (PRISM SHAPE)" set_variable="qt_dimple_row2_cut_to_use_qt" value="prism_cut">
-               <parameter name="ROOT WIDTH" type="double" default="3" variable="qt_dimple_row2_prism_root_x_qt" ui="lineedit" />
+               <parameter name="ROOT WIDTH" type="double" default="1" variable="qt_dimple_row2_prism_root_x_qt" ui="lineedit" />
                <parameter name="ROOT LENGTH" type="double" default="1" variable="qt_dimple_row2_prism_root_y_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on X AXIS" type="double" default="90" variable="qt_dimple_row2_prism_angle_x_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on Y AXIS" type="double" default="90" variable="qt_dimple_row2_prism_angle_y_qt" ui="lineedit" />
@@ -370,7 +370,7 @@
          <block name="CHOOSE MILL SHAPE">
             <parameter variable="qt_dimple_row3_cut_to_use_qt" type="string" default="prism_cut" />
             <block name="STANDARD (PRISM SHAPE)" set_variable="qt_dimple_row3_cut_to_use_qt" value="prism_cut">
-               <parameter name="ROOT WIDTH" type="double" default="3" variable="qt_dimple_row3_prism_root_x_qt" ui="lineedit" />
+               <parameter name="ROOT WIDTH" type="double" default="1" variable="qt_dimple_row3_prism_root_x_qt" ui="lineedit" />
                <parameter name="ROOT LENGTH" type="double" default="1" variable="qt_dimple_row3_prism_root_y_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on X AXIS" type="double" default="90" variable="qt_dimple_row3_prism_angle_x_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on Y AXIS" type="double" default="90" variable="qt_dimple_row3_prism_angle_y_qt" ui="lineedit" />
@@ -408,7 +408,7 @@
          <block name="CHOOSE MILL SHAPE">
             <parameter variable="qt_dimple_row4_cut_to_use_qt" type="string" default="prism_cut" />
             <block name="STANDARD (PRISM SHAPE)" set_variable="qt_dimple_row4_cut_to_use_qt" value="prism_cut">
-               <parameter name="ROOT WIDTH" type="double" default="3" variable="qt_dimple_row4_prism_root_x_qt" ui="lineedit" />
+               <parameter name="ROOT WIDTH" type="double" default="1" variable="qt_dimple_row4_prism_root_x_qt" ui="lineedit" />
                <parameter name="ROOT LENGTH" type="double" default="1" variable="qt_dimple_row4_prism_root_y_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on X AXIS" type="double" default="90" variable="qt_dimple_row4_prism_angle_x_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on Y AXIS" type="double" default="90" variable="qt_dimple_row4_prism_angle_y_qt" ui="lineedit" />
@@ -446,7 +446,7 @@
          <block name="CHOOSE MILL SHAPE">
             <parameter variable="qt_dimple_row5_cut_to_use_qt" type="string" default="prism_cut" />
             <block name="STANDARD (PRISM SHAPE)" set_variable="qt_dimple_row5_cut_to_use_qt" value="prism_cut">
-               <parameter name="ROOT WIDTH" type="double" default="3" variable="qt_dimple_row5_prism_root_x_qt" ui="lineedit" />
+               <parameter name="ROOT WIDTH" type="double" default="1" variable="qt_dimple_row5_prism_root_x_qt" ui="lineedit" />
                <parameter name="ROOT LENGTH" type="double" default="1" variable="qt_dimple_row5_prism_root_y_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on X AXIS" type="double" default="90" variable="qt_dimple_row5_prism_angle_x_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on Y AXIS" type="double" default="90" variable="qt_dimple_row5_prism_angle_y_qt" ui="lineedit" />
@@ -484,7 +484,7 @@
          <block name="CHOOSE MILL SHAPE">
             <parameter variable="qt_dimple_row6_cut_to_use_qt" type="string" default="prism_cut" />
             <block name="STANDARD (PRISM SHAPE)" set_variable="qt_dimple_row6_cut_to_use_qt" value="prism_cut">
-               <parameter name="ROOT WIDTH" type="double" default="3" variable="qt_dimple_row6_prism_root_x_qt" ui="lineedit" />
+               <parameter name="ROOT WIDTH" type="double" default="1" variable="qt_dimple_row6_prism_root_x_qt" ui="lineedit" />
                <parameter name="ROOT LENGTH" type="double" default="1" variable="qt_dimple_row6_prism_root_y_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on X AXIS" type="double" default="90" variable="qt_dimple_row6_prism_angle_x_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on Y AXIS" type="double" default="90" variable="qt_dimple_row6_prism_angle_y_qt" ui="lineedit" />
@@ -526,7 +526,7 @@
          <block name="CHOOSE MILL SHAPE">
             <parameter variable="qt_dimple_sonic_cut_to_use_qt" type="string" default="prism_cut" />
             <block name="STANDARD (PRISM SHAPE)" set_variable="qt_dimple_sonic_cut_to_use_qt" value="prism_cut">
-               <parameter name="ROOT WIDTH" type="double" default="3" variable="qt_dimple_sonic_prism_root_x_qt" ui="lineedit" />
+               <parameter name="ROOT WIDTH" type="double" default="1" variable="qt_dimple_sonic_prism_root_x_qt" ui="lineedit" />
                <parameter name="ROOT LENGTH" type="double" default="1" variable="qt_dimple_sonic_prism_root_y_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on X AXIS" type="double" default="90" variable="qt_dimple_sonic_prism_angle_x_qt" ui="lineedit" />
                <parameter name="MILL ANGLE on Y AXIS" type="double" default="90" variable="qt_dimple_sonic_prism_angle_y_qt" ui="lineedit" />
