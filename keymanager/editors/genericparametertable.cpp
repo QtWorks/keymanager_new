@@ -220,21 +220,13 @@ QVariant GenericParameterTableModel::headerData(int iSection, Qt::Orientation eO
     {
         QString sColumnLabels = m_pRootParameter->getAttributeValue(PROPERTY_COLUMN_LABELS);
         QStringList lColumnLabels = sColumnLabels.split(",");
-        if ((lColumnLabels.size() == m_iColumnCount) && (iSection < m_iColumnCount))
+        if (iRole == Qt::DisplayRole)
         {
-            if (iRole == Qt::DisplayRole)
-            {
-                if (eOrientation == Qt::Horizontal)
-                    return lColumnLabels[iSection];
-                else
-                if (eOrientation == Qt::Vertical)
-                {
-                    if (iSection == 0)
-                        return QString("ALL");
-                    else
-                        return iSection;
-                }
-            }
+            if (eOrientation == Qt::Horizontal)
+                return iSection < lColumnLabels.size() ? lColumnLabels[iSection] : QString("");
+            else
+            if (eOrientation == Qt::Vertical)
+                return (iSection == 0) ? QString("ALL") : QString::number(iSection);
         }
     }
 
@@ -438,30 +430,35 @@ void GenericParameterTableModel::onSetRowCount(const QString &sParameterValue)
     int nRows = sParameterValue.toInt(&bOK);
     if (bOK)
     {
-        // Make copy of current
-        QVector<QString> vData;
-        foreach (Parameter *pParameter, m_vParameters)
-            if (pParameter != nullptr)
-                vData << pParameter->getValue();
-
-        beginResetModel();
-        m_iVisibleRowCount = nRows+1;
-        clearAll();
-
-        // Write own data
-        int iDataSize = qMin(vData.size(), m_iVisibleRowCount*m_iColumnCount);
-        for (int i=0; i<iDataSize; i++)
+        // Check in bounds
+        int iMaxRowNumber = (m_vParameters.size()-m_iColumnCount)/m_iColumnCount;
+        if (nRows <= iMaxRowNumber)
         {
-            if (i < m_iVisibleRowCount*m_iColumnCount)
-            {
-                Parameter *pParameter = m_vParameters[i];
+            // Make copy of current
+            QVector<QString> vData;
+            foreach (Parameter *pParameter, m_vParameters)
                 if (pParameter != nullptr)
-                    pParameter->setValue(vData[i]);
-            }
-        }
+                    vData << pParameter->getValue();
 
-        endResetModel();
-        emit rowCountChanged(m_iVisibleRowCount);
+            beginResetModel();
+            m_iVisibleRowCount = nRows+1;
+            clearAll();
+
+            // Write own data
+            int iDataSize = qMin(vData.size(), m_iVisibleRowCount*m_iColumnCount);
+            for (int i=0; i<iDataSize; i++)
+            {
+                if (i < m_iVisibleRowCount*m_iColumnCount)
+                {
+                    Parameter *pParameter = m_vParameters[i];
+                    if (pParameter != nullptr)
+                        pParameter->setValue(vData[i]);
+                }
+            }
+
+            endResetModel();
+            emit rowCountChanged(m_iVisibleRowCount);
+        }
     }
 }
 
