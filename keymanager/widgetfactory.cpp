@@ -50,13 +50,6 @@ void WidgetFactory::shutdown()
 
 //-------------------------------------------------------------------------------------------------
 
-BaseWidget *WidgetFactory::getWidgetForParameter(Parameter *pParameter) const
-{
-    return m_hWidgetHash[pParameter];
-}
-
-//-------------------------------------------------------------------------------------------------
-
 BaseWidget *WidgetFactory::buildWidget(Parameter *pParameter, QWidget *pParentWidget)
 {
     if (pParameter != nullptr)
@@ -71,19 +64,8 @@ BaseWidget *WidgetFactory::buildWidget(Parameter *pParameter, QWidget *pParentWi
 
         if (sParameterUI == WIDGET_GENERIC_PARAMETER_TABLE)
         {
-            QString sColumnLabels = pParameter->getAttributeValue(PROPERTY_COLUMN_LABELS);
-            QString sColumnVariables = pParameter->getAttributeValue(PROPERTY_COLUMN_VARIABLES);
-            QString sActionSetNumberOfPins = pParameter->getAttributeValue(ACTION_SET_NUMBER_OF_ROWS);
-            if (!sColumnLabels.isEmpty() && !sColumnVariables.isEmpty())
-            {
-                GenericParameterTable *pGenericParameterTable = new GenericParameterTable(m_pKeyManager, pParameter, pParentWidget);
-                pWidget = pGenericParameterTable;
-
-                const QVector<Parameter *> &vParameters = pGenericParameterTable->getParameters();
-                foreach (Parameter *pParameter, vParameters)
-                    if (pParameter != nullptr)
-                        m_hWidgetHash[pParameter] = pWidget;
-            }
+            GenericParameterTable *pGenericParameterTable = new GenericParameterTable(m_pKeyManager, pParameter, pParentWidget);
+            pWidget = pGenericParameterTable;
         }
         else
         if (sParameterUI == WIDGET_FILE_PICKER)
@@ -172,9 +154,6 @@ BaseWidget *WidgetFactory::buildWidget(Parameter *pParameter, QWidget *pParentWi
 
         if (pWidget != nullptr)
         {
-            // Update hash
-            m_hWidgetHash[pParameter] = pWidget;
-
             // Update watched parameters
             QHash<QString, Parameter *> hWatchedParameters;
 

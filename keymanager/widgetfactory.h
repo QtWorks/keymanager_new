@@ -37,13 +37,6 @@ public:
     virtual void shutdown();
 
     //-------------------------------------------------------------------------------------------------
-    // Getters & setters
-    //-------------------------------------------------------------------------------------------------
-
-    //! Return widget for parameter
-    BaseWidget *getWidgetForParameter(Parameter *pParameter) const;
-
-    //-------------------------------------------------------------------------------------------------
     // Control methods
     //-------------------------------------------------------------------------------------------------
 
@@ -53,9 +46,6 @@ public:
 private:
     //! Key manager
     KeyManager *m_pKeyManager=nullptr;
-
-    //! Widget hash
-    QHash<Parameter *, BaseWidget *> m_hWidgetHash;
 };
 
 #endif // WIDGETFACTORY_H

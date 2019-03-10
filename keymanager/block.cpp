@@ -82,11 +82,31 @@ void Block::parseParameters(const CXMLNode &xBlockNode)
     QVector<CXMLNode> vParameterNodes = xBlockNode.getNodesByTagName(TAG_PARAMETER);
     foreach (CXMLNode xParameterNode, vParameterNodes) 
     {
-        Parameter *pParameter = Parameter::createParameter(this, xParameterNode);
-        if (pParameter != nullptr)
+        // Table?
+        QString sParameterType = xParameterNode.attributes()[PROPERTY_TYPE];
+        if (sParameterType == PROPERTY_TABLE)
         {
-            m_vParameters << pParameter;
-            KeyParser::addParameter(getParentKey(), pParameter);
+            // Table template parameter
+            Parameter *pTableParameter = Parameter::createParameter(this, xParameterNode);
+            addParameter(pTableParameter);
+            KeyParser::addParameter(getParentKey(), pTableParameter);
+
+            // Table parameters
+            QVector<Parameter *> vTableParameters = Parameter::createTableParameters(this, pTableParameter);
+            foreach (Parameter *pChildTableParameter, vTableParameters)
+            {
+                if (pChildTableParameter != nullptr)
+                    pTableParameter->addChildParameter(pChildTableParameter);
+            }
+        }
+        else
+        {
+            Parameter *pParameter = Parameter::createParameter(this, xParameterNode);
+            if (pParameter != nullptr)
+            {
+                addParameter(pParameter);
+                KeyParser::addParameter(getParentKey(), pParameter);
+            }
         }
     }
 }

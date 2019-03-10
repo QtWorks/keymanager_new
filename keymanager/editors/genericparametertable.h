@@ -25,18 +25,10 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Constructor
-    GenericParameterTableModel(KeyManager *pKeyManager, Block *pParentBlock, const QStringList &lColumnLabels, const QStringList &lColumnVariables, const QString &sDefaultValue, const QString &sTargetRow,
-        int nRows, const QString &sTargetVariable, const QString &sVariableMethod, const QString &sActionSetNumberOfPins, const QString &sUnsetValue, QObject *parent=nullptr);
+    GenericParameterTableModel(KeyManager *pKeyManager, Block *pParentBlock, Parameter *pRootParameter, int iColumnCount, QObject *parent=nullptr);
 
     //! Destructor
     virtual ~GenericParameterTableModel();
-
-    //-------------------------------------------------------------------------------------------------
-    // Getters & setters
-    //-------------------------------------------------------------------------------------------------
-
-    //! Return parameters
-    const QVector<Parameter *> &getParameters() const;
 
     //-------------------------------------------------------------------------------------------------
     // Control methods
@@ -61,7 +53,7 @@ public:
     virtual bool setData(const QModelIndex &index, const QVariant &, int iRole=Qt::EditRole);
 
     //! Return header data
-    virtual QVariant headerData(int section, Qt::Orientation eOrientation, int iRole=Qt::DisplayRole) const;
+    virtual QVariant headerData(int iSection, Qt::Orientation eOrientation, int iRole=Qt::DisplayRole) const;
 
     //! Return flags
     virtual Qt::ItemFlags flags(const QModelIndex &index) const;
@@ -85,9 +77,6 @@ public:
     void evaluateSingleScript(const QString &sAutoScript);
 
 private:
-    //! Get formatted variable name
-    static QString getFormattedVariableName(const QString &sVariableMethod, const QString &sTargetVariable, const QStringList &lColumnVariables, const QString &sTargetRow, int iColumn, int iRow);
-
     //! Process action set number of pins
     void processActionSetNumberOfRows(const QString &sActionSetNumberOfRows);
 
@@ -98,39 +87,24 @@ private:
     //! Parent block
     Block *m_pParentBlock=nullptr;
 
+    //! Root parameter
+    Parameter *m_pRootParameter=nullptr;
+
+    //! Column count
+    int m_iColumnCount = 0;
+
     //! Default values
     QStringList m_lDefaultValues;
-
-    //! Column labels
-    QStringList m_lColumnLabels;
-
-    //! Column variables
-    QStringList m_lColumnVariables;
-
-    //! Target row
-    QString m_sTargetRow="";
-
-    //! Max number of rows
-    int m_nMaxNumberOfRows=0;
-
-    //! Number of rows
-    int m_nRows=0;
-
-    //! Target variabe
-    QString m_sTargetVariable="";
-
-    //! Variable method
-    QString m_sVariableMethod="";
 
     //! Data
     QVector<Parameter *> m_vParameters;
 
-    //! Parameter size
-    int m_iParameterSize = 0;
+    //! Number of visible rows
+    int m_iVisibleRowCount = 0;
 
 public slots:
     //! Set number of rows
-    void onSetRowCount(const QString &sParameterName, const QString &sParameterValue);
+    void onSetRowCount(const QString &sParameterValue);
 
     //! Update all
     void onUpdateAll(int iTargetColumn);
@@ -190,15 +164,11 @@ public:
     //! Constructor
     explicit GenericParameterTable(KeyManager *pKeyManager, Parameter *pParameter, QWidget *pParent=nullptr);
 
+    //! Constructor
+    GenericParameterTable(KeyManager *pKeyManager, Parameter *pRootParameter, const QVector<Parameter *> &vChildParameters, QWidget *pParent=nullptr);
+
     //! Destructor
     ~GenericParameterTable();
-
-    //-------------------------------------------------------------------------------------------------
-    // Getters & setters
-    //-------------------------------------------------------------------------------------------------
-
-    //! Return parameters
-    const QVector<Parameter *> &getParameters() const;
 
     //-------------------------------------------------------------------------------------------------
     // Control methods

@@ -83,6 +83,9 @@ public:
     //! Check if all variables replaced
     static bool allVariablesReplaced(const QString &sFileName, QVector<QString> &vUnReplacedVariables);
 
+    //! Return a formatted variable name
+    static QString getFormattedVariableName(const QString &sVariableMethod, const QString &sTargetVariable, const QStringList &lColumnVariables, const QString &sTargetRow, int iColumn, int iRow);
+
     //! Display info
     static void info(const QString &sInfo);
 

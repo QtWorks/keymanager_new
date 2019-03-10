@@ -19,91 +19,82 @@
 
 //-------------------------------------------------------------------------------------------------
 
-GenericParameterTableModel::GenericParameterTableModel(KeyManager *pKeyManager, Block *pParentBlock, const QStringList &lColumnLabels, const QStringList &lColumnVariables, const QString &sDefaultValue, const QString &sTargetRow,
-    int nRows, const QString &sTargetVariable, const QString &sVariableMethod, const QString &sActionSetNumberOfRows, const QString &sUnsetValue, QObject *parent) : QAbstractItemModel(parent),
-    m_pKeyManager(pKeyManager), m_pParentBlock(pParentBlock)
+GenericParameterTableModel::GenericParameterTableModel(KeyManager *pKeyManager, Block *pParentBlock, Parameter *pRootParameter, int iColumnCount, QObject *pParent) :
+    QAbstractItemModel(pParent), m_pKeyManager(pKeyManager), m_pParentBlock(pParentBlock), m_pRootParameter(pRootParameter), m_iColumnCount(iColumnCount)
 {
+    // Set ALL parameters
+    for (int i=0; i<iColumnCount; i++)
+    {
+        QString sParameterVariable = QString("ALL_VALUES_FOR_COLUMN_%1").arg(i);
+        Parameter *pParameter = Parameter::createParameter(pParentBlock, sParameterVariable);
+        m_vParameters << pParameter;
+    }
+
+    // Add other parameters
+    m_vParameters << pRootParameter->getChildParameters();
+
+    // Number of visible rows
+    m_iVisibleRowCount = m_vParameters.size()/m_iColumnCount;
+
     // Check unset values
+    QString sUnsetValue = pRootParameter->getAttributeValue(PROPERTY_UNSET);
     QStringList lUnsetValues;
-    int nColumns = qMin(lColumnLabels.size(), lColumnVariables.size());
     if (sUnsetValue.isEmpty())
     {
-        for (int i=0; i<nColumns; i++)
+        for (int i=0; i<iColumnCount; i++)
             lUnsetValues << ERASE_VALUE;
     }
     else
     {
         lUnsetValues = sUnsetValue.split(",");
-        if (lUnsetValues.size() < nColumns)
-            for (int i=lUnsetValues.size(); i<nColumns; i++)
+        if (lUnsetValues.size() < iColumnCount)
+            for (int i=lUnsetValues.size(); i<iColumnCount; i++)
                 lUnsetValues << ERASE_VALUE;
     }
 
-    // Check we have the right number of default values:
+    // Check we have the right number of default values
+    QString sDefaultValue = pRootParameter->getAttributeValue(PROPERTY_DEFAULT);
     QStringList lDefaultValues;
     if (sDefaultValue.isEmpty())
     {
-        for (int i=0; i<nColumns; i++)
+        for (int i=0; i<iColumnCount; i++)
             lDefaultValues << VALUE_DEFAULT_VALUE;
     }
     else
     if (sDefaultValue.contains(","))
     {
         lDefaultValues = sDefaultValue.split(",");
-        if (lDefaultValues.size() != nColumns)
+        if (lDefaultValues.size() != iColumnCount)
         {
             lDefaultValues.clear();
-            for (int i=0; i<nColumns; i++)
+            for (int i=0; i<iColumnCount; i++)
                 lDefaultValues << VALUE_DEFAULT_VALUE;
         }
     }
     else lDefaultValues << sDefaultValue;
 
-    if (nColumns > 0)
+    for (int i=0; i<iColumnCount; i++)
+    {
+        if (i < m_vParameters.size())
+        {
+            Parameter *pParameter = m_vParameters[i];
+            if (pParameter != nullptr)
+                pParameter->setValue(lDefaultValues[i]);
+        }
+    }
+
+    if (iColumnCount > 0)
     {
         // Set default values
         m_lDefaultValues = lDefaultValues;
 
-        // Set own properties
-        m_lColumnLabels = lColumnLabels.mid(0, nColumns);
-        m_lColumnVariables = lColumnVariables.mid(0, nColumns);
-        m_sTargetRow = sTargetRow;
-        m_nMaxNumberOfRows = nRows;
-        m_nRows = nRows;
-        m_sTargetVariable = sTargetVariable;
-        m_sVariableMethod = sVariableMethod;
+        QString sActionSetNumberOfRows = pRootParameter->getAttributeValue(ACTION_SET_NUMBER_OF_ROWS);
         if (!sActionSetNumberOfRows.isEmpty())
             processActionSetNumberOfRows(sActionSetNumberOfRows);
-
-        for (int i=0; i<nRows; i++)
-        {
-            for (int j=0; j<nColumns; j++)
-            {
-                // Build formatted variable name
-                QString sFormattedVariableName = getFormattedVariableName(m_sVariableMethod, sTargetVariable, m_lColumnVariables, m_sTargetRow, j, i);
-                if (!sFormattedVariableName.isEmpty())
-                {
-                    Parameter *pParameter = Parameter::createParameter(m_pParentBlock, sFormattedVariableName);
-                    if (pParameter != nullptr)
-                    {
-                        pParameter->setAttributeValue(PROPERTY_TYPE, PROPERTY_DOUBLE);
-                        pParameter->setUnsetValue(lUnsetValues[j]);
-                        m_vParameters << pParameter;
-                        pParentBlock->addParameter(pParameter);
-                        KeyParser::addParameter(pParentBlock->getParentKey(), pParameter);
-                    }
-                    else
-                    {
-                        QString sError = QString("GenericParameterTableModel::GenericParameterTableModel COULD NOT CREATE A PARAMETER FOR VARIABLE %1").arg(sFormattedVariableName);
-                        Helper::error(sError);
-                    }
-                }
-            }
-        }
-        m_iParameterSize = m_vParameters.size();
-        connect(this, &GenericParameterTableModel::updateAll, this, &GenericParameterTableModel::onUpdateAll, Qt::UniqueConnection);
     }
-    else Helper::error("CANNOT CREATE A TABLE WITH 0 COLUMN");
+
+    // Listen to updateAll signal
+    connect(this, &GenericParameterTableModel::updateAll, this, &GenericParameterTableModel::onUpdateAll);
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -111,13 +102,6 @@ GenericParameterTableModel::GenericParameterTableModel(KeyManager *pKeyManager, 
 GenericParameterTableModel::~GenericParameterTableModel()
 {
 
-}
-
-//-------------------------------------------------------------------------------------------------
-
-const QVector<Parameter *> &GenericParameterTableModel::getParameters() const
-{
-    return m_vParameters;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -141,7 +125,7 @@ QModelIndex GenericParameterTableModel::parent(const QModelIndex &) const
 int GenericParameterTableModel::rowCount(const QModelIndex &parent) const
 {
     if (!parent.isValid())
-        return m_nRows+1;
+        return m_iVisibleRowCount;
     return 0;
 }
 
@@ -150,7 +134,7 @@ int GenericParameterTableModel::rowCount(const QModelIndex &parent) const
 int GenericParameterTableModel::columnCount(const QModelIndex &parent) const
 {
     if (!parent.isValid())
-        return m_lColumnLabels.size();
+        return m_iColumnCount;
     return 0;
 }
 
@@ -163,34 +147,29 @@ QVariant GenericParameterTableModel::data(const QModelIndex &index, int iRole) c
         // Display
         if (iRole == Qt::DisplayRole)
         {
-            int iTargetRow = index.row();
-            QString sTargetData("");
-            if (iTargetRow > 0)
+            // Retrieve target parameter
+            Parameter *pTargetParameter = nullptr;
+            int iIndex = index.row()*m_iColumnCount+index.column();
+            if ((iIndex >= 0) && (iIndex < m_vParameters.size()))
+                pTargetParameter = m_vParameters[iIndex];
+
+            // Got a parameter
+            if (pTargetParameter != nullptr)
             {
-                int iIndex = index.column()+iTargetRow*m_lColumnVariables.size();
-                if ((iIndex >= 0) && (iIndex < m_vParameters.size()))
-                {
-                    Parameter *pParameter = m_vParameters[iIndex];
-                    if (pParameter != nullptr)
-                        sTargetData = pParameter->getValue();
-                }
+                // Retrieve target data
+                QString sTargetData = "";
+                if (pTargetParameter != nullptr)
+                    sTargetData = pTargetParameter->getValue();
+
+                // Make it double
+                double d = sTargetData.toDouble();
+                return sTargetData.isEmpty() ? sTargetData : QString::number(d, 'f', 4);
             }
-            else
-            {
-                if ((index.column() >= 0) && (index.column() < m_vParameters.size()))
-                {
-                    Parameter *pParameter = m_vParameters[index.column()];
-                    if (pParameter != nullptr)
-                        sTargetData = m_vParameters[index.column()]->getValue();
-                }
-            }
-            double d = sTargetData.toDouble();
-            return sTargetData.isEmpty() ? sTargetData : QString::number(d, 'f', 4);
         }
         else
-        // Background
-        if (iRole == Qt::BackgroundColorRole)
-            return (index.row()%2 == 0) ? QColor(Qt::white) : QColor(Qt::lightGray);
+            // Background
+            if (iRole == Qt::BackgroundColorRole)
+                return (index.row()%2 == 0) ? QColor(Qt::white) : QColor(Qt::lightGray);
     }
     return QVariant();
 }
@@ -201,36 +180,33 @@ bool GenericParameterTableModel::setData(const QModelIndex &index, const QVarian
 {
     if (index.isValid() && (iRole == Qt::EditRole))
     {
+        // Retrieve value
         QString sValue = vData.toString();
-        int iTargetRow = index.row();
-        if (iTargetRow > 0)
+
+        // Retrieve target parameter
+        Parameter *pTargetParameter = nullptr;
+        int iIndex = index.row()*m_iColumnCount+index.column();
+        if ((iIndex >= 0) && (iIndex < m_vParameters.size()))
+            pTargetParameter = m_vParameters[iIndex];
+
+        if (pTargetParameter != nullptr)
         {
-            int iTargetIndex = index.column()+iTargetRow*m_lColumnVariables.size();
-            if ((iTargetIndex >= 0) && (iTargetIndex < m_vParameters.size()))
+            // Special parameter (first row)?
+            bool bIsSpecialParameter = iIndex < m_iColumnCount;
+            if (bIsSpecialParameter)
             {
-                Parameter *pParameter = m_vParameters[iTargetIndex];
-                if (pParameter != nullptr)
-                {
-                    pParameter->setValue(sValue);
-                    QString sFormattedVariableName = getFormattedVariableName(m_sVariableMethod, m_sTargetVariable, m_lColumnVariables, m_sTargetRow, index.column(), iTargetRow-1);
-                    emit dataChanged(index, index, QVector<int>() << Qt::DisplayRole);
-                }
+                pTargetParameter->setValue(sValue);
+                emit dataChanged(index, index, QVector<int>() << Qt::DisplayRole);
+                emit updateAll(index.column());
             }
-        }
-        else
-        {
-            if ((index.column() >= 0) && (index.column() < m_vParameters.size()))
+            else
             {
-                Parameter *pParameter = m_vParameters[index.column()];
-                if (pParameter != nullptr)
-                {
-                    pParameter->setValue(sValue);
-                    emit dataChanged(index, index, QVector<int>() << Qt::DisplayRole);
-                    emit updateAll(index.column());
-                }
+                pTargetParameter->setValue(sValue);
+                emit dataChanged(index, index, QVector<int>() << Qt::DisplayRole);
             }
+
+            return true;
         }
-        return true;
     }
 
     return false;
@@ -238,24 +214,31 @@ bool GenericParameterTableModel::setData(const QModelIndex &index, const QVarian
 
 //-------------------------------------------------------------------------------------------------
 
-QVariant GenericParameterTableModel::headerData(int section, Qt::Orientation eOrientation, int role) const
+QVariant GenericParameterTableModel::headerData(int iSection, Qt::Orientation eOrientation, int iRole) const
 {
-    if (role == Qt::DisplayRole)
+    if (m_pRootParameter != nullptr)
     {
-        if (eOrientation == Qt::Horizontal)
+        QString sColumnLabels = m_pRootParameter->getAttributeValue(PROPERTY_COLUMN_LABELS);
+        QStringList lColumnLabels = sColumnLabels.split(",");
+        if ((lColumnLabels.size() == m_iColumnCount) && (iSection < m_iColumnCount))
         {
-            return m_lColumnLabels[section];
-        }
-        else
-        if (eOrientation == Qt::Vertical)
-        {
-            if (section == 0)
-                return QString("ALL");
-            else return section;
+            if (iRole == Qt::DisplayRole)
+            {
+                if (eOrientation == Qt::Horizontal)
+                    return lColumnLabels[iSection];
+                else
+                if (eOrientation == Qt::Vertical)
+                {
+                    if (iSection == 0)
+                        return QString("ALL");
+                    else
+                        return iSection;
+                }
+            }
         }
     }
 
-    return QAbstractItemModel::headerData(section, eOrientation, role);
+    return QAbstractItemModel::headerData(iSection, eOrientation, iRole);
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -273,7 +256,7 @@ void GenericParameterTableModel::clearAll()
     beginResetModel();
 
     // Reset first row to default values
-    for (int i=0; i<m_lDefaultValues.size(); i++)
+    for (int i=0; i<m_iColumnCount; i++)
     {
         if (i < m_vParameters.size())
         {
@@ -284,7 +267,7 @@ void GenericParameterTableModel::clearAll()
     }
 
     // Clear other rows
-    for (int i=m_lDefaultValues.size(); i<m_iParameterSize; i++)
+    for (int i=m_iColumnCount; i<m_vParameters.size(); i++)
     {
         if (i < m_vParameters.size())
         {
@@ -309,15 +292,8 @@ void GenericParameterTableModel::applyValue(const QString &sValue, int iTargetCo
 
     if (!lValues.isEmpty())
     {
-        for (int i=0; i<m_nRows+1; i++)
+        for (int i=0; i<rowCount(); i++)
         {
-            if ((iTargetColumn >= 0) && (iTargetColumn < lValues.size()))
-            {
-                QModelIndex targetIndex = index(i, iTargetColumn, QModelIndex());
-                if (targetIndex.isValid())
-                    setData(targetIndex, lValues[iTargetColumn], Qt::EditRole);
-            }
-            else
             for (int j=0; j<lValues.size(); j++)
             {
                 QModelIndex targetIndex = index(i, j, QModelIndex());
@@ -337,12 +313,8 @@ void GenericParameterTableModel::clearColumn(int iTargetColumn)
         Parameter *pParameter = m_vParameters[iTargetColumn];
         if (pParameter != nullptr)
         {
-            // Reset first row to default values
-            pParameter->setValue(m_lDefaultValues[iTargetColumn]);
-            emit dataChanged(index(0, iTargetColumn, QModelIndex()), index(0, iTargetColumn, QModelIndex()));
-
-            // Clear others
-            for (int i=1; i<m_nRows+1; i++)
+            // Clear all but row 1
+            for (int i=1; i<rowCount(); i++)
             {
                 QModelIndex targetIndex = index(i, iTargetColumn, QModelIndex());
                 if (targetIndex.isValid())
@@ -394,7 +366,9 @@ void GenericParameterTableModel::evaluateSingleScript(const QString &sSingleScri
         QString sLogicalExpression = lSplitted[1];
 
         // Identify column index
-        int iTargetColumn = m_lColumnVariables.indexOf(sColumnVariable);
+        QString sColumnVariables = m_pRootParameter->getAttributeValue(PROPERTY_COLUMN_VARIABLES);
+        QStringList lColumnVariables = sColumnVariables.split(",");
+        int iTargetColumn = lColumnVariables.indexOf(sColumnVariable);
         if (iTargetColumn >= 0)
         {
             // Retrieve variable names
@@ -418,47 +392,30 @@ void GenericParameterTableModel::evaluateSingleScript(const QString &sSingleScri
                 // Indexed to row
                 if (sMatchedScript.contains(PROPERTY_CURRENT_ROW))
                 {
-                    for (int i=0; i<m_nRows; i++)
+                    for (int i=1; i<rowCount(); i++)
                     {
                         QString sIndexedScript = sMatchedScript;
                         sIndexedScript.replace(PROPERTY_CURRENT_ROW, QString::number(i));
                         QScriptEngine expression;
                         QScriptValue xResult = expression.evaluate(sIndexedScript);
                         if (xResult.isNumber())
-                            setData(index(i+1, iTargetColumn, QModelIndex()), xResult.toString(), Qt::EditRole);
+                            setData(index(i, iTargetColumn, QModelIndex()), xResult.toString(), Qt::EditRole);
                     }
                 }
                 // Not indexed to row
                 else
                 {
-                    for (int i=0; i<m_nRows; i++)
+                    for (int i=1; i<rowCount(); i++)
                     {
                         QScriptEngine expression;
                         QScriptValue xResult = expression.evaluate(sMatchedScript);
                         if (xResult.isNumber())
-                            setData(index(i+1, iTargetColumn, QModelIndex()), xResult.toString(), Qt::EditRole);
+                            setData(index(i, iTargetColumn, QModelIndex()), xResult.toString(), Qt::EditRole);
                     }
                 }
             }
         }
     }
-}
-
-//-------------------------------------------------------------------------------------------------
-
-QString GenericParameterTableModel::getFormattedVariableName(const QString &sVariableMethod, const QString &sTargetVariable, const QStringList &lColumnVariables, const QString &sTargetRow, int iColumn, int iRow)
-{
-    QString sFormattedVariable("");
-    if (sVariableMethod == PROPERTY_VARIABLE_METHOD1)
-    {
-        sFormattedVariable = Helper::identifyTargetVariable_method1(sTargetVariable, lColumnVariables, sTargetRow, iColumn, iRow);
-    }
-    else
-    if (sVariableMethod == PROPERTY_VARIABLE_METHOD2)
-    {
-        sFormattedVariable = Helper::identifyTargetVariable_method2(sTargetVariable, iRow);
-    }
-    return sFormattedVariable;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -475,9 +432,8 @@ void GenericParameterTableModel::processActionSetNumberOfRows(const QString &sAc
 
 //-------------------------------------------------------------------------------------------------
 
-void GenericParameterTableModel::onSetRowCount(const QString &sParameterName, const QString &sParameterValue)
+void GenericParameterTableModel::onSetRowCount(const QString &sParameterValue)
 {
-    Q_UNUSED(sParameterName);
     bool bOK = true;
     int nRows = sParameterValue.toInt(&bOK);
     if (bOK)
@@ -489,15 +445,14 @@ void GenericParameterTableModel::onSetRowCount(const QString &sParameterName, co
                 vData << pParameter->getValue();
 
         beginResetModel();
-        m_nRows = nRows;
-        m_iParameterSize = (nRows+1)*m_lColumnLabels.size();
+        m_iVisibleRowCount = nRows+1;
         clearAll();
 
         // Write own data
-        int iDataSize = qMin(vData.size(), m_iParameterSize);
+        int iDataSize = qMin(vData.size(), m_iVisibleRowCount*m_iColumnCount);
         for (int i=0; i<iDataSize; i++)
         {
-            if (i < m_iParameterSize)
+            if (i < m_iVisibleRowCount*m_iColumnCount)
             {
                 Parameter *pParameter = m_vParameters[i];
                 if (pParameter != nullptr)
@@ -505,21 +460,8 @@ void GenericParameterTableModel::onSetRowCount(const QString &sParameterName, co
             }
         }
 
-        // Update corresponding variables
-        int nColumns = m_lColumnVariables.size();
-        for (int i=nRows; i<m_nMaxNumberOfRows; i++)
-        {
-            for (int j=0; j<nColumns; j++)
-            {
-                QString sFormattedVariableName = getFormattedVariableName(m_sVariableMethod, m_sTargetVariable, m_lColumnVariables, m_sTargetRow, j, i);
-                QString sMsg = QString("CLEARING: %1").arg(sFormattedVariableName);
-                Helper::info(sMsg);
-                emit parameterValueChanged(sFormattedVariableName, QString(""));
-            }
-        }
-
         endResetModel();
-        emit rowCountChanged(m_nRows);
+        emit rowCountChanged(m_iVisibleRowCount);
     }
 }
 
@@ -527,17 +469,15 @@ void GenericParameterTableModel::onSetRowCount(const QString &sParameterName, co
 
 void GenericParameterTableModel::onUpdateAll(int iTargetColumn)
 {
-    for (int i=0; i<m_nRows; i++)
+    Parameter *pParameter = m_vParameters[iTargetColumn];
+    if (pParameter != nullptr)
     {
-        QModelIndex targetIndex = index(i+1, iTargetColumn, QModelIndex());
-        if (targetIndex.isValid())
+        for (int i=1; i<rowCount(); i++)
         {
-            if (iTargetColumn < m_vParameters.size())
-            {
-                Parameter *pParameter = m_vParameters[iTargetColumn];
-                if (pParameter != nullptr)
+            QModelIndex targetIndex = index(i, iTargetColumn, QModelIndex());
+            if (targetIndex.isValid())
+                if (iTargetColumn < m_iColumnCount)
                     setData(targetIndex, pParameter->getValue(), Qt::EditRole);
-            }
         }
     }
 }
@@ -603,16 +543,10 @@ GenericParameterTable::GenericParameterTable(KeyManager *pKeyManager, Parameter 
     Block *pParentBlock = pParameter->getParentBlock();
 
     // Retrieve parameter info
-    QString sTargetRow = m_pParameter->getAttributeValue(PROPERTY_TARGET_ROW);
-    int nRows = m_pParameter->getAttributeValue(PROPERTY_NROWS).toInt();
-    QString sTargetVariable = m_pParameter->getAttributeValue(PROPERTY_TARGET_VARIABLE);
-    QString sVariableMethod = m_pParameter->getAttributeValue(PROPERTY_VARIABLE_METHOD);
     QString sAutoScript = m_pParameter->getAttributeValue(PROPERTY_AUTO);
     QString sDefaultValue = m_pParameter->getAttributeValue(PROPERTY_DEFAULT);
     QString sColumnLabels = m_pParameter->getAttributeValue(PROPERTY_COLUMN_LABELS);
     QString sColumnVariables = m_pParameter->getAttributeValue(PROPERTY_COLUMN_VARIABLES);
-    QString sActionSetNumberOfPins = m_pParameter->getAttributeValue(ACTION_SET_NUMBER_OF_ROWS);
-    QString sUnsetValue = m_pParameter->getAttributeValue(PROPERTY_UNSET);
 
     // Setup UI
     m_pUI->setupUi(this);
@@ -636,7 +570,8 @@ GenericParameterTable::GenericParameterTable(KeyManager *pKeyManager, Parameter 
 
     // Set model
     QStringList lColumnVariables = sColumnVariables.split(",");
-    m_pModel = new GenericParameterTableModel(m_pKeyManager, pParentBlock, lColumnLabels, lColumnVariables, defaultValue(), sTargetRow, nRows, sTargetVariable, sVariableMethod, sActionSetNumberOfPins, sUnsetValue, this);
+    m_pModel = new GenericParameterTableModel(m_pKeyManager, pParentBlock, pParameter, lColumnLabels.size(), this);
+
     m_pUI->tableView->setModel(m_pModel);
     m_pUI->tableView->onRowCountChanged();
     connect(m_pModel, &GenericParameterTableModel::rowCountChanged, m_pUI->tableView, &CustomTableView::onRowCountChanged);
@@ -647,16 +582,47 @@ GenericParameterTable::GenericParameterTable(KeyManager *pKeyManager, Parameter 
 
 //-------------------------------------------------------------------------------------------------
 
-GenericParameterTable::~GenericParameterTable()
+GenericParameterTable::GenericParameterTable(KeyManager *pKeyManager, Parameter *pRootParameter, const QVector<Parameter *> &vParameters, QWidget *pParent) : BaseWidget(pRootParameter, pParent),
+    m_pUI(new Ui::GenericParameterTable),
+    m_pKeyManager(pKeyManager)
 {
-    delete m_pUI;
+    // Setup UI
+    m_pUI->setupUi(this);
+    m_pUI->tableView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    // Set default value
+    setDefaultValue(pRootParameter->getAttributeValue(PROPERTY_DEFAULT));
+
+    // Set auto script
+    setAutoScript(pRootParameter->getAttributeValue(PROPERTY_AUTO));
+
+    // Build item delegate
+    ItemDelegate *pItemDelegate = new  ItemDelegate;
+    m_pUI->tableView->setItemDelegate(pItemDelegate);
+
+    // Stretch columns
+    QString sColumnLabels = pRootParameter->getAttributeValue(PROPERTY_COLUMN_LABELS);
+    QStringList lColumnLabels = sColumnLabels.split(",");
+    CustomHeaderView *pHeaderView = new CustomHeaderView(lColumnLabels.toVector());
+    m_pUI->tableView->setHorizontalHeader(pHeaderView);
+    m_pUI->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+
+    // Create model
+    m_pModel = new GenericParameterTableModel(m_pKeyManager, pRootParameter->getParentBlock(), pRootParameter, lColumnLabels.size(), this);
+    m_pUI->tableView->setModel(m_pModel);
+    m_pUI->tableView->onRowCountChanged();
+    connect(m_pModel, &GenericParameterTableModel::rowCountChanged, m_pUI->tableView, &CustomTableView::onRowCountChanged);
+
+    // Populate button area
+    connect(pHeaderView, &CustomHeaderView::clearClicked, this, &GenericParameterTable::onClearColumn, Qt::UniqueConnection);
+
 }
 
 //-------------------------------------------------------------------------------------------------
 
-const QVector<Parameter *> &GenericParameterTable::getParameters() const
+GenericParameterTable::~GenericParameterTable()
 {
-    return m_pModel->getParameters();
+    delete m_pUI;
 }
 
 //-------------------------------------------------------------------------------------------------

@@ -99,6 +99,7 @@
 #define PROPERTY_ALWAYS_OPENED "alwaysopened"
 #define PROPERTY_CAN_CLEAR "canclear"
 #define PROPERTY_REFERENCE "reference"
+#define PROPERTY_STL_PLAYER "stlplayer"
 
 // Widgets
 #define WIDGET_LINE_EDIT "lineedit"

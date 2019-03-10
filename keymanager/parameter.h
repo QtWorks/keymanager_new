@@ -22,8 +22,9 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Factory
-    static Parameter *createParameter(Block *pParentBlock, const CXMLNode &xParameterNode, QObject *pParent=nullptr);
-    static Parameter *createParameter(Block *pParentBlock, const QString &sParameterVariable, QObject *pParent=nullptr);
+    static Parameter *createParameter(Block *pParentBlock, const CXMLNode &xParameterNode);
+    static Parameter *createParameter(Block *pParentBlock, const QString &sParameterVariable);
+    static QVector<Parameter *> createTableParameters(Block *pParentBlock, Parameter *pTableParameter);
 
     //! Destructor
     ~Parameter();
@@ -60,12 +61,18 @@ public:
     //! Get parent block
     Block *getParentBlock() const;
 
+    //! Return child parameter
+    const QVector<Parameter *> &getChildParameters() const;
+
     //-------------------------------------------------------------------------------------------------
     // Control methods
     //-------------------------------------------------------------------------------------------------
 
     //! Reset to default value
     void resetToDefaultValue();
+
+    //! Add child parameter
+    void addChildParameter(Parameter *pParameter);
 
 private:
     //! Constructor
@@ -90,13 +97,16 @@ private:
     //! Unset value
     QString m_sUnsetValue="";
 
+    //! Child parameters (used for table)
+    QVector<Parameter *> m_vChildParameters;
+
 signals:
     //-------------------------------------------------------------------------------------------------
     // Signals
     //-------------------------------------------------------------------------------------------------
 
     //! Parameter value changed
-    void parameterValueChanged(const QString &sParameterName, const QString &sParameterValue);
+    void parameterValueChanged(const QString &sParameterValue);
 };
 
 #endif // PARAMETER_H

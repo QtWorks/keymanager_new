@@ -394,6 +394,23 @@ bool Helper::allVariablesReplaced(const QString &sFileName, QVector<QString> &vU
 
 //-------------------------------------------------------------------------------------------------
 
+QString Helper::getFormattedVariableName(const QString &sVariableMethod, const QString &sTargetVariable, const QStringList &lColumnVariables, const QString &sTargetRow, int iColumn, int iRow)
+{
+    QString sFormattedVariable("");
+    if (sVariableMethod == PROPERTY_VARIABLE_METHOD1)
+    {
+        sFormattedVariable = Helper::identifyTargetVariable_method1(sTargetVariable, lColumnVariables, sTargetRow, iColumn, iRow);
+    }
+    else
+    if (sVariableMethod == PROPERTY_VARIABLE_METHOD2)
+    {
+        sFormattedVariable = Helper::identifyTargetVariable_method2(sTargetVariable, iRow);
+    }
+    return sFormattedVariable;
+}
+
+//-------------------------------------------------------------------------------------------------
+
 void Helper::info(const QString &sInfo)
 {
 #ifdef DEBUG_INFO

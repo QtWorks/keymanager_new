@@ -18,6 +18,6 @@
         <key reference=":/data/fichet787key.xml" order="1"/>
         <!--<key reference=":/data/expertstlkey.xml" order="2"/>-->
 </key>
-<key reference=":/data/pinboxkey.xml" order="7"/>
-<key reference=":/data/settings.xml" order="8"/>
+<key reference=":/data/pinboxkey.xml" stlplayer="NO" order="7"/>
+<key reference=":/data/settings.xml" stlplayer="NO" order="8"/>
 </keys>

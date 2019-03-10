@@ -8,10 +8,11 @@
 #include "helper.h"
 #include "key.h"
 #include "keyparser.h"
+#include "helper.h"
 
 //-------------------------------------------------------------------------------------------------
 
-Parameter *Parameter::createParameter(Block *pParentBlock, const CXMLNode &xParameterNode, QObject *pParent)
+Parameter *Parameter::createParameter(Block *pParentBlock, const CXMLNode &xParameterNode)
 {
     if (pParentBlock != nullptr)
     {
@@ -31,7 +32,7 @@ Parameter *Parameter::createParameter(Block *pParentBlock, const CXMLNode &xPara
             {
                 if (!KeyParser::getParameterByVariableName(pParentBlock->getParentKey(), sParameterVariable))
                 {
-                    Parameter *pParameter = new Parameter(pParentBlock, xParameterNode, pParent);
+                    Parameter *pParameter = new Parameter(pParentBlock, xParameterNode);
                     QString sMsg = QString("Parameter::createParameter CREATED PARAMETER VARIABLE %1").arg(pParameter->getAttributeValue(PROPERTY_VARIABLE));
                     Helper::info(sMsg);
                     return pParameter;
@@ -43,18 +44,7 @@ Parameter *Parameter::createParameter(Block *pParentBlock, const CXMLNode &xPara
                 }
             }
         }
-        else
-        // Table case
-        {
-            QString sParameterType = xParameterNode.attributes()[PROPERTY_TYPE];
-            if (sParameterType == PROPERTY_TABLE)
-            {
-                Parameter *pParameter = new Parameter(pParentBlock, xParameterNode, pParent);
-                QString sMsg = QString("Parameter::createParameter CREATED PARAMETER VARIABLE %1").arg(pParameter->getAttributeValue(PROPERTY_VARIABLE));
-                Helper::info(sMsg);
-                return pParameter;
-            }
-        }
+        else return new Parameter(pParentBlock, xParameterNode);
     }
 
     return nullptr;
@@ -62,7 +52,7 @@ Parameter *Parameter::createParameter(Block *pParentBlock, const CXMLNode &xPara
 
 //-------------------------------------------------------------------------------------------------
 
-Parameter *Parameter::createParameter(Block *pParentBlock, const QString &sParameterVariable, QObject *pParent)
+Parameter *Parameter::createParameter(Block *pParentBlock, const QString &sParameterVariable)
 {
     if (pParentBlock != nullptr)
     {
@@ -76,7 +66,7 @@ Parameter *Parameter::createParameter(Block *pParentBlock, const QString &sParam
         {
             if (!KeyParser::getParameterByVariableName(pParentBlock->getParentKey(), sParameterVariable))
             {
-                Parameter *pParameter = new Parameter(pParentBlock, sParameterVariable, pParent);
+                Parameter *pParameter = new Parameter(pParentBlock, sParameterVariable);
                 QString sMsg = QString("Parameter::createParameter CREATED PARAMETER VARIABLE %1").arg(pParameter->getAttributeValue(PROPERTY_VARIABLE));
                 Helper::info(sMsg);
                 return pParameter;
@@ -90,6 +80,101 @@ Parameter *Parameter::createParameter(Block *pParentBlock, const QString &sParam
     }
 
     return nullptr;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+QVector<Parameter *> Parameter::createTableParameters(Block *pParentBlock, Parameter *pTableParameter)
+{
+    QVector<Parameter *> vParameters;
+    if ((pParentBlock != nullptr) && (pTableParameter != nullptr))
+    {
+        QString sWidgetType = pTableParameter->getAttributeValue(PROPERTY_UI);
+        if (sWidgetType == WIDGET_GENERIC_PARAMETER_TABLE)
+        {
+            // Retrieve parameter info
+            QString sTargetRow = pTableParameter->getAttributeValue(PROPERTY_TARGET_ROW);
+            int nRows = pTableParameter->getAttributeValue(PROPERTY_NROWS).toInt();
+            QString sTargetVariable = pTableParameter->getAttributeValue(PROPERTY_TARGET_VARIABLE);
+            QString sVariableMethod = pTableParameter->getAttributeValue(PROPERTY_VARIABLE_METHOD);
+            QString sAutoScript = pTableParameter->getAttributeValue(PROPERTY_AUTO);
+            QString sDefaultValue = pTableParameter->getAttributeValue(PROPERTY_DEFAULT);
+            QString sColumnLabels = pTableParameter->getAttributeValue(PROPERTY_COLUMN_LABELS);
+            QString sColumnVariables = pTableParameter->getAttributeValue(PROPERTY_COLUMN_VARIABLES);
+            QString sActionSetNumberOfPins = pTableParameter->getAttributeValue(ACTION_SET_NUMBER_OF_ROWS);
+            QString sUnsetValue = pTableParameter->getAttributeValue(PROPERTY_UNSET);
+
+            // Retrive columns
+            QStringList lColumns = sColumnLabels.split(",");
+            QStringList lColumnVariables = sColumnVariables.split(",");
+
+            // Check unset values
+            QStringList lUnsetValues;
+            int nColumns = qMin(lColumns.size(), lColumnVariables.size());
+            if (sUnsetValue.isEmpty())
+            {
+                for (int i=0; i<nColumns; i++)
+                    lUnsetValues << ERASE_VALUE;
+            }
+            else
+            {
+                lUnsetValues = sUnsetValue.split(",");
+                if (lUnsetValues.size() < nColumns)
+                    for (int i=lUnsetValues.size(); i<nColumns; i++)
+                        lUnsetValues << ERASE_VALUE;
+            }
+
+            // Check we have the right number of default values:
+            QStringList lDefaultValues;
+            if (sDefaultValue.isEmpty())
+            {
+                for (int i=0; i<nColumns; i++)
+                    lDefaultValues << VALUE_DEFAULT_VALUE;
+            }
+            else
+            if (sDefaultValue.contains(","))
+            {
+                lDefaultValues = sDefaultValue.split(",");
+                if (lDefaultValues.size() != nColumns)
+                {
+                    lDefaultValues.clear();
+                    for (int i=0; i<nColumns; i++)
+                        lDefaultValues << VALUE_DEFAULT_VALUE;
+                }
+            }
+            else lDefaultValues << sDefaultValue;
+
+            if (nColumns > 0)
+            {
+                for (int i=0; i<nRows; i++)
+                {
+                    for (int j=0; j<nColumns; j++)
+                    {
+                        // Build formatted variable name
+                        QString sFormattedVariableName = Helper::getFormattedVariableName(sVariableMethod, sTargetVariable, lColumnVariables, sTargetRow, j, i);
+                        if (!sFormattedVariableName.isEmpty())
+                        {
+                            Parameter *pParameter = Parameter::createParameter(pParentBlock, sFormattedVariableName);
+                            if (pParameter != nullptr)
+                            {
+                                pParameter->setAttributeValue(PROPERTY_TYPE, PROPERTY_DOUBLE);
+                                pParameter->setUnsetValue(lUnsetValues[j]);
+                                vParameters << pParameter;
+                            }
+                            else
+                            {
+                                QString sError = QString("Parameter::createTableParameter COULD NOT CREATE A PARAMETER FOR VARIABLE %1").arg(sFormattedVariableName);
+                                Helper::error(sError);
+                            }
+                        }
+                    }
+                }
+            }
+            else Helper::error("CANNOT CREATE A TABLE WITH 0 COLUMN");
+        }
+    }
+
+    return vParameters;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -152,6 +237,7 @@ Parameter::Parameter(Block *pParentBlock, const QString &sVariableName, QObject 
 Parameter::~Parameter()
 {
     Helper::info(QString("Parameter::~Parameter DESTROYING PARAMETER %1").arg(getAttributeValue(PROPERTY_NAME)));
+    qDeleteAll(m_vChildParameters);
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -187,7 +273,7 @@ void Parameter::setValue(const QString &sValue)
         QString sMsg = QString("Parameter::setValue SETTING VALUE: %1 FOR VARIABLE: %2").arg(sValue).arg(sVariable);
         Helper::info(sMsg);
         m_sValue = sValue;
-        emit parameterValueChanged(sVariable, sValue);
+        emit parameterValueChanged(sValue);
     }
 }
 
@@ -221,10 +307,23 @@ Block *Parameter::getParentBlock() const
 
 //-------------------------------------------------------------------------------------------------
 
+const QVector<Parameter *> &Parameter::getChildParameters() const
+{
+    return m_vChildParameters;
+}
+
+//-------------------------------------------------------------------------------------------------
+
 void Parameter::resetToDefaultValue()
 {
     setValue(m_sDefaultValue);
 }
 
+//-------------------------------------------------------------------------------------------------
 
+void Parameter::addChildParameter(Parameter *pParameter)
+{
+    if (pParameter != nullptr)
+        m_vChildParameters << pParameter;
+}
 

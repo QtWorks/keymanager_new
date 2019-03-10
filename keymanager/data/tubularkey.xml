@@ -289,7 +289,7 @@
       <parameter name="NUMBER OF PINS (INCLUDING THE TENSIONER)" type="int" default="12" minvalue="1" maxvalue="12" variable="qt_round_pump_number_of_pins_qt" ui="lineeditvalidateonreturn" />
       <parameter name="MILL DIAMETER" type="double" variable="qt_round_pump_mill_diameter_qt" ui="lineedit" />
       <parameter name="MILL DISTANCE FROM CENTER" type="double" variable="qt_round_pump_mill_distance_frome_center_qt" ui="lineedit" />
-      <parameter setnumberofrows="qt_round_pump_number_of_pins_qt" columnlabels="DEPTH FROM TIP (CW looking into the lock, CCW looking at the key)" type="table" columnvariables="depth" nrows="12" targetvariable="qt_round_pump_cut%1_depth_from_tip_qt" variablemethod="method2" default="0" ui="genericparametertable" />
+      <parameter setnumberofrows="qt_round_pump_number_of_pins_qt" columnlabels="DEPTH FROM TIP (CW looking into the lock and CCW looking at the key)" type="table" columnvariables="depth" nrows="12" targetvariable="qt_round_pump_cut%1_depth_from_tip_qt" variablemethod="method2" default="0" ui="genericparametertable" />
    </block>
    <block name="EXTRA CUTS ON BLANK (LEVEL 2)" level="2">
       <block name="SHAPE 01" set_variable="qt_extra_cut_level2_shape01_use_qt">
