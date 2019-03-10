@@ -179,5 +179,11 @@ void KeyParser::addParameter(Key *pKey, Parameter *pParameter)
                 Helper::error(sError);
             }
         }
+
+        // Add child parameters
+        const QVector<Parameter *> &vChildParameters = pParameter->getChildParameters();
+        foreach (Parameter *pChildParameter, vChildParameters)
+            if (pChildParameter != nullptr)
+                addParameter(pKey, pChildParameter);
     }
 }

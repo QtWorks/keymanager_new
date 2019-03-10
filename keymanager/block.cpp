@@ -88,8 +88,6 @@ void Block::parseParameters(const CXMLNode &xBlockNode)
         {
             // Table template parameter
             Parameter *pTableParameter = Parameter::createParameter(this, xParameterNode);
-            addParameter(pTableParameter);
-            KeyParser::addParameter(getParentKey(), pTableParameter);
 
             // Table parameters
             QVector<Parameter *> vTableParameters = Parameter::createTableParameters(this, pTableParameter);
@@ -98,6 +96,10 @@ void Block::parseParameters(const CXMLNode &xBlockNode)
                 if (pChildTableParameter != nullptr)
                     pTableParameter->addChildParameter(pChildTableParameter);
             }
+
+            // Add table parameter
+            addParameter(pTableParameter);
+            KeyParser::addParameter(getParentKey(), pTableParameter);
         }
         else
         {
