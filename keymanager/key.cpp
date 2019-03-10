@@ -40,6 +40,9 @@ Key::Key(const CXMLNode &xKeyNode, QObject *pParent) : Block(nullptr, xKeyNode, 
 
     // Parse keys
     parseKeys(xKeyNode);
+
+    // Set path to ouput SCAD file
+    m_sOutputSCADFilePath = QString(SCAD_OUTPUT_FILE).arg(getAttributeValue(PROPERTY_NAME));
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -54,6 +57,13 @@ Key::~Key()
 const QVector<Key *> &Key::getChildKeys() const
 {
     return m_vKeys;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+const QString &Key::getOutputSCADFilePath() const
+{
+    return m_sOutputSCADFilePath;
 }
 
 //-------------------------------------------------------------------------------------------------

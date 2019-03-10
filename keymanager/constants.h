@@ -5,7 +5,7 @@
 #define FIRST_INSTALL "FIRSTINSTALL"
 #define DEBUG_MODE "DEBUG"
 #define CLEAR_SCRIPT_FILE "stlcompiler.sys"
-#define SCAD_OUTPUT_FILE "outputscript.scad"
+#define SCAD_OUTPUT_FILE "outputscript_%1.scad"
 #define HOME_TAB 0
 #define MENU1_TAB 1
 #define MENU2_TAB 2

@@ -83,29 +83,26 @@ bool ScriptManager::generateOutputSCADForKey(Key *pTargetKey)
                 replaceVariablesInScriptForKey(pCurrentKey, sScriptText, true);
             }
 
-            // Output script file
-            //QString sOutputScriptFile = Helper::outputDir().absoluteFilePath(SCAD_OUTPUT_FILE);
-            QString sOutputScriptFile = SCAD_OUTPUT_FILE;
-
             // Save file
-            if (Helper::saveFile(sScriptText, sOutputScriptFile))
+            QString sOutputSCADFilePath = pTargetKey->getOutputSCADFilePath();
+            if (Helper::saveFile(sScriptText, sOutputSCADFilePath))
             {
                 QVector<QString> vUnreplacedVariables;
-                if (!Helper::allVariablesReplaced(sOutputScriptFile, vUnreplacedVariables))
+                if (!Helper::allVariablesReplaced(sOutputSCADFilePath, vUnreplacedVariables))
                 {
-                    QString sMsg = QString("ScriptManager::generateScriptForKey ALL VARIABLES COULD NOT BE REPLACED IN: %1").arg(sOutputScriptFile);
+                    QString sMsg = QString("ScriptManager::generateScriptForKey ALL VARIABLES COULD NOT BE REPLACED IN: %1").arg(sOutputSCADFilePath);
                     Helper::info(sMsg);
                     int count = 0;
                     foreach (QString sUnreplacedVariable, vUnreplacedVariables)
                         qDebug() << ++count << "UNREPLACED VARIABLE : " << sUnreplacedVariable;
                 }
-                QString sMsg = QString("ScriptManager::generateScriptForKey SCAD SCRIPT SUCCESSFULLY EXPORTED IN: %1").arg(sOutputScriptFile);
+                QString sMsg = QString("ScriptManager::generateScriptForKey SCAD SCRIPT SUCCESSFULLY EXPORTED IN: %1").arg(sOutputSCADFilePath);
                 Helper::info(sMsg);
                 return true;
             }
             else
             {
-                QString sMsg = QString("ScriptManager::generateScriptForKey COULD NOT EXPORT SCAD SCRIPT TO: %1").arg(sOutputScriptFile);
+                QString sMsg = QString("ScriptManager::generateScriptForKey COULD NOT EXPORT SCAD SCRIPT TO: %1").arg(sOutputSCADFilePath);
                 Helper::error(sMsg);
                 return false;
             }

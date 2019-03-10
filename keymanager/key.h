@@ -31,6 +31,9 @@ public:
     //! Get childs keys
     const QVector<Key *> &getChildKeys() const;
 
+    //! Return path to output SCAD file
+    const QString &getOutputSCADFilePath() const;
+
 private:   
     //! Parse child keys
     void parseKeys(const CXMLNode &keyNode);
@@ -38,6 +41,9 @@ private:
 private:
     //! Child keys
     QVector<Key *> m_vKeys;
+
+    //! Path to output SCAD file
+    QString m_sOutputSCADFilePath = "";
 };
 
 #endif // KEY_H
