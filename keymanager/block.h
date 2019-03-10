@@ -28,6 +28,9 @@ public:
     // Getters & setters
     //-------------------------------------------------------------------------------------------------
 
+    //! Return true if block has attribute
+    bool hasAttribute(const QString &sAttributeName) const;
+
     //! Return an attribute value
     QString getAttributeValue(const QString &sAttributeName) const;
 

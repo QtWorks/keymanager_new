@@ -39,7 +39,7 @@ public:
     //-------------------------------------------------------------------------------------------------
 
     //! Generate script
-    bool generateScriptForKey(Key *pTargetKey);
+    bool generateOutputSCADForKey(Key *pTargetKey);
 
 private:
     //! Replace variables in script for key

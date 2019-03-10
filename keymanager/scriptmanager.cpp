@@ -42,7 +42,7 @@ void ScriptManager::shutdown()
 
 //-------------------------------------------------------------------------------------------------
 
-bool ScriptManager::generateScriptForKey(Key *pTargetKey)
+bool ScriptManager::generateOutputSCADForKey(Key *pTargetKey)
 {
     if (pTargetKey != nullptr)
     {

@@ -94,6 +94,13 @@ QList<CollapsibleBlock *> LayoutMgr::blocks() const
 
 //-------------------------------------------------------------------------------------------------
 
+bool LayoutMgr::allBlocksOpened() const
+{
+    return m_bAllBlocksOpened;
+}
+
+//-------------------------------------------------------------------------------------------------
+
 void LayoutMgr::addBlockToStack(CollapsibleBlock *pBlock)
 {
     if (pBlock != nullptr)
@@ -179,18 +186,20 @@ void LayoutMgr::onShowHideTree()
 
 void LayoutMgr::onOpenAll()
 {
-    foreach (CollapsibleStack *pStack, m_vStacks)
-        pStack->openAll();
-    m_pUI->treeView->expandAll();
-}
-
-//-------------------------------------------------------------------------------------------------
-
-void LayoutMgr::onCloseAll()
-{
-    foreach (CollapsibleStack *pStack, m_vStacks)
-        pStack->closeAll();
-    m_pUI->treeView->collapseAll();
+    if (m_bAllBlocksOpened)
+    {
+        foreach (CollapsibleStack *pStack, m_vStacks)
+            pStack->closeAll();
+        m_pUI->treeView->collapseAll();
+        m_bAllBlocksOpened = false;
+    }
+    else
+    {
+        foreach (CollapsibleStack *pStack, m_vStacks)
+            pStack->openAll();
+        m_pUI->treeView->expandAll();
+        m_bAllBlocksOpened = true;
+    }
 }
 
 //-------------------------------------------------------------------------------------------------

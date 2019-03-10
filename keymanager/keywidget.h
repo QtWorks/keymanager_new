@@ -49,7 +49,7 @@ private:
 
 public slots:
     //! Save key parameters
-    void onGenerateSTL();
+    void onGenerateOutputSCAD();
 
 };
 

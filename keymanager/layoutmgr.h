@@ -50,6 +50,9 @@ public:
     //! Return all blocks
     QList<CollapsibleBlock *> blocks() const;
 
+    //! Return true if all blocks are opened
+    bool allBlocksOpened() const;
+
     //-------------------------------------------------------------------------------------------------
     // Control methods
     //-------------------------------------------------------------------------------------------------
@@ -108,6 +111,9 @@ private:
     //! Own blocks
     QList<CollapsibleBlock *> m_lBlocks;
 
+    //! All opened?
+    bool m_bAllBlocksOpened = false;
+
 public slots:
     //-------------------------------------------------------------------------------------------------
     // Slots
@@ -116,11 +122,8 @@ public slots:
     //! Show hide tree
     void onShowHideTree();
 
-    //! Open all parameter blocks
+    //! Open or close all parameter blocks
     void onOpenAll();
-
-    //! Close all parameter blocks
-    void onCloseAll();
 
     //! Clear all
     void onClearAll();

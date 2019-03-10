@@ -127,6 +127,13 @@ void Block::parseBlocks(const CXMLNode &xBlockNode)
 
 //-------------------------------------------------------------------------------------------------
 
+bool Block::hasAttribute(const QString &sAttributeName) const
+{
+    return m_hAttributes.contains(sAttributeName);
+}
+
+//-------------------------------------------------------------------------------------------------
+
 QString Block::getAttributeValue(const QString &sAttributeName) const
 {
     return m_hAttributes[sAttributeName];

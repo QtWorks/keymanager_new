@@ -15,6 +15,10 @@
 
 Key::Key(const CXMLNode &xKeyNode, QObject *pParent) : Block(nullptr, xKeyNode, pParent)
 {   
+    // Does key needs a STL player?
+    if (!hasAttribute(PROPERTY_STL_PLAYER))
+        m_hAttributes[PROPERTY_STL_PLAYER] = VALUE_YES;
+
     // Retrieve reference file
     QString sReferenceFile = m_hAttributes[PROPERTY_REFERENCE];
     QFileInfo fi(sReferenceFile);
