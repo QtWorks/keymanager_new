@@ -53,7 +53,7 @@ void CaptionLabel::setExpandable(bool bExpandable)
 {
     m_bExpandable = bExpandable;
     m_pUI->openCloseButton->setVisible(!m_bBlockAlwaysOpened && bExpandable);
-    m_pUI->clearAllButton->setVisible(m_bCanClearBlock && bExpandable);
+    m_pUI->clearAllButton->setVisible(m_bCanClearBlock);
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -62,7 +62,7 @@ void CaptionLabel::updateEnabledState(bool bEnabled)
 {
     m_bIsEnabled = bEnabled;
     m_pUI->openCloseButton->setVisible(!m_bBlockAlwaysOpened && m_bExpandable && bEnabled);
-    m_pUI->clearAllButton->setVisible(m_bCanClearBlock && m_bExpandable && bEnabled);
+    m_pUI->clearAllButton->setVisible(m_bCanClearBlock && bEnabled);
     update();
 }
 
@@ -113,7 +113,9 @@ void CaptionLabel::mousePressEvent(QMouseEvent *pEvent)
 
 void CaptionLabel::mouseDoubleClickEvent(QMouseEvent *pEvent)
 {
-    emit openOrClose();
+    QWidget::mouseDoubleClickEvent(pEvent);
+    if (m_bExpandable && !m_bBlockAlwaysOpened)
+        emit openOrClose();
 }
 
 //-------------------------------------------------------------------------------------------------
