@@ -34,6 +34,9 @@ public:
     //! Build menu
     void buildMenu();
 
+    //! Load STL
+    void loadSTL(const QString &sSTLFilePath);
+
 private:
     //! User interface
     Ui::KeyWidget *m_pUI=nullptr;
@@ -48,9 +51,11 @@ private:
     STLWindow *m_pSTLWindow=nullptr;
 
 public slots:
-    //! Save key parameters
+    //! Generate output SCAD
     void onGenerateOutputSCAD();
 
+    //! Generate STL
+    void onGenerateSTL();
 };
 
 #endif // KEYWIDGET_H

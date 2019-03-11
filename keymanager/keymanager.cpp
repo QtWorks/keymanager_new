@@ -6,6 +6,9 @@
 #include "keyparser.h"
 #include "widgetfactory.h"
 #include "scriptmanager.h"
+#include "openscadwrapper.h"
+#include "helper.h"
+#include "key.h"
 
 // Instance
 KeyManager *KeyManager::sInstance = nullptr;
@@ -25,6 +28,9 @@ KeyManager::KeyManager(QObject *pParent) : QObject(pParent)
 
     // Script manager
     m_pScriptManager = new ScriptManager(this);
+
+    // OpenSCAD wrapper
+    m_pOpenSCADWrapper = new OpenSCADWrapper(this, Helper::openSCADPath());
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -60,6 +66,17 @@ bool KeyManager::startup(const QString &args)
     if (!m_pScriptManager->startup())
         return false;
 
+    // Start openSCAD wrapper
+    if (!m_pOpenSCADWrapper->startup())
+        return false;
+    connect(m_pOpenSCADWrapper, &OpenSCADWrapper::STLFileReady, m_pMainWindow, &MainWindow::onSTLFileReady);
+    /*
+    connect(m_pOpenSCADWrapper, &OpenSCADWrapper::STLFileError, this, &Controller::STLFileError, Qt::UniqueConnection);
+    connect(m_pOpenSCADWrapper, &OpenSCADWrapper::openSCADProcessComplete, this, &Controller::openSCADProcessComplete, Qt::UniqueConnection);
+    connect(m_pOpenSCADWrapper, &OpenSCADWrapper::openSCADStandardErrorReady, this, &Controller::openSCADStandardErrorReady, Qt::UniqueConnection);
+    connect(m_pOpenSCADWrapper, &OpenSCADWrapper::openSCADStandardOutputReady, this, &Controller::openSCADStandardOutputReady, Qt::UniqueConnection);
+    */
+
     // Show main window
     m_pMainWindow->showMaximized();
 
@@ -76,8 +93,11 @@ void KeyManager::shutdown()
     // Shutdown widget factory
     m_pWidgetFactory->shutdown();
 
-    // Shutdown
+    // Shutdown script manager
     m_pScriptManager->shutdown();
+
+    // Shutdown openSCAD wrapper
+    m_pOpenSCADWrapper->shutdown();
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -120,4 +140,18 @@ const ScriptManager &KeyManager::scriptManager() const
 ScriptManager &KeyManager::scriptManager()
 {
     return *m_pScriptManager;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+const OpenSCADWrapper &KeyManager::openSCADWrapper() const
+{
+    return *m_pOpenSCADWrapper;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+OpenSCADWrapper &KeyManager::openSCADWrapper()
+{
+    return *m_pOpenSCADWrapper;
 }

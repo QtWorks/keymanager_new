@@ -8,7 +8,9 @@
 #include "key.h"
 #include "constants.h"
 #include "scriptmanager.h"
+#include "openscadwrapper.h"
 #include <src/stlwindow.h>
+#include "helper.h"
 
 //-------------------------------------------------------------------------------------------------
 
@@ -32,6 +34,7 @@ KeyWidget::KeyWidget(KeyManager *pKeyManager, Key *pKey, QWidget *pParent) : QWi
 
     connect(m_pUI->clearAllButton, &QPushButton::clicked, m_pUI->layoutMgr, &LayoutMgr::onClearAll);
     connect(m_pUI->generateOutputSCADButton, &QPushButton::clicked, this, &KeyWidget::onGenerateOutputSCAD);
+    connect(m_pUI->generateSTLButton, &QPushButton::clicked, this, &KeyWidget::onGenerateSTL);
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -50,7 +53,36 @@ void KeyWidget::buildMenu()
 
 //-------------------------------------------------------------------------------------------------
 
+void KeyWidget::loadSTL(const QString &sSTLFilePath)
+{
+    m_pSTLWindow->load_stl(sSTLFilePath);
+    m_pSTLWindow->viewOrthographic();
+}
+
+//-------------------------------------------------------------------------------------------------
+
 void KeyWidget::onGenerateOutputSCAD()
 {
     m_pKeyManager->scriptManager().generateOutputSCADForKey(m_pKey);
+}
+
+//-------------------------------------------------------------------------------------------------
+
+void KeyWidget::onGenerateSTL()
+{
+    if (m_pKey != nullptr)
+    {
+        QString sOutputSCADFileName = m_pKey->getOutputSCADFileName();
+        QFileInfo fi(sOutputSCADFileName );
+        if (fi.exists())
+        {
+            // Notify
+            m_pKeyManager->openSCADWrapper().generateSTL(m_pKey, sOutputSCADFileName ,  m_pKey->getOutputSTLFileName());
+        }
+        else
+        {
+            QString sError = QString("KeyWidget::onGenerateSTL COULD NOT GENERATE STL FOR KEY %1 SINCE %2 DOES NOT EXIST").arg(m_pKey->getAttributeValue(PROPERTY_NAME).arg(sOutputSCADFileName ));
+            Helper::error(sError);
+        }
+    }
 }

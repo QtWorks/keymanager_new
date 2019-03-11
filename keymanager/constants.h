@@ -6,6 +6,7 @@
 #define DEBUG_MODE "DEBUG"
 #define CLEAR_SCRIPT_FILE "stlcompiler.sys"
 #define SCAD_OUTPUT_FILE "outputscript_%1.scad"
+#define STL_OUTPUT_FILE "outputstl_%1.stl"
 #define HOME_TAB 0
 #define MENU1_TAB 1
 #define MENU2_TAB 2

@@ -1,3 +1,6 @@
+// Qt
+#include <QDebug>
+
 // Application
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -46,6 +49,20 @@ void MainWindow::onKeyParsingDone()
 
 //-------------------------------------------------------------------------------------------------
 
+void MainWindow::onSTLFileReady(Key *pKey, const QString &sSTLFilePath)
+{
+    if (pKey != nullptr)
+    {
+        // Retrieve KeyWidget
+        KeyWidget *pKeyWidget = m_hKeyWidgets[pKey];
+        if (pKeyWidget != nullptr)
+            pKeyWidget->loadSTL(sSTLFilePath);
+    }
+    qDebug() << "STL FILE READY FOR " << pKey->getAttributeValue(PROPERTY_NAME) << sSTLFilePath;
+}
+
+//-------------------------------------------------------------------------------------------------
+
 void MainWindow::addKeyTab(Key *pKey)
 {
     if (pKey != nullptr)
@@ -61,6 +78,7 @@ void MainWindow::addKeyTab(Key *pKey)
         if (iChildKeyCount == 0)
         {
             KeyWidget *pKeyWidget = new KeyWidget(m_pKeyManager, pKey);
+            m_hKeyWidgets[pKey] = pKeyWidget;
             m_pUI->tabWidget->addTab(pKeyWidget, pKey->getAttributeValue(PROPERTY_NAME));
             pKeyWidget->buildMenu();
         }
@@ -75,6 +93,7 @@ void MainWindow::addKeyTab(Key *pKey)
                 if (pChildKey != nullptr)
                 {
                     KeyWidget *pChildKeyWidget = new KeyWidget(m_pKeyManager, pChildKey);
+                    m_hKeyWidgets[pKey] = pChildKeyWidget;
                     pChildTabWidget->addTab(pChildKeyWidget, pChildKey->getAttributeValue(PROPERTY_NAME));
                     pChildKeyWidget->buildMenu();
                 }

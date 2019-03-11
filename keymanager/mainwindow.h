@@ -7,6 +7,7 @@
 // Application
 class Key;
 class KeyManager;
+class KeyWidget;
 
 namespace Ui {
 class MainWindow;
@@ -41,9 +42,15 @@ private:
     //! Keymanager
     KeyManager *m_pKeyManager=nullptr;
 
+    //! Key widgets
+    QHash<Key *, KeyWidget *> m_hKeyWidgets;
+
 public slots:
     //! Build UI
     void onKeyParsingDone();
+
+    //! STL File ready
+    void onSTLFileReady(Key *pKey, const QString &sSTLFilePath);
 };
 
 #endif // MAINWINDOW_H

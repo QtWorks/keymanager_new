@@ -11,6 +11,7 @@ class KeyParser;
 class WidgetFactory;
 class CollapsibleBlock;
 class ScriptManager;
+class OpenSCADWrapper;
 
 class KeyManager : public QObject, public IService
 {
@@ -62,6 +63,12 @@ public:
     //! Return script manager
     ScriptManager &scriptManager();
 
+    //! Return openSCAD wrapper
+    const OpenSCADWrapper &openSCADWrapper() const;
+
+    //! Return openSCAD wrapper
+    OpenSCADWrapper &openSCADWrapper();
+
 private:
     //! KeyManager instance
     static KeyManager *sInstance;
@@ -74,6 +81,9 @@ private:
 
     //! Script manager
     ScriptManager *m_pScriptManager=nullptr;
+
+    //! OpenSCAD wrapper
+    OpenSCADWrapper *m_pOpenSCADWrapper=nullptr;
 
     //! Main window
     MainWindow *m_pMainWindow=nullptr;

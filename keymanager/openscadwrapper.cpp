@@ -6,14 +6,15 @@
 #include <QDebug>
 
 // Application
+#include "keymanager.h"
 #include "openscadwrapper.h"
 #include "helper.h"
 #include "constants.h"
 
 //-------------------------------------------------------------------------------------------------
 
-OpenSCADWrapper::OpenSCADWrapper(const QString &sOpenSCADPath, QObject *pParent) : QObject(pParent),
-    m_sOpenSCADPath(sOpenSCADPath), m_pProcess(new QProcess(this))
+OpenSCADWrapper::OpenSCADWrapper(KeyManager *pKeyManager, const QString &sOpenSCADPath) : QObject(pKeyManager),
+    m_pKeyManager(pKeyManager), m_sOpenSCADPath(sOpenSCADPath), m_pProcess(new QProcess(this))
 {
     connect(m_pProcess, SIGNAL(finished(int, QProcess::ExitStatus)), this, SLOT(onOpenSCADProcessComplete(int, QProcess::ExitStatus)), Qt::UniqueConnection);
     connect(m_pProcess, &QProcess::readyReadStandardOutput, this, &OpenSCADWrapper::onOpenSCADreadyReadStandardOutput, Qt::UniqueConnection);
@@ -29,31 +30,56 @@ OpenSCADWrapper::~OpenSCADWrapper()
 
 //-------------------------------------------------------------------------------------------------
 
-bool OpenSCADWrapper::generateSTL(const QString &sInputSCAD)
+bool OpenSCADWrapper::startup(const QString &sArgs)
 {
-    m_sNextOutputSTLFile.clear();
-    QFileInfo fi(sInputSCAD);
-    if (fi.exists())
+    return true;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+void OpenSCADWrapper::shutdown()
+{
+
+}
+
+//-------------------------------------------------------------------------------------------------
+
+bool OpenSCADWrapper::generateSTL(Key *pKey, const QString &sInputSCADFileName, const QString &sOutputSTLFileName)
+{
+    if (pKey != nullptr)
     {
-        // Compute output filename
-        QDateTime currentDateTime = QDateTime::currentDateTime();
-        QString sOutputFileName = QString("output_stl_%1_%2_%3_%4_%5_%6.stl").arg(currentDateTime.date().day()).
-            arg(currentDateTime.date().month()).arg(currentDateTime.date().year()).
-                arg(currentDateTime.time().hour()).arg(currentDateTime.time().minute()).arg(currentDateTime.time().second());
+        // Set current key
+        m_pCurrentKey = pKey;
 
-        // Compute out STL file name
-        m_sNextOutputSTLFile = Helper::outputDir().absoluteFilePath(sOutputFileName);
-        QString sProgram = QString("\"%1\" -o \"%2\" \"%3\"").arg(m_sOpenSCADPath).arg(m_sNextOutputSTLFile).arg(sInputSCAD);
-        Helper::info(sProgram);
+        // Set current key
+        m_sOutputSTLFilePath.clear();
+        QFileInfo fi(sInputSCADFileName);
+        if (fi.exists())
+        {
+            // Retrieve input dir
+            QDir inputSCADFileDir = fi.dir();
 
-        // Setup process
-        QStringList lArgs;
-        m_pProcess->start(sProgram, lArgs);
-        return true;
+            // Compute output filename
+            m_sOutputSTLFilePath = inputSCADFileDir.absoluteFilePath(sOutputSTLFileName);
+
+            // Compute out STL file name
+            QString sProgram = QString("\"%1\" -o \"%2\" \"%3\"").arg(m_sOpenSCADPath).arg(m_sOutputSTLFilePath).arg(inputSCADFileDir.absoluteFilePath(sInputSCADFileName));
+            qDebug() << sProgram;
+            Helper::info(sProgram);
+
+            // Setup process
+            QStringList lArgs;
+            m_pProcess->start(sProgram, lArgs);
+            return true;
+        }
+        else
+        {
+            QString sMsg = QString("OpenSCADWrapper::generateSTL %1 DOES NOT EXIST").arg(sInputSCADFileName);
+            Helper::error(sMsg);
+            return false;
+        }
     }
 
-    QString sMsg = QString("%1 DOES NOT EXIST").arg(sInputSCAD);
-    Helper::error(sMsg);
     return false;
 }
 
@@ -62,16 +88,14 @@ bool OpenSCADWrapper::generateSTL(const QString &sInputSCAD)
 void OpenSCADWrapper::stopSTLGeneration()
 {
     if ((m_pProcess->state() == QProcess::Starting) || (m_pProcess->state() == QProcess::Running))
-    {
         m_pProcess->kill();
-    }
 }
 
 //-------------------------------------------------------------------------------------------------
 
 const QString &OpenSCADWrapper::nextOutputSTLFile() const
 {
-    return m_sNextOutputSTLFile;
+    return m_sOutputSTLFilePath;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -88,21 +112,21 @@ void OpenSCADWrapper::onOpenSCADProcessComplete(int iExitCode, QProcess::ExitSta
 void OpenSCADWrapper::onWriteTimerDone()
 {
     QString sMsg = QString("STLCompiler PROCESS TERMINATED WITH CODE: %1 AND EXIT STATUS: %2").arg(m_iOpenSCADExitCode).arg(m_eExitStatus);
-    emit openSCADProcessComplete(sMsg);
+    emit openSCADProcessComplete(m_pCurrentKey, sMsg);
 
     // Process completed, check if file exists
-    QFileInfo fi(m_sNextOutputSTLFile);
+    QFileInfo fi(m_sOutputSTLFilePath);
     if (fi.exists())
     {
         QString sMsg("STL FILE SUCCESSFULLY GENERATED");
         Helper::info(sMsg);
-        Helper::replaceInFile(m_sNextOutputSTLFile, TARGET_STRING, OUTPUT_STRING);
-        emit STLFileReady(m_sNextOutputSTLFile);
+        Helper::replaceInFile(m_sOutputSTLFilePath, TARGET_STRING, OUTPUT_STRING);
+        emit STLFileReady(m_pCurrentKey, m_sOutputSTLFilePath);
     }
     else
     {
         QString sMsg = QString("COULD NOT GENERATE STL FILE");
-        emit STLFileError(sMsg);
+        emit STLFileError(m_pCurrentKey, sMsg);
     }
 }
 
@@ -115,7 +139,7 @@ void OpenSCADWrapper::onOpenSCADreadyReadStandardOutput()
     {
         QByteArray bBuffer = pSender->readAllStandardOutput();
         QString sMsg = QString("STLCompiler OUTPUT: %1").arg(QString(bBuffer));
-        emit openSCADStandardOutputReady(sMsg);
+        emit openSCADStandardOutputReady(m_pCurrentKey, sMsg);
     }
 }
 
@@ -128,6 +152,6 @@ void OpenSCADWrapper::onOpenSCADreadyReadStandardError()
     {
         QByteArray bBuffer = pSender->readAllStandardError();
         QString sMsg = QString("STLCompiler ERROR: %1").arg(QString(bBuffer));
-        emit openSCADStandardErrorReady(sMsg);
+        emit openSCADStandardErrorReady(m_pCurrentKey, sMsg);
     }
 }
