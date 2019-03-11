@@ -61,15 +61,16 @@ bool OpenSCADWrapper::generateSTL(Key *pKey, const QString &sInputSCADFileName, 
 
             // Compute output filename
             m_sOutputSTLFilePath = inputSCADFileDir.absoluteFilePath(sOutputSTLFileName);
-
+            QFile::remove(m_sOutputSTLFilePath);
             // Compute out STL file name
             QString sProgram = QString("\"%1\" -o \"%2\" \"%3\"").arg(m_sOpenSCADPath).arg(m_sOutputSTLFilePath).arg(inputSCADFileDir.absoluteFilePath(sInputSCADFileName));
-            qDebug() << sProgram;
             Helper::info(sProgram);
+            qDebug() << sProgram;
 
             // Setup process
             QStringList lArgs;
             m_pProcess->start(sProgram, lArgs);
+
             return true;
         }
         else

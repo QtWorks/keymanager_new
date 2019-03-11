@@ -117,7 +117,7 @@ Mesh* Loader::load_stl()
     }
 
     // First, try to read the stl as an ASCII file
-    if (file.read(6) == "solid ")
+    if (file.read(5) == "solid")
     {
         file.readLine(); // skip solid name
         const auto line = file.readLine().trimmed();
@@ -196,13 +196,13 @@ Mesh* Loader::read_stl_ascii(QFile& file)
     bool okay = true;
     while (!file.atEnd() && okay)
     {
-        const auto line = file.readLine();
+        const auto line = file.readLine().simplified();
         if (line.startsWith("endsolid"))
         {
             break;
         }
         else if (!line.startsWith("facet normal") ||
-                 !file.readLine().startsWith("outer loop"))
+                 !file.readLine().simplified().startsWith("outer loop"))
         {
             okay = false;
             break;
@@ -210,7 +210,7 @@ Mesh* Loader::read_stl_ascii(QFile& file)
 
         for (int i=0; i < 3; ++i)
         {
-            auto line = file.readLine().split(' ');
+            auto line = file.readLine().simplified().split(' ');
             if (line[0] != "vertex")
             {
                 okay = false;

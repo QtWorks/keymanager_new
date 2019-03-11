@@ -1,5 +1,4 @@
 #include <QMouseEvent>
-#include <QDebug>
 
 #include <cmath>
 
@@ -8,11 +7,12 @@
 #include "glmesh.h"
 #include "mesh.h"
 
-Canvas::Canvas(const QGLFormat& format, QWidget *pParent)
-    : QGLWidget(format, pParent), mesh(NULL),
+Canvas::Canvas(const QSurfaceFormat& format, QWidget *parent)
+    : QOpenGLWidget(parent), mesh(nullptr),
       scale(1), zoom(1), tilt(90), yaw(0),
       perspective(0.25), anim(this, "perspective"), status(" ")
 {
+	setFormat(format);
     QFile styleFile(":/qt/style.qss");
     styleFile.open( QFile::ReadOnly );
     setStyleSheet(styleFile.readAll());
@@ -22,7 +22,9 @@ Canvas::Canvas(const QGLFormat& format, QWidget *pParent)
 
 Canvas::~Canvas()
 {
-    delete mesh;
+	makeCurrent();
+	delete mesh;
+	doneCurrent();
 }
 
 void Canvas::view_anim(float v)
@@ -40,6 +42,16 @@ void Canvas::view_orthographic()
 void Canvas::view_perspective()
 {
     view_anim(0.25);
+}
+
+void Canvas::draw_shaded()
+{
+    set_drawMode(0);
+}
+
+void Canvas::draw_wireframe()
+{
+    set_drawMode(1);
 }
 
 void Canvas::load_mesh(Mesh* m, bool is_reload)
@@ -76,9 +88,10 @@ void Canvas::set_perspective(float p)
     update();
 }
 
-float Canvas::get_perspective() const
+void Canvas::set_drawMode(int mode)
 {
-    return perspective;
+    drawMode = mode;
+    update();
 }
 
 void Canvas::clear_status()
@@ -89,59 +102,76 @@ void Canvas::clear_status()
 
 void Canvas::initializeGL()
 {
-    initializeGLFunctions();
+    initializeOpenGLFunctions();
 
-    mesh_shader.addShaderFromSourceFile(QGLShader::Vertex, ":/gl/mesh.vert");
-    mesh_shader.addShaderFromSourceFile(QGLShader::Fragment, ":/gl/mesh.frag");
+    mesh_shader.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/gl/mesh.vert");
+    mesh_shader.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/gl/mesh.frag");
     mesh_shader.link();
+    mesh_wireframe_shader.addShaderFromSourceFile(QOpenGLShader::Vertex, ":/gl/mesh.vert");
+    mesh_wireframe_shader.addShaderFromSourceFile(QOpenGLShader::Fragment, ":/gl/mesh_wireframe.frag");
+    mesh_wireframe_shader.link();
 
     backdrop = new Backdrop();
 }
 
-void Canvas::paintEvent(QPaintEvent *event)
+
+void Canvas::paintGL()
 {
-    Q_UNUSED(event);
+	glClearColor(0.0, 0.0, 0.0, 0.0);
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glEnable(GL_DEPTH_TEST);
 
-    glClearColor(0.0, 0.0, 0.0, 0.0);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glEnable(GL_DEPTH_TEST);
+	backdrop->draw();
+	if (mesh)  draw_mesh();
 
-    backdrop->draw();
-    if (mesh)  draw_mesh();
+	if (status.isNull())  return;
 
-    if (status.isNull())    return;
-
-    QPainter painter(this);
-    painter.setRenderHint(QPainter::Antialiasing);
-    painter.drawText(10, height() - 10, status);
+	QPainter painter(this);
+	painter.setRenderHint(QPainter::Antialiasing);
+	painter.drawText(10, height() - 10, status);
 }
-
 
 void Canvas::draw_mesh()
 {
-    mesh_shader.bind();
+    QOpenGLShaderProgram* selected_mesh_shader = NULL;
+    // Set gl draw mode
+    if(drawMode == 1)
+    {
+        selected_mesh_shader = &mesh_wireframe_shader;
+        glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    }
+    else
+    {
+        selected_mesh_shader = &mesh_shader;
+        glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    }
+
+    selected_mesh_shader->bind();
 
     // Load the transform and view matrices into the shader
     glUniformMatrix4fv(
-                mesh_shader.uniformLocation("transform_matrix"),
+                selected_mesh_shader->uniformLocation("transform_matrix"),
                 1, GL_FALSE, transform_matrix().data());
     glUniformMatrix4fv(
-                mesh_shader.uniformLocation("view_matrix"),
+                selected_mesh_shader->uniformLocation("view_matrix"),
                 1, GL_FALSE, view_matrix().data());
 
     // Compensate for z-flattening when zooming
-    glUniform1f(mesh_shader.uniformLocation("zoom"), 1/zoom);
+    glUniform1f(selected_mesh_shader->uniformLocation("zoom"), 1/zoom);
 
     // Find and enable the attribute location for vertex position
-    const GLuint vp = mesh_shader.attributeLocation("vertex_position");
+    const GLuint vp = selected_mesh_shader->attributeLocation("vertex_position");
     glEnableVertexAttribArray(vp);
 
     // Then draw the mesh with that vertex position
     mesh->draw(vp);
 
+    // Reset draw mode for the background and anything else that needs to be drawn
+    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+
     // Clean up state machine
     glDisableVertexAttribArray(vp);
-    mesh_shader.release();
+    selected_mesh_shader->release();
 }
 
 QMatrix4x4 Canvas::transform_matrix() const

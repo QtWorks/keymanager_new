@@ -11,6 +11,8 @@
 #include "openscadwrapper.h"
 #include <src/stlwindow.h>
 #include "helper.h"
+#define PARAMETER_TAB
+#define STL_TAB
 
 //-------------------------------------------------------------------------------------------------
 
@@ -55,8 +57,11 @@ void KeyWidget::buildMenu()
 
 void KeyWidget::loadSTL(const QString &sSTLFilePath)
 {
-    m_pSTLWindow->load_stl(sSTLFilePath);
-    m_pSTLWindow->viewOrthographic();
+    if (m_pSTLWindow != nullptr)
+    {
+        m_pUI->tabWidget->setCurrentWidget(m_pSTLWindow);
+        m_pSTLWindow->load_stl(sSTLFilePath);
+    }
 }
 
 //-------------------------------------------------------------------------------------------------

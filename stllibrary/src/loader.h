@@ -2,10 +2,10 @@
 #define LOADER_H
 
 #include <QThread>
-#include "mesh.h"
-#include "stllibrary_global.h"
 
-class STLLIBRARYSHARED_EXPORT Loader : public QThread
+#include "mesh.h"
+
+class Loader : public QThread
 {
     Q_OBJECT
 public:

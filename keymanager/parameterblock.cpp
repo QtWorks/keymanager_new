@@ -59,20 +59,31 @@ void ParameterBlock::populateParameterBlock()
         // Set value
         setValue(m_pBlock->getAttributeValue(PROPERTY_VALUE));
 
+        // Set empty state
+        const QVector<Parameter *> &vParameters = m_pBlock->getParameters();
+        const QVector<Block *> &vChildBlocks = m_pBlock->getBlocks();
+        m_bIsEmpty = (vParameters.isEmpty() && vChildBlocks.isEmpty());
+        if (vParameters.size() == 1)
+        {
+            // Only one parameter with variable VARIABLE_TYPE_OF_KEY
+            Parameter *pParameter = vParameters.first();
+            if ((pParameter != nullptr) && (pParameter->getAttributeValue(PROPERTY_VARIABLE) == VARIABLE_TYPE_OF_KEY))
+                m_bIsEmpty = true;
+        }
+
         // Block always opened?
         QString sBlockAlwaysOpened = m_pBlock->getAttributeValue(PROPERTY_ALWAYS_OPENED);
         if ((sBlockAlwaysOpened == VALUE_TRUE) || (sBlockAlwaysOpened == VALUE_FALSE))
             m_bBlockAlwaysOpened = (sBlockAlwaysOpened == VALUE_TRUE);
+        if (m_bIsEmpty)
+            m_bBlockAlwaysOpened = false;
 
         // Can clear block?
         QString sCanClearBlock = m_pBlock->getAttributeValue(PROPERTY_CAN_CLEAR);
         if ((sCanClearBlock == VALUE_TRUE) || (sCanClearBlock == VALUE_FALSE))
             m_bCanClearBlock = (sCanClearBlock == VALUE_TRUE);
-
-        // Set empty state
-        const QVector<Parameter *> &vParameters = m_pBlock->getParameters();
-        const QVector<Block *> &vChildBlocks = m_pBlock->getBlocks();
-        m_bIsEmpty = (vParameters.isEmpty() && vChildBlocks.isEmpty());
+        if (m_bIsEmpty)
+            m_bCanClearBlock = false;
         if (m_bIsEmpty)
         {
             setFixedSize(0, 0);

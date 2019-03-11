@@ -3,11 +3,10 @@
 
 #include <QString>
 #include <QtOpenGL/QtOpenGL>
-#include "stllibrary_global.h"
 
 #include <vector>
 
-class STLLIBRARYSHARED_EXPORT Mesh
+class Mesh
 {
 public:
     Mesh(std::vector<GLfloat>&& vertices, std::vector<GLuint>&& indices);

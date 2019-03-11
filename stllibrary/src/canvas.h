@@ -1,48 +1,45 @@
 #ifndef CANVAS_H
 #define CANVAS_H
 
-#include <QWidget>
-#include <QPropertyAnimation>
-#include <QtOpenGL/QGLWidget>
-#include <QtOpenGL/QGLFunctions>
-#include <QtOpenGL/QGLShaderProgram>
-#include <QMatrix4x4>
-#include "stllibrary_global.h"
+#include <QtOpenGL>
+#include <QSurfaceFormat>
+#include <QOpenGLShaderProgram>
 
 class GLMesh;
 class Mesh;
 class Backdrop;
 
-class STLLIBRARYSHARED_EXPORT Canvas : public QGLWidget, protected QGLFunctions
+class Canvas : public QOpenGLWidget, protected QOpenGLFunctions
 {
     Q_OBJECT
 
 public:
-    Canvas(const QGLFormat& format, QWidget* parent=0);
-
-    void initializeGL();
-    void paintEvent(QPaintEvent* event);
+	explicit Canvas(const QSurfaceFormat& format, QWidget* parent=0);
     ~Canvas();
 
     void view_orthographic();
     void view_perspective();
+    void draw_shaded();
+    void draw_wireframe();
 
 public slots:
     void set_status(const QString& s);
     void clear_status();
     void load_mesh(Mesh* m, bool is_reload);
 
-
 protected:
-    void mousePressEvent(QMouseEvent* event);
-    void mouseReleaseEvent(QMouseEvent* event);
-    void mouseMoveEvent(QMouseEvent* event);
-    void wheelEvent(QWheelEvent* event);
-    void resizeGL(int width, int height);
-    void set_perspective(float p);
-    float get_perspective() const;
-    void view_anim(float v);
+	void paintGL() override;
+	void initializeGL() override;
+	void resizeGL(int width, int height) override;
 
+    void mousePressEvent(QMouseEvent* event) override;
+    void mouseReleaseEvent(QMouseEvent* event) override;
+    void mouseMoveEvent(QMouseEvent* event) override;
+    void wheelEvent(QWheelEvent* event) override;
+    
+	void set_perspective(float p);
+    void set_drawMode(int mode);
+    void view_anim(float v);
 
 private:
     void draw_mesh();
@@ -50,8 +47,9 @@ private:
     QMatrix4x4 transform_matrix() const;
     QMatrix4x4 view_matrix() const;
 
-    QGLShaderProgram mesh_shader;
-    QGLShaderProgram quad_shader;
+    QOpenGLShaderProgram mesh_shader;
+    QOpenGLShaderProgram mesh_wireframe_shader;
+	QOpenGLShaderProgram quad_shader;
 
     GLMesh* mesh;
     Backdrop* backdrop;
@@ -63,7 +61,8 @@ private:
     float yaw;
 
     float perspective;
-    Q_PROPERTY(float perspective READ get_perspective WRITE set_perspective)
+    int drawMode;
+    Q_PROPERTY(float perspective MEMBER perspective WRITE set_perspective);
     QPropertyAnimation anim;
 
     QPoint mouse_pos;

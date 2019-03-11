@@ -13,7 +13,7 @@
          <block name="CYLINDER" set_variable="qt_extra_material_level1_shape_01_model_qt" value="CYLINDER">
             <parameter name="CENTER" type="string" variable="qt_extra_material_level1_shape_01_cylinder_centered_qt" default="NO" ui="yesno" />
             <parameter name="DIAMETER" type="double" variable="qt_extra_material_level1_shape_01_cylinder_diameter_qt" ui="lineedit" />
-            <parameter name="HEIGHT" type="double" variable="qt_extra_material_level1_shape_01_cylinder_height_qt" ui="lineedit" />
+            <parameter name="HEIGHT" type="double" variable="qt_evxtra_material_level1_shape_01_cylinder_height_qt" ui="lineedit" />
             <parameter name="NUMBER OF FACES" type="int" default="10" variable="qt_extra_material_level1_shape_01_cylinder_number_of_faces_qt" ui="lineedit" />
             <parameter name="ROTATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_01_cylinder_rotation_qt" ui="double_triplet" />
             <parameter name="TRANSLATION (XYZ)" type="double" variable="qt_extra_material_level1_shape_01_cylinder_translate_qt" ui="double_triplet" />

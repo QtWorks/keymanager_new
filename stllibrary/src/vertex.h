@@ -2,12 +2,11 @@
 #define VEC3_H
 
 #include <QtOpenGL/QtOpenGL>
-#include "stllibrary_global.h"
 
 /*
  *  Represents an optionally-indexed vertex in space
  */
-struct STLLIBRARYSHARED_EXPORT Vertex
+struct Vertex
 {
     Vertex() {}
     Vertex(float x, float y, float z) : x(x), y(y), z(z) {}

@@ -41,3 +41,5 @@ Makefile*
 *.qmlproject.user.*
 
 build
+*.stl
+

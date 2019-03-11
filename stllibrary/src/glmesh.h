@@ -1,20 +1,20 @@
 #ifndef GLMESH_H
 #define GLMESH_H
 
-#include <QtOpenGL/QGLBuffer>
-#include <QtOpenGL/QGLFunctions>
-#include "stllibrary_global.h"
+#include <QOpenGLBuffer>
+#include <QOpenGLFunctions>
 
+// forward declaration
 class Mesh;
 
-class STLLIBRARYSHARED_EXPORT GLMesh : protected QGLFunctions
+class GLMesh : protected QOpenGLFunctions
 {
 public:
     GLMesh(const Mesh* const mesh);
     void draw(GLuint vp);
 private:
-    QGLBuffer vertices;
-    QGLBuffer indices;
+	QOpenGLBuffer vertices;
+	QOpenGLBuffer indices;
 };
 
 #endif // GLMESH_H
