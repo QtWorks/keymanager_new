@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<key name="REGULAR">
+<key name="REGULAR" exclusive="false">
         <block name="REGULAR BLANK (LEVEL 1)" level="1" set_variable="qt_type_of_key_qt" keypreviewimage=":/images/menu1_regular.png" value="regular">
                 <parameter name="LENGTH" type="double" variable="qt_regular_length_qt" ui="lineedit"/>
                 <parameter name="HEIGHT" type="double" variable="qt_regular_height_qt" ui="lineedit" />

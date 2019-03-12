@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<key name="LEVER DOUBLE">
+<key name="LEVER DOUBLE" exclusive="false">
         <block name="LEVER LOCK DOUBLE BLANK (LEVEL 1)" level="1" set_variable="qt_type_of_key_qt" keypreviewimage=":/images/menu1_lever_double.png" value="lever_double">
       <parameter name="BODY LENGTH" type="double" variable="qt_lever_double_body_length_qt" ui="lineedit" />
       <parameter name="BODY DIAMETER" type="double" variable="qt_lever_double_body_diameter_qt" ui="lineedit" />

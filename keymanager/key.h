@@ -32,7 +32,7 @@ public:
     const QVector<Key *> &getChildKeys() const;
 
     //! Return path to output SCAD file
-    const QString &getOutputSCADFileName() const;
+    QString getOutputSCADFileName() const;
 
     //! Return path to output STL file
     const QString &getOutputSTLFileName() const;

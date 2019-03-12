@@ -24,8 +24,8 @@
 #include "block.h"
 #include "parameter.h"
 #include "keyparser.h"
-//#define DEBUG_INFO 1
-//#define DEBUG_WARNING 1
+#define DEBUG_INFO 1
+#define DEBUG_WARNING 1
 #define DEBUG_ERROR 1
 
 //-------------------------------------------------------------------------------------------------
@@ -407,6 +407,19 @@ QString Helper::getFormattedVariableName(const QString &sVariableMethod, const Q
         sFormattedVariable = Helper::identifyTargetVariable_method2(sTargetVariable, iRow);
     }
     return sFormattedVariable;
+}
+
+//-------------------------------------------------------------------------------------------------
+
+QString Helper::getUniqueFileName(const QString &sBaseName, const QString &sExtension)
+{
+    // Compute output filename
+    QDateTime currentDateTime = QDateTime::currentDateTime();
+    QString sOutputFileName = QString("%1_%2_%3_%4_%5_%6_%7.%8").arg(sBaseName).arg(currentDateTime.date().day()).
+        arg(currentDateTime.date().month()).arg(currentDateTime.date().year()).
+            arg(currentDateTime.time().hour()).arg(currentDateTime.time().minute()).arg(currentDateTime.time().second()).
+                arg(sExtension);
+    return sOutputFileName;
 }
 
 //-------------------------------------------------------------------------------------------------

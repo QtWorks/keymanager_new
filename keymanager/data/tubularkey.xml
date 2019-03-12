@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<key name="TUBULAR">
+<key name="TUBULAR" exclusive="false">
    <block name="TUBULAR KEY BLANK (LEVEL 1)" set_variable="qt_type_of_key_qt" level="1" keypreviewimage=":/images/menu1_round_pump.png" value="round_pump">
       <parameter name="LENGTH" type="double" variable="qt_round_pump_length_qt" ui="lineedit" />
       <parameter name="DIAMETER" type="double" variable="qt_round_pump_diameter_qt" ui="lineedit" />

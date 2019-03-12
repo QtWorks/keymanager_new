@@ -51,9 +51,6 @@ private:
     STLWindow *m_pSTLWindow=nullptr;
 
 public slots:
-    //! Generate output SCAD
-    void onGenerateOutputSCAD();
-
     //! Generate STL
     void onGenerateSTL();
 };

@@ -58,7 +58,6 @@ void MainWindow::onSTLFileReady(Key *pKey, const QString &sSTLFilePath)
         if (pKeyWidget != nullptr)
             pKeyWidget->loadSTL(sSTLFilePath);
     }
-    qDebug() << "STL FILE READY FOR " << pKey->getAttributeValue(PROPERTY_NAME) << sSTLFilePath;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -93,7 +92,7 @@ void MainWindow::addKeyTab(Key *pKey)
                 if (pChildKey != nullptr)
                 {
                     KeyWidget *pChildKeyWidget = new KeyWidget(m_pKeyManager, pChildKey);
-                    m_hKeyWidgets[pKey] = pChildKeyWidget;
+                    m_hKeyWidgets[pChildKey] = pChildKeyWidget;
                     pChildTabWidget->addTab(pChildKeyWidget, pChildKey->getAttributeValue(PROPERTY_NAME));
                     pChildKeyWidget->buildMenu();
                 }

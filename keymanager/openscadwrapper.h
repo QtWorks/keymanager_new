@@ -45,9 +45,6 @@ public:
     //! Stop STL generation
     void stopSTLGeneration();
 
-    //! Return next output STL file
-    const QString &nextOutputSTLFile() const;
-
 private:
     //! Key manager
     KeyManager *m_pKeyManager=nullptr;

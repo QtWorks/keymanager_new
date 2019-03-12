@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<key name="ABLOY PROTEC">
+<key name="ABLOY PROTEC" exclusive="false">
    <block name="ABLOY PROTEC BLANK (LEVEL 1)" set_variable="qt_type_of_key_qt" level="1" keypreviewimage=":/images/menu1_abloy_protec.png" value="abloy_protec" />
    <block name="EXTRA MATERIAL ON BLANK (LEVEL 1)" level="1">
       <block name="SHAPE 01" set_variable="qt_extra_material_level1_shape01_use_qt">

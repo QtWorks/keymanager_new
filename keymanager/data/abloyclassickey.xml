@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<key name="ABLOY CLASSIC">
+<key name="ABLOY CLASSIC" exclusive="false">
    <block name="ABLOY CLASSIC BLANK" set_variable="qt_type_of_key_qt" level="1" keypreviewimage=":/images/menu1_abloy_classic.png" value="abloy_classic">
       <parameter name="LENGTH" type="double" variable="qt_abloy_classic_length_qt" default="30" ui="lineedit" />
       <parameter name="HEIGHT" type="double" variable="qt_abloy_classic_height_qt" default="6" ui="lineedit" />

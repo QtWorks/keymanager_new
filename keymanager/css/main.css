@@ -418,23 +418,12 @@ QTabBar::tab {
     padding-bottom: 2px;
     margin-right: -1px;
     min-width: 160px;
+    border-radius: 20px;
 }
 
 QTabWidget::pane {
     border: 1px solid #444;
     top: 1px;
-}
-
-QTabBar::tab:last
-{
-    margin-right: 0; /* the last selected tab has nothing to overlap with on the right */
-    border-top-right-radius: 3px;
-}
-
-QTabBar::tab:first:!selected
-{
-    margin-left: 0px; /* the last selected tab has nothing to overlap with on the right */
-    border-top-left-radius: 3px;
 }
 
 QTabBar::tab:!selected
@@ -447,18 +436,15 @@ QTabBar::tab:!selected
 
 QTabBar::tab:selected
 {
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    margin-bottom: 0px;
+    color: black;
+    border-bottom-style: solid;
+    margin-top: 3px;
+    background-color: orange;
 }
 
 QTabBar::tab:!selected:hover
 {
-    /*border-top: 2px solid #ffaa00;
-    padding-bottom: 3px;*/
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:1 #212121, stop:0.4 #343434, stop:0.2 #343434, stop:0.1 #ffaa00);
+    border-color: orange
 }
 
 QRadioButton {

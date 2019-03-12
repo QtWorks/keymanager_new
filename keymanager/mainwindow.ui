@@ -15,52 +15,18 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="4" column="0">
-     <widget class="QProgressBar" name="progressBar">
-      <property name="value">
-       <number>24</number>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0">
-     <widget class="LicenseWidget" name="licenseWidget" native="true"/>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="hyperlinkLabel">
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>16</pointsize>
-       </font>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: orange</string>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignCenter</set>
-      </property>
-     </widget>
-    </item>
     <item row="3" column="0">
      <widget class="QTextBrowser" name="openSCADOutputLog">
       <property name="minimumSize">
        <size>
         <width>0</width>
-        <height>96</height>
+        <height>48</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>16777215</width>
-        <height>96</height>
+        <height>48</height>
        </size>
       </property>
       <property name="font">
@@ -150,6 +116,13 @@
       <zorder>qt_tabwidget_stackedwidget</zorder>
      </widget>
     </item>
+    <item row="4" column="0">
+     <widget class="QProgressBar" name="progressBar">
+      <property name="value">
+       <number>24</number>
+      </property>
+     </widget>
+    </item>
    </layout>
   </widget>
   <widget class="QMenuBar" name="menubar">
@@ -169,11 +142,6 @@
    <class>HomeTab</class>
    <extends>QWidget</extends>
    <header>hometab.h</header>
-  </customwidget>
-  <customwidget>
-   <class>LicenseWidget</class>
-   <extends>QWidget</extends>
-   <header>licensewidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

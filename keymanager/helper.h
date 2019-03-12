@@ -86,6 +86,9 @@ public:
     //! Return a formatted variable name
     static QString getFormattedVariableName(const QString &sVariableMethod, const QString &sTargetVariable, const QStringList &lColumnVariables, const QString &sTargetRow, int iColumn, int iRow);
 
+    //! Return a unique filename based on data
+    static QString getUniqueFileName(const QString &sBaseName, const QString &sExtension);
+
     //! Display info
     static void info(const QString &sInfo);
 

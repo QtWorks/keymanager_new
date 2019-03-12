@@ -85,7 +85,6 @@ bool ScriptManager::generateOutputSCADForKey(Key *pTargetKey)
 
             // Save file
             QString sOutputSCADFilePath = pTargetKey->getOutputSCADFileName();
-            QFile::remove(sOutputSCADFilePath);
             if (Helper::saveFile(sScriptText, sOutputSCADFilePath))
             {
                 QVector<QString> vUnreplacedVariables;

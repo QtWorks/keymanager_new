@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<key name="DIMPLE">
+<key name="DIMPLE" exclusive="false">
    <block name="DIMPLE BLANK (LEVEL 1)" level="1" set_variable="qt_type_of_key_qt" keypreviewimage=":/images/menu1_dimple_laser.png" value="dimple">
       <parameter name="MAKE KEY REVERSIBLE" type="string" variable="qt_dimple_make_reversible_qt" default="NO" ui="yesno" />
       <parameter name="LENGTH" type="double" variable="qt_dimple_length_qt" ui="lineedit" />

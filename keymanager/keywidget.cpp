@@ -35,7 +35,6 @@ KeyWidget::KeyWidget(KeyManager *pKeyManager, Key *pKey, QWidget *pParent) : QWi
     });
 
     connect(m_pUI->clearAllButton, &QPushButton::clicked, m_pUI->layoutMgr, &LayoutMgr::onClearAll);
-    connect(m_pUI->generateOutputSCADButton, &QPushButton::clicked, this, &KeyWidget::onGenerateOutputSCAD);
     connect(m_pUI->generateSTLButton, &QPushButton::clicked, this, &KeyWidget::onGenerateSTL);
 }
 
@@ -59,16 +58,11 @@ void KeyWidget::loadSTL(const QString &sSTLFilePath)
 {
     if (m_pSTLWindow != nullptr)
     {
+        QString sInfo = QString("KeyWidget::LoadSTL LOADING FILE %1").arg(sSTLFilePath);
+        Helper::info(sInfo);
         m_pUI->tabWidget->setCurrentWidget(m_pSTLWindow);
         m_pSTLWindow->load_stl(sSTLFilePath);
     }
-}
-
-//-------------------------------------------------------------------------------------------------
-
-void KeyWidget::onGenerateOutputSCAD()
-{
-    m_pKeyManager->scriptManager().generateOutputSCADForKey(m_pKey);
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -77,17 +71,20 @@ void KeyWidget::onGenerateSTL()
 {
     if (m_pKey != nullptr)
     {
-        QString sOutputSCADFileName = m_pKey->getOutputSCADFileName();
-        QFileInfo fi(sOutputSCADFileName );
-        if (fi.exists())
+        if (m_pKeyManager->scriptManager().generateOutputSCADForKey(m_pKey))
         {
-            // Notify
-            m_pKeyManager->openSCADWrapper().generateSTL(m_pKey, sOutputSCADFileName ,  m_pKey->getOutputSTLFileName());
-        }
-        else
-        {
-            QString sError = QString("KeyWidget::onGenerateSTL COULD NOT GENERATE STL FOR KEY %1 SINCE %2 DOES NOT EXIST").arg(m_pKey->getAttributeValue(PROPERTY_NAME).arg(sOutputSCADFileName ));
-            Helper::error(sError);
+            QString sOutputSCADFileName = m_pKey->getOutputSCADFileName();
+            QFileInfo fi(sOutputSCADFileName );
+            if (fi.exists())
+            {
+                // Notify
+                m_pKeyManager->openSCADWrapper().generateSTL(m_pKey, sOutputSCADFileName, m_pKey->getOutputSTLFileName());
+            }
+            else
+            {
+                QString sError = QString("KeyWidget::onGenerateSTL COULD NOT GENERATE STL FOR KEY %1 SINCE %2 DOES NOT EXIST").arg(m_pKey->getAttributeValue(PROPERTY_NAME)).arg(sOutputSCADFileName);
+                Helper::error(sError);
+            }
         }
     }
 }

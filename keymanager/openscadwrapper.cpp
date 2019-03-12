@@ -51,8 +51,10 @@ bool OpenSCADWrapper::generateSTL(Key *pKey, const QString &sInputSCADFileName, 
         // Set current key
         m_pCurrentKey = pKey;
 
-        // Set current key
+        // Clear output file path
         m_sOutputSTLFilePath.clear();
+
+        // Set current key
         QFileInfo fi(sInputSCADFileName);
         if (fi.exists())
         {
@@ -61,11 +63,10 @@ bool OpenSCADWrapper::generateSTL(Key *pKey, const QString &sInputSCADFileName, 
 
             // Compute output filename
             m_sOutputSTLFilePath = inputSCADFileDir.absoluteFilePath(sOutputSTLFileName);
-            QFile::remove(m_sOutputSTLFilePath);
+
             // Compute out STL file name
             QString sProgram = QString("\"%1\" -o \"%2\" \"%3\"").arg(m_sOpenSCADPath).arg(m_sOutputSTLFilePath).arg(inputSCADFileDir.absoluteFilePath(sInputSCADFileName));
             Helper::info(sProgram);
-            qDebug() << sProgram;
 
             // Setup process
             QStringList lArgs;
@@ -90,13 +91,6 @@ void OpenSCADWrapper::stopSTLGeneration()
 {
     if ((m_pProcess->state() == QProcess::Starting) || (m_pProcess->state() == QProcess::Running))
         m_pProcess->kill();
-}
-
-//-------------------------------------------------------------------------------------------------
-
-const QString &OpenSCADWrapper::nextOutputSTLFile() const
-{
-    return m_sOutputSTLFilePath;
 }
 
 //-------------------------------------------------------------------------------------------------
